@@ -1,0 +1,16 @@
+{
+    "name": "codecop/PHPUnit-Koans",
+    "description": "PHP Koans to understand how to write unit tests with PHPUnit",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Peter Kofler",
+            "email": "peter.kofler@code-cop.org"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.5.*"
+    }
+}
