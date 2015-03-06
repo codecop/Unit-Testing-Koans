@@ -25,29 +25,31 @@ class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
     // problem that delete is not called in case of failure, better use Before/After
     // the code is the same as shown, just moved to different methods
 
-    const testFile = "FileWordCounterTest.tmp";
+    const TEST_FILE = "FileWordCounterTest.tmp";
 
     /** @before */
     function createFreshTestFileForEachTest() {
-        file_put_contents(self::testFile, "Keep the bar green to keep the code clean.");
+        file_put_contents(self::TEST_FILE,
+            "Keep the bar green to keep the code clean.");
     }
 
     /** @after */
     function deleteTestFile() {
-        $this->assertTrue(unlink(self::testFile));
+        $this->assertTrue(unlink(self::TEST_FILE));
     }
 
     /** @test */
     function shouldReturnCountOfWordsBetter() {
-        $counter = WordCounter::fromFile(self::testFile);
+        $counter = WordCounter::fromFile(self::TEST_FILE);
         $this->assertEquals(9, $counter->numberOfWords());
     }
 
-    // add second test, reuse Before and After (also repeat $this->assert from previous lession)
+    // add second test, reuse Before and After 
+    // (also repeat $this->assert from previous lession)
 
     /** @test */
     function shouldVerifyContainmentOfWord() {
-        $counter = WordCounter::fromFile(self::testFile);
+        $counter = WordCounter::fromFile(self::TEST_FILE);
         $this->assertTrue($counter->containsWord("bar"));
     }
 }
