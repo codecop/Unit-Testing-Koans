@@ -3,7 +3,9 @@
 require_once 'WordCounter.php';
 
 /**
- * Session 4: WordCounterTest - expected.
+ * Session 4: WordCounterTest - testing for Exceptions.
+ * See https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions
+ * See https://phpunit.de/manual/current/en/appendixes.annotations.html
  */
 class Session4_WordCounterTest extends \PHPUnit_Framework_TestCase {
 

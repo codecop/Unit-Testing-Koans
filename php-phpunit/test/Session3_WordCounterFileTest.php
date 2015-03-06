@@ -3,7 +3,9 @@
 require_once 'WordCounter.php';
 
 /**
- * Session 3: WordCounterFileTest - Before and After for WordCounter.
+ * Session 3: WordCounterFileTest - Fixtures.
+ * See https://phpunit.de/manual/current/en/fixtures.html
+ * See https://phpunit.de/manual/current/en/appendixes.annotations.html
  */
 class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
 

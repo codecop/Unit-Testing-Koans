@@ -4,6 +4,7 @@ require_once 'WordCounter.php';
 
 /**
  * Session 5: WordCounterTableTest - parametrized/table driven.
+ * See https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
  */
 class Session5_WordCounterRatioTest extends \PHPUnit_Framework_TestCase {
 

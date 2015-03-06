@@ -3,7 +3,7 @@
 require 'Greeter.php';
 
 /**
- * Session 1: GreeterTest - First Test methods against Greeter.
+ * Session 1: GreeterTest - Your first tests.
  */
 class Session1_GreeterTest extends \PHPUnit_Framework_TestCase {
 
