@@ -1,6 +1,6 @@
 <?php
 
-require 'WordCounter.php';
+require_once 'WordCounter.php';
 
 /**
  * Session 2: WordCounterTest - All kind of asserts against Wordcounter.
