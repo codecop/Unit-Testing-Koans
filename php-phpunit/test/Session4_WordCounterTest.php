@@ -31,8 +31,9 @@ class Session4_WordCounterTest extends \PHPUnit_Framework_TestCase {
         WordCounter::fromFile("IamSureThisDoesNotExist.txt");
     }
 
-    // add a test but it is not implemented yet. Let them write a test, then it does not work
-    // we need to change the code, will do that tomorrow. for the time skip it
+    // add a test but it is not implemented yet. Let them write a test, 
+    // then it does not work, we need to change the code, 
+    // will do that tomorrow. for the time skip it
 
     /**
      * ignored test
