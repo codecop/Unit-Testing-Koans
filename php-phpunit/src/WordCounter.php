@@ -7,6 +7,10 @@ class WordCounter {
 
     private $words;
 
+    static function fromFile($fileName) {
+        return new WordCounter(file_get_contents($fileName));
+    }
+    
     function __construct($sentence) {
         $this->words =  preg_split("/\s+/", $sentence);
     }
