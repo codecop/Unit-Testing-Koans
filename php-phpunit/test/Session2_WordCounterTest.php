@@ -3,7 +3,8 @@
 require_once 'WordCounter.php';
 
 /**
- * Session 2: WordCounterTest - All kind of asserts against Wordcounter.
+ * Session 2: WordCounterTest - All kind of asserts.
+ * See https://phpunit.de/manual/current/en/appendixes.assertions.html
  */
 class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
 
@@ -51,9 +52,18 @@ class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
     // $this->assertEquals also for arrays
 
     /** @test */
-    function shouldCountUniqueWords() {
+    function shouldFindUniqueWords() {
         $counter = new WordCounter("green bar green hat");
         $this->assertEquals(["bar", "green", "hat"], $counter->uniqueWords());
+        $this->assertContains("bar", $counter->uniqueWords());
+    }
+    
+    // $this->assertCount
+
+    /** @test */
+    function shouldFindNumberOfUniqueWords() {
+        $counter = new WordCounter("green bar green hat");
+        $this->assertCount(3 , $counter->uniqueWords());
     }
 
     // $this->assertEquals(float expected, float actual, message, float delta)
