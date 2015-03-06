@@ -1,5 +1,7 @@
 <?php
 
+class FileNotFoundException extends Exception {}
+
 /**
  * Counts words of a text and provides basic analytics of that.
  */
@@ -8,9 +10,13 @@ class WordCounter {
     private $words;
 
     static function fromFile($fileName) {
-        return new WordCounter(file_get_contents($fileName));
+        if (!file_exists($fileName)) {
+            throw new FileNotFoundException($fileName);
+        }
+        $contents = file_get_contents($fileName);
+        return new WordCounter($contents);
     }
-    
+
     function __construct($sentence) {
         $this->words =  preg_split("/\s+/", $sentence);
     }
