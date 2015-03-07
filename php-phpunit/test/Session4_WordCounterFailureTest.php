@@ -7,7 +7,7 @@ require_once 'WordCounter.php';
  * See https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions
  * See https://phpunit.de/manual/current/en/appendixes.annotations.html
  */
-class Session4_WordCounterTest extends \PHPUnit_Framework_TestCase {
+class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
 
     // expected to test Exception, Trainer should show this one
 
@@ -18,6 +18,15 @@ class Session4_WordCounterTest extends \PHPUnit_Framework_TestCase {
     function shouldThrowInvalidArgumentExceptionForUnknownWord() {
         $counter = new WordCounter("green bar green");
         $counter->ratioOf("missingWord");
+    }
+
+    /**
+     * @test
+     */
+    function shouldThrowInvalidArgumentExceptionForOtherUnknownWord() {
+        $this->setExpectedException('InvalidArgumentException');
+        $counter = new WordCounter("green bar green");
+        $counter->ratioOf("anotherMissingWord");
     }
 
     // now do the second one yourself
