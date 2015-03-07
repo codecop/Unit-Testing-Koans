@@ -3,17 +3,15 @@
 require_once 'WordCounter.php';
 
 /**
- * Session 3: WordCounterFileTest - Fixtures.
+ * Session 3: WordCounterFileTest - Fixtures, e.g. using a test file.
  * See https://phpunit.de/manual/current/en/fixtures.html
  * See https://phpunit.de/manual/current/en/appendixes.annotations.html
  */
 class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
 
-    // write a real test, with a test file (trainer should show that method)
-
     /** @test */
     function shouldReturnCountOfWords() {
-        $file = "tmp";
+        $file = "testfile.tmp";
         file_put_contents($file, "Keep the bar green to keep the code clean.");
 
         $counter = WordCounter::fromFile($file);
@@ -22,34 +20,33 @@ class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
         unlink($file);
     }
 
-    // problem that delete is not called in case of failure, better use Before/After
-    // the code is the same as shown, just moved to different methods
-
+    // the problem is that unlink is not called in case of test failure,
+    // better use Before/After hooks for test file handling
+    // TODO add the needed annotations to the hook methods and then
+    // TODO add the proper assertions to complete the tests
+    
     const TEST_FILE = "FileWordCounterTest.tmp";
 
-    /** @before */
+    // TODO this needs to be called before each test
     function createFreshTestFileForEachTest() {
         file_put_contents(self::TEST_FILE,
             "Keep the bar green to keep the code clean.");
     }
 
-    /** @after */
+    // TODO this needs to be called after each test
     function deleteTestFile() {
         $this->assertTrue(unlink(self::TEST_FILE));
     }
 
     /** @test */
     function shouldReturnCountOfWordsBetter() {
-        $counter = WordCounter::fromFile(self::TEST_FILE);
-        $this->assertEquals(9, $counter->numberOfWords());
+        // $counter = WordCounter::fromFile(self::TEST_FILE);
+        // TODO check that 9, $counter->numberOfWords()
     }
-
-    // add second test, reuse Before and After 
-    // (also repeat $this->assert from previous lession)
 
     /** @test */
     function shouldVerifyContainmentOfWord() {
-        $counter = WordCounter::fromFile(self::TEST_FILE);
-        $this->assertTrue($counter->containsWord("bar"));
+        // $counter = WordCounter::fromFile(self::TEST_FILE);
+        // TODO check that $counter->containsWord("bar")
     }
 }

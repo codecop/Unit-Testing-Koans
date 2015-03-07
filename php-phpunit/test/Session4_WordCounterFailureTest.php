@@ -9,11 +9,12 @@ require_once 'WordCounter.php';
  */
 class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
 
-    // expected to test Exception, Trainer should show this one
-
+    // TODO add the needed code/annotations to test for an expected exception, then
+    // TODO enable the tests to complete them
+    
     /**
-     * @test
-     * @expectedException InvalidArgumentException
+     * @ test
+     * TODO expect InvalidArgumentException
      */
     function shouldThrowInvalidArgumentExceptionForUnknownWord() {
         $counter = new WordCounter("green bar green");
@@ -21,36 +22,39 @@ class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
     }
 
     /**
-     * @test
+     * @ test
      */
-    function shouldThrowInvalidArgumentExceptionForOtherUnknownWord() {
-        $this->setExpectedException('InvalidArgumentException');
+    function shouldThrowInvalidArgumentExceptionAlternative() {
+        // TODO expect "InvalidArgumentException"
         $counter = new WordCounter("green bar green");
         $counter->ratioOf("anotherMissingWord");
     }
 
-    // now do the second one yourself
-
     /**
-     * @test
-     * @expectedException FileNotFoundException
-     * @expectedExceptionMessage IamSureThisDoesNotExist.txt
+     * @ test
+     * TODO expect FileNotFoundException
+     * TODO expect message IamSureThisDoesNotExist.txt
      */
-    function shouldThrowExceptionOnMissingFile() {
+    function shouldThrowExceptionWithFileNameOnMissingFile() {
         WordCounter::fromFile("IamSureThisDoesNotExist.txt");
     }
 
-    // add a test but it is not implemented yet. Let them write a test,
-    // then it does not work, we need to change the code,
-    // will do that tomorrow. for the time skip it
+    // the next test does not work, we need to change the code,
+    // but we will do that tomorrow. for today ignore it
 
     /**
-     * @test
+     * @ test
      */
     function shouldCountUniqueWordsCaseInsensitive() {
         $counter = new WordCounter("green bar Green hat");
-        $this->markTestIncomplete("work in progress, will continue tomorrow");
+        // TODO mark test incomplete with "work in progress, will continue tomorrow"
         $this->assertEquals([ "bar", "green", "hat" ], $counter->uniqueWords());
     }
 
+    /** @test */
+    function fakeTestForExerciseToAvoidPHPUnitWarning() {
+        $this->assertTrue(true);
+        // TODO delete this test at the end
+    }
+    
 }
