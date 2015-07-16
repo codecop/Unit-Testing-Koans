@@ -1,0 +1,12 @@
+syntax: glob
+.project
+.settings
+.classpath
+.checkstyle
+.pmd
+
+.idea
+*.iml
+*.iwr
+
+target
