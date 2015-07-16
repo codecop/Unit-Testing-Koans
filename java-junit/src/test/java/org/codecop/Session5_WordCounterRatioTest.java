@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 /**
- * Session 6: WordCounterTableTest - parametrized/table driven.
+ * Session 6: WordCounterTableTest - parameterised/table driven.
  */
 @RunWith(Parameterized.class)
 public class Session5_WordCounterRatioTest {

@@ -34,7 +34,7 @@ public class WordCounter {
      * @return unique words sorted alphabetically.
      */
     public String[] uniqueWords() {
-        List<String> uniqueWords = new ArrayList<String>(new HashSet<String>(words));
+        List<String> uniqueWords = new ArrayList<>(new HashSet<>(words));
         Collections.sort(uniqueWords);
         return uniqueWords.toArray(new String[uniqueWords.size()]);
     }
@@ -58,7 +58,7 @@ public class WordCounter {
     }
 
     /**
-     * @return ratio of this word's occurance against all words.
+     * @return ratio of this word's occurrence against all words.
      */
     public double ratioOf(String word) {
         Integer count = countOf(word);
