@@ -11,23 +11,17 @@ import java.io.IOException;
 public class StringToFile {
 
     public static void write(String text, File file) throws IOException {
-        FileWriter out = new FileWriter(file);
-        try {
+        try (FileWriter out = new FileWriter(file)) {
             out.write(text);
             out.flush();
-        } finally {
-            out.close();
         }
     }
 
     public static String read(File file) throws IOException {
-        FileReader in = new FileReader(file);
-        try {
+        try (FileReader in = new FileReader(file)) {
             char[] buffer = new char[(int) file.length()];
             in.read(buffer);
             return new String(buffer);
-        } finally {
-            in.close();
         }
     }
 
