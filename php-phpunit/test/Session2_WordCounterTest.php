@@ -8,11 +8,11 @@ require_once 'WordCounter.php';
  */
 class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
 
-    // TODO add the proper assertions to complete the tests, 
-    // the test name explains what needs to be verified 
-    
+    // TODO add the proper assertions to complete the tests,
+    // the test name explains what needs to be verified
+
     /** @test */
-    function shouldReturnCountOfWords() {
+    function shouldCountNumberOfWords() {
         $counter = new WordCounter("Keep the bar green to keep the code clean.");
         // TODO check that 9, $counter->numberOfWords()
     }
@@ -36,7 +36,7 @@ class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
     }
 
     /** @test */
-    function shouldReturnWordCountForExistingWord() {
+    function shouldReturnNotNullWordCountForExistingWord() {
         $counter = new WordCounter("green bar green hat");
         // TODO check that $counter->countOf("green") is not null
     }
@@ -59,7 +59,7 @@ class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
         // TODO check that "bar", $counter->uniqueWords() is contained in list
         // TODO check that "foo", $counter->uniqueWords() is not contained in list
     }
-    
+
     /** @test */
     function shouldFindNumberOfUniqueWords() {
         $counter = new WordCounter("green bar green hat");
