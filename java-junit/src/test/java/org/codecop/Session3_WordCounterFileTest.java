@@ -6,8 +6,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -29,15 +27,17 @@ public class Session3_WordCounterFileTest {
 
     // the problem is that delete is not called in case of test failure,
     // better use Before/After hooks for test file handling
+    // TODO add the needed annotations to the hook methods and then
+    // TODO add the proper assertions to complete the tests
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
-    @Before
+    // TODO this needs to be called before each test
     public void createFreshTestFileForEachTest() throws IOException {
         StringToFile.write("Keep the bar green to keep the code clean.", testFile);
     }
 
-    @After
+    // TODO this needs to be called after each test
     public void deleteTestFile() {
         assertTrue(testFile.delete());
     }
@@ -45,12 +45,12 @@ public class Session3_WordCounterFileTest {
     @Test
     public void shouldReturnCountOfWordsBetter() throws IOException {
         WordCounter counter = new WordCounter(testFile);
-        assertEquals(9, counter.numberOfWords());
+        // TODO check that 9, counter.numberOfWords()
     }
 
     @Test
     public void shouldVerifyContainmentOfWord() throws IOException {
         WordCounter counter = new WordCounter(testFile);
-        assertTrue(counter.containsWord("bar"));
+        // TODO check that counter.containsWord("bar")
     }
 }

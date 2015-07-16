@@ -1,16 +1,11 @@
 package org.codecop;
 
 import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.googlecode.catchexception.CatchException.verifyException;
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertThat;
 
 import java.io.File;
 import java.io.IOException;
 
-import org.hamcrest.core.IsInstanceOf;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -19,7 +14,10 @@ import org.junit.Test;
  */
 public class Session4_WordCounterFailureTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    // TODO add the needed code/annotations to test for an expected exception, then
+    // TODO enable the tests to complete them
+
+    // TODO expect InvalidArgumentException
     public void shouldThrowIllegalArgumentExceptionForUnknownWord() {
         WordCounter counter = new WordCounter("green bar green");
         counter.ratioOf("missingWord");
@@ -32,14 +30,14 @@ public class Session4_WordCounterFailureTest {
     @Test
     public void shouldThrowInvalidArgumentExceptionAlternative() {
         WordCounter counter = new WordCounter("green bar green");
-        verifyException(counter, IllegalArgumentException.class).ratioOf("anotherMissingWord");
+        // TODO use verifyException to check that IllegalArgumentException.class is thrown by ratioOf("anotherMissingWord")
 
         // optional - Hamcrest can do it better
         catchException(counter).ratioOf("anotherMissingWord");
-        assertThat(caughtException(), IsInstanceOf.instanceOf(IllegalArgumentException.class));
+        // TODO check that caughtException() is IllegalArgumentException.class
     }
 
-    @Test(expected = IOException.class)
+    // TODO expect IOException.class
     public void shouldThrowIOExceptionOnMissingFile() throws IOException {
         new WordCounter(new File("IamSureThisDoesNotExist.txt"));
     }
@@ -48,7 +46,7 @@ public class Session4_WordCounterFailureTest {
     // but we will do that tomorrow. for today ignore it
 
     @Test
-    @Ignore("work in progress, will continue tomorrow")
+    // TODO mark test as ignored with "work in progress, will continue tomorrow"
     public void shouldCountUniqueWordsCaseInsensitive() {
         WordCounter counter = new WordCounter("green bar Green hat");
         assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());

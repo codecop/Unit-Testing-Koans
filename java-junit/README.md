@@ -3,8 +3,8 @@ Java Koans to understand how to write unit tests with [JUnit](http://junit.org/)
 
 ## Assignment ##
 
-* Run `mvn test`, you should see no tests
-* Go through the test code
+* Run `mvn test`, you should see some test failures and errors (but no assertions)
+* Go through the test code starting from Session 1
   * its assertions are commented and incomplete
   * uncomment the assertions and complete them making tests pass
 
