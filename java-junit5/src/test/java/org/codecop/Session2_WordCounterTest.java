@@ -1,28 +1,31 @@
 package org.codecop;
 
+import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
+import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+
+import java.util.Arrays;
 
 import org.junit.Test;
 
 /**
- * Session 3: WordCounterTest - All kind of Asserts against WordCounter.
+ * Session 2: WordCounterTest - All kind of assertions. <br />
+ * See https://github.com/junit-team/junit/wiki/Assertions
  */
 public class Session2_WordCounterTest {
 
-    // assertEquals - just show
-
     @Test
-    public void shouldReturnCountOfWords() {
+    public void shouldCountNumberOfWords() {
         WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
         assertEquals(9, counter.numberOfWords());
     }
-
-    // assertTrue - show everything but the assert line
 
     @Test
     public void shouldVerifyContainmentOfWord() {
@@ -30,15 +33,11 @@ public class Session2_WordCounterTest {
         assertTrue(counter.containsWord("bar"));
     }
 
-    // assertFalse - let do themselves
-
     @Test
     public void shouldVerifyNonContainmentOfWord() {
         WordCounter counter = new WordCounter("green hat");
         assertFalse(counter.containsWord("red"));
     }
-
-    // assertNull
 
     @Test
     public void shouldReturnNullForUnknownWordCount() {
@@ -46,29 +45,47 @@ public class Session2_WordCounterTest {
         assertNull(counter.countOf("else"));
     }
 
-    // assertNotNull
-
     @Test
-    public void shouldReturnWordCount() {
+    public void shouldReturnNotNullWordCountForExistingWord() {
         WordCounter counter = new WordCounter("green bar green hat");
         assertNotNull(counter.countOf("green"));
+    }
+
+    @Test
+    public void shouldCountGreenTwice() {
+        WordCounter counter = new WordCounter("green bar green hat");
         assertEquals(Integer.valueOf(2), counter.countOf("green"));
     }
 
-    // assertArrayEquals
-
     @Test
-    public void shouldCountUniqueWords() {
+    public void shouldFindUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
         assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());
     }
 
-    // assertEquals(double expected, double actual, double delta) 
+    @Test
+    public void shouldContainUniqueWord() {
+        WordCounter counter = new WordCounter("green bar green hat");
+        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
+        // optional - Hamcrest can do it better
+        assertThat(counter.uniqueWords(), hasItemInArray("bar"));
+        assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
+    }
+
+    @Test
+    public void shouldFindNumberOfUniqueWords() {
+        WordCounter counter = new WordCounter("green bar green hat");
+        assertEquals(3, counter.uniqueWords().length);
+        // optional - Hamcrest can do it better
+        assertThat(counter.uniqueWords(), arrayWithSize(3));
+    }
 
     @Test
     public void shouldReturnRatioOfWords() {
         WordCounter counter = new WordCounter("green bar green");
         assertEquals(0.33, counter.ratioOf("bar"), 0.01);
+        // note that floating point numbers have accuracy delta 0.01
     }
 
 }
