@@ -11,11 +11,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Session 4: WordCounterFileTest - Before and After for WordCounter.
+ * Session 3: WordCounterFileTest - Fixtures, e.g. using a test file. <br />
+ * See https://github.com/junit-team/junit/wiki/Test-fixtures
  */
 public class Session3_WordCounterFileTest {
-
-    // write a real test, with a test file (trainer should show that method)
 
     @Test
     public void shouldReturnCountOfWords() throws IOException {
@@ -28,8 +27,8 @@ public class Session3_WordCounterFileTest {
         file.delete();
     }
 
-    // problem that delete is not called in case of failure, better use Before/After
-    // the code is the same as shown, just moved to different methods
+    // the problem is that delete is not called in case of test failure,
+    // better use Before/After hooks for test file handling
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
@@ -48,8 +47,6 @@ public class Session3_WordCounterFileTest {
         WordCounter counter = new WordCounter(testFile);
         assertEquals(9, counter.numberOfWords());
     }
-
-    // add second test, reuse Before and After (also repeat assert from previous lession)
 
     @Test
     public void shouldVerifyContainmentOfWord() throws IOException {
