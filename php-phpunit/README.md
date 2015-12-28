@@ -1,5 +1,5 @@
 # PHPUnit-Koans
-PHP Koans to understand how to write unit tests with [PHPUnit](https://phpunit.de/)
+PHP [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to understand how to write unit tests with [PHPUnit](https://phpunit.de/).
 
 ## Assignment ##
 
