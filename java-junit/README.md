@@ -1,5 +1,5 @@
 # JUnit-Koans
-Java [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to understand how to write unit tests with [JUnit](http://junit.org/)
+Java [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to understand how to write unit tests with [JUnit](http://junit.org/).
 
 ## Assignment ##
 
