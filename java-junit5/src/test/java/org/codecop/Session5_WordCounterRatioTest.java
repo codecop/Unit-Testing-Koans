@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,6 +16,10 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
  * See https://github.com/junit-team/junit/wiki/Parameterized-tests
  */
 class Session5_WordCounterRatioTest {
+
+  @Test
+  public void convinceIntelliJThatThisIsAValidJUnit5Test() {
+  }
 
   // we want to test more corner cases for the ratio, here is a table of test cases
   private static final List<TestCase> TEST_TABLE = Arrays.asList(//
