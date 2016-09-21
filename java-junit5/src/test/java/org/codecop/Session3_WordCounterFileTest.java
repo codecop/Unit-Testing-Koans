@@ -16,41 +16,41 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class Session3_WordCounterFileTest {
 
-  @Test
-  void shouldReturnCountOfWords() throws IOException {
-    final File file = new File("tmp");
-    StringToFile.write("Keep the bar green to keep the code clean.", file);
+    @Test
+    void shouldReturnCountOfWords() throws IOException {
+        final File file = new File("tmp");
+        StringToFile.write("Keep the bar green to keep the code clean.", file);
 
-    final WordCounter counter = new WordCounter(file);
-    assertEquals(9, counter.numberOfWords());
+        final WordCounter counter = new WordCounter(file);
+        assertEquals(9, counter.numberOfWords());
 
-    file.delete();
-  }
+        file.delete();
+    }
 
-  // the problem is that delete is not called in case of test failure,
-  // better use Before/After hooks for test file handling
+    // the problem is that delete is not called in case of test failure,
+    // better use Before/After hooks for test file handling
 
-  private final File testFile = new File("FileWordCounterTest.tmp");
+    private final File testFile = new File("FileWordCounterTest.tmp");
 
-  @BeforeEach
-  void createFreshTestFileForEachTest() throws IOException {
-    StringToFile.write("Keep the bar green to keep the code clean.", testFile);
-  }
+    @BeforeEach
+    void createFreshTestFileForEachTest() throws IOException {
+        StringToFile.write("Keep the bar green to keep the code clean.", testFile);
+    }
 
-  @AfterEach
-  void deleteTestFile() {
-    assertTrue(testFile.delete());
-  }
+    @AfterEach
+    void deleteTestFile() {
+        assertTrue(testFile.delete());
+    }
 
-  @Test
-  void shouldReturnCountOfWordsBetter() throws IOException {
-    final WordCounter counter = new WordCounter(testFile);
-    assertEquals(9, counter.numberOfWords());
-  }
+    @Test
+    void shouldReturnCountOfWordsBetter() throws IOException {
+        final WordCounter counter = new WordCounter(testFile);
+        assertEquals(9, counter.numberOfWords());
+    }
 
-  @Test
-  void shouldVerifyContainmentOfWord() throws IOException {
-    final WordCounter counter = new WordCounter(testFile);
-    assertTrue(counter.containsWord("bar"));
-  }
+    @Test
+    void shouldVerifyContainmentOfWord() throws IOException {
+        final WordCounter counter = new WordCounter(testFile);
+        assertTrue(counter.containsWord("bar"));
+    }
 }

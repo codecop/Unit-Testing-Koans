@@ -20,45 +20,44 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class Session2b_WordCounterTest {
 
-  @Test
-  void shouldFindUniqueWords() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertArrayEquals(new String[]{"bar", "green", "hat"}, counter.uniqueWords());
-  }
+    @Test
+    void shouldFindUniqueWords() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());
+    }
 
-  @Test
-  void shouldReturnRatioOfWords() {
-    final WordCounter counter = new WordCounter("green bar green");
-    assertEquals(0.33, counter.ratioOf("bar"), 0.01);
-    // note that floating point numbers have accuracy delta 0.01
-  }
+    @Test
+    void shouldReturnRatioOfWords() {
+        final WordCounter counter = new WordCounter("green bar green");
+        assertEquals(0.33, counter.ratioOf("bar"), 0.01);
+        // note that floating point numbers have accuracy delta 0.01
+    }
 
-  @Test
-  void shouldReportSummaryOfWord() {
-    final WordCounter counter = new WordCounter("green green");
-    final WordCounter.Summary summary = counter.summaryOf("green");
-    assertAll(
-      () -> assertEquals("green", summary.word), //
-      () -> assertEquals(2, summary.count) //
-    );
-    // all attributes of summary should be asserted at once
-  }
+    @Test
+    void shouldReportSummaryOfWord() {
+        final WordCounter counter = new WordCounter("green green");
+        final WordCounter.Summary summary = counter.summaryOf("green");
+        assertAll(() -> assertEquals("green", summary.word), //
+                () -> assertEquals(2, summary.count) //
+        );
+        // all attributes of summary should be asserted at once
+    }
 
-  @Test
-  void shouldContainUniqueWord() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
-    assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
-    // optional - Hamcrest improves readability:
-    assertThat(counter.uniqueWords(), hasItemInArray("bar"));
-    assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
-  }
+    @Test
+    void shouldContainUniqueWord() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
+        // optional - Hamcrest improves readability:
+        assertThat(counter.uniqueWords(), hasItemInArray("bar"));
+        assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
+    }
 
-  @Test
-  void shouldFindNumberOfUniqueWords() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertEquals(3, counter.uniqueWords().length);
-    // optional - Hamcrest improves readability:
-    assertThat(counter.uniqueWords(), arrayWithSize(3));
-  }
+    @Test
+    void shouldFindNumberOfUniqueWords() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertEquals(3, counter.uniqueWords().length);
+        // optional - Hamcrest improves readability:
+        assertThat(counter.uniqueWords(), arrayWithSize(3));
+    }
 }

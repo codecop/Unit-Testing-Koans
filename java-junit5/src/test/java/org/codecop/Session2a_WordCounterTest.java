@@ -15,45 +15,45 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class Session2a_WordCounterTest {
 
-  @Test
-  void shouldCountNumberOfWords() {
-    final WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
-    assertEquals(9, counter.numberOfWords());
-  }
+    @Test
+    void shouldCountNumberOfWords() {
+        final WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
+        assertEquals(9, counter.numberOfWords());
+    }
 
-  @Test
-  void shouldVerifyContainmentOfWord() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertTrue(counter.containsWord("bar"));
-  }
+    @Test
+    void shouldVerifyContainmentOfWord() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertTrue(counter.containsWord("bar"));
+    }
 
-  @Test
-  void shouldVerifyNonContainmentOfWord() {
-    final WordCounter counter = new WordCounter("green hat");
-    assertFalse(counter.containsWord("red"));
-  }
+    @Test
+    void shouldVerifyNonContainmentOfWord() {
+        final WordCounter counter = new WordCounter("green hat");
+        assertFalse(counter.containsWord("red"));
+    }
 
-  @Test
-  void shouldReturnNullForUnknownWordCount() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertNull(counter.countOf("else"));
-  }
+    @Test
+    void shouldReturnNullForUnknownWordCount() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertNull(counter.countOf("else"));
+    }
 
-  @Test
-  void shouldReturnNotNullWordCountForExistingWord() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertNotNull(counter.countOf("green"));
-  }
+    @Test
+    void shouldReturnNotNullWordCountForExistingWord() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertNotNull(counter.countOf("green"));
+    }
 
-  @Test
-  void shouldCountGreenTwice() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertEquals(Integer.valueOf(2), counter.countOf("green"));
-  }
+    @Test
+    void shouldCountGreenTwice() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertEquals(Integer.valueOf(2), counter.countOf("green"));
+    }
 
-  @Test
-  void shouldNotCountCapitalizedWord() {
-    final WordCounter counter = new WordCounter("green bar green hat");
-    assertNotEquals(1, counter.countOf("HAT"));
-  }
+    @Test
+    void shouldNotCountCapitalizedWord() {
+        final WordCounter counter = new WordCounter("green bar green hat");
+        assertNotEquals(1, counter.countOf("HAT"));
+    }
 }

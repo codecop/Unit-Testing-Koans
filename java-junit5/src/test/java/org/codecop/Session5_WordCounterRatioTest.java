@@ -11,13 +11,14 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Session 5: WordCounterRatioTest - parameterized/table driven. <br />
+ * Session 5: WordCounterRatioTest - parameterised/table driven. <br />
  * See http://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests
  */
 class Session5_WordCounterRatioTest {
 
     @Test
     public void convinceIntelliJThatThisIsValidJUnit5Test() {
+        // convince IntelliJ that this is a valid JUnit5 test
     }
 
     // we want to test more corner cases for the ratio, here is a table of test cases
@@ -52,8 +53,8 @@ class Session5_WordCounterRatioTest {
 
     @TestFactory
     List<DynamicTest> createTests() {
-        return TEST_CASES.stream()
-                .map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord))
-                .collect(Collectors.toList());
+        return TEST_CASES.stream(). //
+                map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord)). //
+                collect(Collectors.toList());
     }
 }
