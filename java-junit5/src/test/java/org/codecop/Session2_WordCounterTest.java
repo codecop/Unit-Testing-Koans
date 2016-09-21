@@ -19,52 +19,52 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Session 2: WordCounterTest - All kind of assertions. <br />
  * See https://github.com/junit-team/junit/wiki/Assertions
  */
-public class Session2_WordCounterTest {
+class Session2_WordCounterTest {
 
   @Test
-  public void shouldCountNumberOfWords() {
+  void shouldCountNumberOfWords() {
     final WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
     assertEquals(9, counter.numberOfWords());
   }
 
   @Test
-  public void shouldVerifyContainmentOfWord() {
+  void shouldVerifyContainmentOfWord() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertTrue(counter.containsWord("bar"));
   }
 
   @Test
-  public void shouldVerifyNonContainmentOfWord() {
+  void shouldVerifyNonContainmentOfWord() {
     final WordCounter counter = new WordCounter("green hat");
     assertFalse(counter.containsWord("red"));
   }
 
   @Test
-  public void shouldReturnNullForUnknownWordCount() {
+  void shouldReturnNullForUnknownWordCount() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertNull(counter.countOf("else"));
   }
 
   @Test
-  public void shouldReturnNotNullWordCountForExistingWord() {
+  void shouldReturnNotNullWordCountForExistingWord() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertNotNull(counter.countOf("green"));
   }
 
   @Test
-  public void shouldCountGreenTwice() {
+  void shouldCountGreenTwice() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertEquals(Integer.valueOf(2), counter.countOf("green"));
   }
 
   @Test
-  public void shouldFindUniqueWords() {
+  void shouldFindUniqueWords() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertArrayEquals(new String[]{"bar", "green", "hat"}, counter.uniqueWords());
   }
 
   @Test
-  public void shouldContainUniqueWord() {
+  void shouldContainUniqueWord() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
     assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
@@ -74,7 +74,7 @@ public class Session2_WordCounterTest {
   }
 
   @Test
-  public void shouldFindNumberOfUniqueWords() {
+  void shouldFindNumberOfUniqueWords() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertEquals(3, counter.uniqueWords().length);
     // optional - Hamcrest can do it better
@@ -82,7 +82,7 @@ public class Session2_WordCounterTest {
   }
 
   @Test
-  public void shouldReturnRatioOfWords() {
+  void shouldReturnRatioOfWords() {
     final WordCounter counter = new WordCounter("green bar green");
     assertEquals(0.33, counter.ratioOf("bar"), 0.01);
     // note that floating point numbers have accuracy delta 0.01

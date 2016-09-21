@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertThat;
  * Session 4: WordCounterFailureTest - testing for Exceptions and ignoring tests. <br />
  * See https://github.com/junit-team/junit/wiki/Exception-testing
  */
-public class Session4_WordCounterFailureTest {
+class Session4_WordCounterFailureTest {
 
   @Test(expected = IllegalArgumentException.class)
-  public void shouldThrowIllegalArgumentExceptionForUnknownWord() {
+  void shouldThrowIllegalArgumentExceptionForUnknownWord() {
     final WordCounter counter = new WordCounter("green bar green");
     counter.ratioOf("missingWord");
   }
@@ -30,7 +30,7 @@ public class Session4_WordCounterFailureTest {
    * See https://github.com/Codearte/catch-exception
    */
   @Test
-  public void shouldThrowInvalidArgumentExceptionAlternative() {
+  void shouldThrowInvalidArgumentExceptionAlternative() {
     final WordCounter counter = new WordCounter("green bar green");
     verifyException(counter, IllegalArgumentException.class).ratioOf("anotherMissingWord");
 
@@ -40,7 +40,7 @@ public class Session4_WordCounterFailureTest {
   }
 
   @Test(expected = IOException.class)
-  public void shouldThrowIOExceptionOnMissingFile() throws IOException {
+  void shouldThrowIOExceptionOnMissingFile() throws IOException {
     new WordCounter(new File("IamSureThisDoesNotExist.txt"));
   }
 
@@ -49,7 +49,7 @@ public class Session4_WordCounterFailureTest {
 
   @Test
   @Ignore("work in progress, will continue tomorrow")
-  public void shouldCountUniqueWordsCaseInsensitive() {
+  void shouldCountUniqueWordsCaseInsensitive() {
     final WordCounter counter = new WordCounter("green bar Green hat");
     assertArrayEquals(new String[]{"bar", "green", "hat"}, counter.uniqueWords());
   }

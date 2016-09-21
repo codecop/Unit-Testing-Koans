@@ -8,17 +8,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class StringToFileTest {
+class StringToFileTest {
 
   private final File testFile = new File("StringToFileTest.tmp");
 
   @After
-  public void deleteTestFile() {
+  void deleteTestFile() {
     testFile.delete();
   }
 
   @Test
-  public void shouldWriteAndRead() throws IOException {
+  void shouldWriteAndRead() throws IOException {
     final String original = "Keep the bar green to keep the code clean.";
     StringToFile.write(original, testFile);
     assertEquals(original, StringToFile.read(testFile));

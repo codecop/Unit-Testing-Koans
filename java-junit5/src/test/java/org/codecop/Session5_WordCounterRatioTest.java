@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * See https://github.com/junit-team/junit/wiki/Parameterized-tests
  */
 @RunWith(Parameterized.class)
-public class Session5_WordCounterRatioTest {
+class Session5_WordCounterRatioTest {
 
   // we want to test more corner cases for the ratio, here is a table of test cases
   private static final List<Object[]> TEST_TABLE = Arrays.asList(//
@@ -26,7 +26,7 @@ public class Session5_WordCounterRatioTest {
   );
 
   @Parameters(name = "ratio of '{1}' in words '{0}' should be {2}")
-  public static List<Object[]> tableData() {
+  static List<Object[]> tableData() {
     return TEST_TABLE;
   }
 
@@ -34,14 +34,14 @@ public class Session5_WordCounterRatioTest {
   private final String word;
   private final double expectedRratio;
 
-  public Session5_WordCounterRatioTest(final String sentence, final String word, final double expectedRratio) {
+  Session5_WordCounterRatioTest(final String sentence, final String word, final double expectedRratio) {
     this.sentence = sentence;
     this.word = word;
     this.expectedRratio = expectedRratio;
   }
 
   @Test
-  public void shouldReturnRatioOfGivenWord() {
+  void shouldReturnRatioOfGivenWord() {
     final WordCounter counter = new WordCounter(sentence);
     assertEquals(expectedRratio, counter.ratioOf(word), 0.01);
   }
