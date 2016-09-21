@@ -3,8 +3,8 @@ package org.codecop;
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,12 +32,12 @@ class Session3_WordCounterFileTest {
 
   private final File testFile = new File("FileWordCounterTest.tmp");
 
-  @Before
+  @BeforeEach
   void createFreshTestFileForEachTest() throws IOException {
     StringToFile.write("Keep the bar green to keep the code clean.", testFile);
   }
 
-  @After
+  @AfterEach
   void deleteTestFile() {
     assertTrue(testFile.delete());
   }

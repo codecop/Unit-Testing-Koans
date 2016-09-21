@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
 import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
 import static org.hamcrest.core.IsNot.not;
@@ -12,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -68,7 +68,7 @@ class Session2_WordCounterTest {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
     assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
-    // optional - Hamcrest can do it better
+    // optional - Hamcrest improves readability:
     assertThat(counter.uniqueWords(), hasItemInArray("bar"));
     assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
   }
@@ -77,7 +77,7 @@ class Session2_WordCounterTest {
   void shouldFindNumberOfUniqueWords() {
     final WordCounter counter = new WordCounter("green bar green hat");
     assertEquals(3, counter.uniqueWords().length);
-    // optional - Hamcrest can do it better
+    // optional - Hamcrest improves readability:
     assertThat(counter.uniqueWords(), arrayWithSize(3));
   }
 
