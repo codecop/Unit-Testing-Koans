@@ -44,9 +44,9 @@ public class WordCounter {
     }
 
     public Integer countOf(String word) {
-        int sum = (int) words.stream()
-          .filter(word::equals)
-          .count();
+        int sum = (int) words.stream(). //
+                filter(word::equals). //
+                count();
 
         if (sum > 0) {
             return sum;
@@ -69,7 +69,7 @@ public class WordCounter {
         return new Summary(word, countOf(word));
     }
 
-    public class Summary {
+    public static class Summary {
         public final String word;
         public final int count;
 

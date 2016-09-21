@@ -10,22 +10,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class Session1_GreeterTest {
 
-  @Test
-  void shouldReturnHelloName() {
-    final Greeter greeter = new Greeter();
-    assertEquals("Hello Peter", greeter.greet("Peter"));
-  }
+    @Test
+    void shouldReturnHelloName() {
+        final Greeter greeter = new Greeter();
+        assertEquals("Hello Peter", greeter.greet("Peter"));
+    }
 
-  @Test
-  @DisplayName("should return 'Hello' for 'null'")
-  void shouldReturnHelloForNull() {
-    final Greeter greeter = new Greeter();
-    assertEquals("Hello", greeter.greet(null));
-  }
+    @Test
+    @DisplayName("should return 'Hello' for 'null'")
+    void shouldReturnHelloForNull() {
+        final Greeter greeter = new Greeter();
+        assertEquals("Hello", greeter.greet(null));
+    }
 
-  @Test
-  void shouldIgnoreWhitespace() {
-    final Greeter greeter = new Greeter();
-    assertEquals("Hello Peter", greeter.greet(" Peter "));
-  }
+    @Test
+    void shouldIgnoreWhitespace() {
+        final Greeter greeter = new Greeter();
+        assertEquals("Hello Peter", greeter.greet(" Peter "));
+    }
 }

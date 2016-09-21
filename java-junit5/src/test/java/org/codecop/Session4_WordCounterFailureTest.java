@@ -18,27 +18,27 @@ import static org.junit.jupiter.api.Assertions.expectThrows;
  */
 class Session4_WordCounterFailureTest {
 
-  @Test
-  void shouldThrowIOExceptionOnMissingFile() {
-    final Executable wordCountOfMissingFile = () -> new WordCounter(new File("IamSureThisDoesNotExist.txt"));
-    assertThrows(IOException.class, wordCountOfMissingFile);
-  }
+    @Test
+    void shouldThrowIOExceptionOnMissingFile() {
+        final Executable wordCountOfMissingFile = () -> new WordCounter(new File("IamSureThisDoesNotExist.txt"));
+        assertThrows(IOException.class, wordCountOfMissingFile);
+    }
 
-  @Test
-  void shouldThrowIllegalArgumentExceptionWithMessage() {
-    final WordCounter counter = new WordCounter("green bar green");
-    final Executable ratioOfMissingWord = () -> counter.ratioOf("missingWord");
-    final IllegalArgumentException exception = expectThrows(IllegalArgumentException.class, ratioOfMissingWord);
-    assertEquals("missingWord not in sentence", exception.getMessage());
-  }
+    @Test
+    void shouldThrowIllegalArgumentExceptionWithMessage() {
+        final WordCounter counter = new WordCounter("green bar green");
+        final Executable ratioOfMissingWord = () -> counter.ratioOf("missingWord");
+        final IllegalArgumentException exception = expectThrows(IllegalArgumentException.class, ratioOfMissingWord);
+        assertEquals("missingWord not in sentence", exception.getMessage());
+    }
 
-  // the next test does not work, we need to change the code,
-  // but we will do that tomorrow. for today ignore it
+    // the next test does not work, we need to change the code,
+    // but we will do that tomorrow. for today ignore it
 
-  @Test
-  @Disabled("work in progress, will continue tomorrow")
-  void shouldCountUniqueWordsCaseInsensitive() {
-    final WordCounter counter = new WordCounter("green bar Green hat");
-    assertArrayEquals(new String[]{"bar", "green", "hat"}, counter.uniqueWords());
-  }
+    @Test
+    @Disabled("work in progress, will continue tomorrow")
+    void shouldCountUniqueWordsCaseInsensitive() {
+        final WordCounter counter = new WordCounter("green bar Green hat");
+        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());
+    }
 }
