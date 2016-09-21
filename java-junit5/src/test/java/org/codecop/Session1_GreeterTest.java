@@ -1,5 +1,6 @@
 package org.codecop;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,6 +17,7 @@ class Session1_GreeterTest {
   }
 
   @Test
+  @DisplayName("should return 'Hello' for 'null'")
   void shouldReturnHelloForNull() {
     final Greeter greeter = new Greeter();
     assertEquals("Hello", greeter.greet(null));
