@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Session 3: WordCounterFileTest - Fixtures, e.g. using a test file. <br />
  * See https://github.com/junit-team/junit/wiki/Test-fixtures
  */
-public class Session3_WordCounterFileTest {
+class Session3_WordCounterFileTest {
 
   @Test
-  public void shouldReturnCountOfWords() throws IOException {
+  void shouldReturnCountOfWords() throws IOException {
     final File file = new File("tmp");
     StringToFile.write("Keep the bar green to keep the code clean.", file);
 
@@ -33,23 +33,23 @@ public class Session3_WordCounterFileTest {
   private final File testFile = new File("FileWordCounterTest.tmp");
 
   @Before
-  public void createFreshTestFileForEachTest() throws IOException {
+  void createFreshTestFileForEachTest() throws IOException {
     StringToFile.write("Keep the bar green to keep the code clean.", testFile);
   }
 
   @After
-  public void deleteTestFile() {
+  void deleteTestFile() {
     assertTrue(testFile.delete());
   }
 
   @Test
-  public void shouldReturnCountOfWordsBetter() throws IOException {
+  void shouldReturnCountOfWordsBetter() throws IOException {
     final WordCounter counter = new WordCounter(testFile);
     assertEquals(9, counter.numberOfWords());
   }
 
   @Test
-  public void shouldVerifyContainmentOfWord() throws IOException {
+  void shouldVerifyContainmentOfWord() throws IOException {
     final WordCounter counter = new WordCounter(testFile);
     assertTrue(counter.containsWord("bar"));
   }
