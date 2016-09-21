@@ -1,35 +1,36 @@
 package org.codecop;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Executable;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.expectThrows;
 
 /**
  * Session 4: WordCounterFailureTest - testing for Exceptions and ignoring tests. <br />
- * See https://github.com/junit-team/junit/wiki/Exception-testing
+ * See http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions
  */
 class Session4_WordCounterFailureTest {
 
   @Test
-  void shouldThrowIllegalArgumentExceptionForUnknownWord() {
-    final WordCounter counter = new WordCounter("green bar green");
-    final Executable ratioOfMissingWord = () -> counter.ratioOf("missingWord");
-    expectThrows(IllegalArgumentException.class, ratioOfMissingWord);
+  void shouldThrowIOExceptionOnMissingFile() {
+    final Executable wordCountOfMissingFile = () -> new WordCounter(new File("IamSureThisDoesNotExist.txt"));
+    assertThrows(IOException.class, wordCountOfMissingFile);
   }
 
   @Test
-  void shouldThrowIOExceptionOnMissingFile() {
-    final Executable wordCountOfMissingFile = () -> new WordCounter(new File("IamSureThisDoesNotExist.txt"));
-    expectThrows(IOException.class, wordCountOfMissingFile);
+  void shouldThrowIllegalArgumentExceptionWithMessage() {
+    final WordCounter counter = new WordCounter("green bar green");
+    final Executable ratioOfMissingWord = () -> counter.ratioOf("missingWord");
+    final IllegalArgumentException exception = expectThrows(IllegalArgumentException.class, ratioOfMissingWord);
+    assertEquals("missingWord not in sentence", exception.getMessage());
   }
-
-  // TODO verify exception message
 
   // the next test does not work, we need to change the code,
   // but we will do that tomorrow. for today ignore it
