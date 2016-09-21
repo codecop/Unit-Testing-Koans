@@ -1,14 +1,14 @@
 package org.codecop;
 
-import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestFactory;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 
 /**
  * Session 5: WordCounterRatioTest - parameterised/table driven. <br />
@@ -46,7 +46,7 @@ class Session5_WordCounterRatioTest {
         }
 
         void shouldReturnRatioOfGivenWord() {
-            final WordCounter counter = new WordCounter(sentence);
+            WordCounter counter = new WordCounter(sentence);
             assertEquals(expectedRatio, counter.ratioOf(word), 0.01);
         }
     }
