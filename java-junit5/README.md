@@ -3,8 +3,8 @@ Java [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to und
 
 ## Assignment ##
 
-* This is an [Apache Maven](https://maven.apache.org/) project.
-* Run `mvn test`, you should see some test failures and errors (but no assertions).
+* This project supports both [Apache Maven](https://maven.apache.org/) and [Gradle](https://gradle.org).
+* Running either `mvn test` or `gradlew test`, you should see some test failures and errors (but no assertions).
 * Go through the test code starting from Session 1:
     * All assertions are commented and incomplete.
     * Uncomment the assertions and complete them making the tests pass.
