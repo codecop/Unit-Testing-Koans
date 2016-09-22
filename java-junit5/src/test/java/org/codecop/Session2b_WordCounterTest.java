@@ -38,7 +38,7 @@ class Session2b_WordCounterTest {
         WordCounter counter = new WordCounter("green green");
         WordCounter.Summary summary = counter.summaryOf("green");
         assertAll( //
-        	    () -> assertEquals("green", summary.word), //
+                () -> assertEquals("green", summary.word), //
                 () -> assertEquals(2, summary.count) //
         );
         // all attributes of summary should be asserted at once
