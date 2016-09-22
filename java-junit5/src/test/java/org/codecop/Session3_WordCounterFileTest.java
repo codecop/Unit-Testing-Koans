@@ -9,6 +9,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 /**
  * Session 3: WordCounterFileTest - Fixtures, e.g. using a test file. <br />
  * See http://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
