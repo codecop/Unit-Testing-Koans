@@ -1,8 +1,8 @@
 package org.codecop;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -46,14 +46,15 @@ class Session2a_WordCounterTest {
     }
 
     @Test
-    void shouldCountGreenTwice() {
+    void shouldFindUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertEquals(Integer.valueOf(2), counter.countOf("green"));
+        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());
     }
 
     @Test
-    void shouldNotCountCapitalizedWord() {
-        WordCounter counter = new WordCounter("green bar green hat");
-        assertNotEquals(1, counter.countOf("HAT"));
+    void shouldReturnRatioOfWords() {
+        WordCounter counter = new WordCounter("green bar green");
+        assertEquals(0.33, counter.ratioOf("bar"), 0.01);
+        // note that floating point numbers have accuracy delta 0.01
     }
 }
