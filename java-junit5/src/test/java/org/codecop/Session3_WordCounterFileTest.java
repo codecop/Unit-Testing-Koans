@@ -28,7 +28,7 @@ class Session3_WordCounterFileTest {
     }
 
     // the problem is that delete is not called in case of test failure,
-    // better use Before/After hooks for test file handling
+    // better use BeforeEach/AfterEach hooks for test file handling
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
