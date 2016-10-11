@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  */
 class Session1_GreeterTest {
 
-    // TODO we will add the proper assertions together
+    // TODO We will add the proper assertions together.
     
     @Test
     void shouldReturnHelloName() {

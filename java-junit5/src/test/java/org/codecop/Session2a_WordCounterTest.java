@@ -15,8 +15,8 @@ import org.junit.jupiter.api.Test;
  */
 class Session2a_WordCounterTest {
 
-    // TODO add the proper assertions to complete the tests, 
-    // the test name explains what needs to be verified 
+    // TODO Add the proper assertions to complete the tests. 
+    // The test name explains what needs to be verified. 
     
     @Test
     void shouldCountNumberOfWords() {

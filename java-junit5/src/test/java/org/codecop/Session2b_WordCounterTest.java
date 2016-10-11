@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
  */
 class Session2b_WordCounterTest {
 
-    // TODO add the proper assertions to complete the tests, 
-    // the test name explains what needs to be verified 
+    // TODO Add the proper assertions to complete the tests. 
+    // The test name explains what needs to be verified. 
 
     @Test
     void shouldCountGreenTwice() {
@@ -31,10 +31,10 @@ class Session2b_WordCounterTest {
     void shouldReportSummaryOfWord() {
         WordCounter counter = new WordCounter("green green");
         WordCounter.Summary summary = counter.summaryOf("green");
+        // TODO All attributes of summary should be asserted at once.
         assertAll( //
                 () -> assertEquals("green", summary.word), //
                 () -> assertEquals(2, summary.count) //
         );
-        // all attributes of summary should be asserted at once
     }
 }

@@ -16,12 +16,14 @@ import org.junit.jupiter.api.TestFactory;
  */
 class Session5_WordCounterRatioTest {
 
+    // TODO Add the needed code/annotations to run this test with all examples.
+
     @Test
     public void convinceIntelliJThatThisIsValidJUnit5Test() {
         // convince IntelliJ that this is a valid JUnit5 test
     }
 
-    // we want to test more corner cases for the ratio, here is a table of test cases
+    // We want to test more corner cases for the ratio. Here is a table of test cases.
     private static final List<TestCase> TEST_CASES = Arrays.asList(//
             new TestCase("green", "green", 1.0), //
             new TestCase("green bar green", "green", 0.66), //
@@ -51,10 +53,9 @@ class Session5_WordCounterRatioTest {
         }
     }
 
-    // TODO add the needed code/annotations to run this test with all examples
     @TestFactory
     List<DynamicTest> createTests() {
-        // TODO take data from tableData method
+        // TODO Take data from TEST_CASES field.
         return TEST_CASES.stream(). //
                 map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord)). //
                 collect(Collectors.toList());
