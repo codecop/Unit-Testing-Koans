@@ -18,6 +18,8 @@ import org.junit.jupiter.api.Test;
  */
 class Session4_WordCounterFailureTest {
 
+    // TODO add the needed code/annotations to test for an expected exception
+    
     @Test
     void shouldThrowIOExceptionOnMissingFile() {
         Executable wordCountOfMissingFile = () -> new WordCounter(new File("IamSureThisDoesNotExist.txt"));
