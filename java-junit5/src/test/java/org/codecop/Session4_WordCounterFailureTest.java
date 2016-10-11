@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  */
 class Session4_WordCounterFailureTest {
 
-    // TODO add the needed code/annotations to test for an expected exception
+    // TODO Add the needed code/annotations to test for an expected exception.
     
     @Test
     void shouldThrowIOExceptionOnMissingFile() {
@@ -34,8 +34,8 @@ class Session4_WordCounterFailureTest {
         assertEquals("missingWord not in sentence", exception.getMessage());
     }
 
-    // the next test does not work, we need to change the code,
-    // but we will do that tomorrow. for today ignore it
+    // TODO The next test does not work, we need to change the code,
+    // but we will do that tomorrow. For today let's ignore it.
 
     @Test
     @Disabled("work in progress, will continue tomorrow")
