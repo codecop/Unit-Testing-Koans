@@ -4,6 +4,7 @@ syntax: glob
 .classpath
 .checkstyle
 .pmd
+.buildpath
 
 .idea
 *.iml
