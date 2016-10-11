@@ -55,7 +55,7 @@ class Session5_WordCounterRatioTest {
 
     @TestFactory
     List<DynamicTest> createTests() {
-        // TODO Take data from TEST_CASES field.
+        // TODO Take data from TEST_CASES field and convert it to list of DynamicTests.
         return TEST_CASES.stream(). //
                 map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord)). //
                 collect(Collectors.toList());

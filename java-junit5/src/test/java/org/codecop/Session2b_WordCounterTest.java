@@ -31,7 +31,7 @@ class Session2b_WordCounterTest {
     void shouldReportSummaryOfWord() {
         WordCounter counter = new WordCounter("green green");
         WordCounter.Summary summary = counter.summaryOf("green");
-        // TODO All attributes of summary should be asserted at once.
+        // TODO All these attributes of summary should be asserted at once.
         assertAll( //
                 () -> assertEquals("green", summary.word), //
                 () -> assertEquals(2, summary.count) //
