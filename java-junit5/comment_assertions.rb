@@ -1,6 +1,9 @@
 Dir.chdir('src/test/java')
 
 Dir['**/Session*Test.java'].each do |file_name|
+  # report
+  puts "modifying #{file_name}"
+
   # load
   lines = IO.readlines(file_name)
 
@@ -12,26 +15,37 @@ Dir['**/Session*Test.java'].each do |file_name|
 
     elsif line =~ /assert(\w+)\((.*)\);/
       # comment assertions
+      front = "#{$`}// TODO Check that "
+      how = ''
+      back = ".#{$'}"
+
       if $1 == "Equals" or $1 == "That" or $1 == "True" or $1 == "ArrayEquals"
-        "#{$`}// TODO check that #{$2}#{$'}"
+        what = $2.gsub(/, 0\.01/, '') # ignore double rounding
       else
-        front = "#{$`}// TODO check that #{$2} is "
-        back = $'
-        what = $1.downcase().
-            sub(/not/, "not "). # needs to be last
-            sub(/throws/, "thrown")
-        front + what + back
+        what = "#{$2} is "
+        how = $1.downcase().
+          sub(/not/, "not "). # needs to be last to preserve $0
+          sub(/throws/, "thrown")
       end
+
+      front + what + how + back
+
+    elsif line =~ /(\S.*) = expectThrows\((.*)\);/
+      "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
+
+    elsif line =~ /@TestFactory/
+      # comment test factory
+      "#{$`}// TODO A test factory creates sequences of tests.#{$'}"
 
     elsif line =~ /@Disabled\((.*)\)/
       # comment disabled
-      "#{$`}// TODO mark test as ignored with #{$1}#{$'}"
+      "#{$`}// TODO Mark this test as ignored with #{$1}.#{$'}"
 
     elsif line =~ /@BeforeEach/
       # comment life cycle
-      "#{$`}// TODO this needs to be called before each test#{$'}"
+      "#{$`}// TODO This method needs to be called before each test.#{$'}"
     elsif line =~ /@AfterEach/
-      "#{$`}// TODO this needs to be called after each test#{$'}"
+      "#{$`}// TODO This method needs to be called after each test.#{$'}"
 
     else
 
