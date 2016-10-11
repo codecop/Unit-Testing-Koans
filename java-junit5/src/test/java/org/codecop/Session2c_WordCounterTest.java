@@ -18,6 +18,9 @@ import org.junit.jupiter.api.Test;
  */
 class Session2c_WordCounterTest {
 
+    // TODO add the proper assertions to complete the tests, 
+    // the test name explains what needs to be verified 
+    
     @Test
     void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");

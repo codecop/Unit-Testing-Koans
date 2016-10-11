@@ -22,13 +22,15 @@ class Session3_WordCounterFileTest {
         StringToFile.write("Keep the bar green to keep the code clean.", file);
 
         WordCounter counter = new WordCounter(file);
-        assertEquals(9, counter.numberOfWords());
+        assertEquals(9, counter.numberOfWords()); // keep
 
         file.delete();
     }
 
     // the problem is that delete is not called in case of test failure,
     // better use BeforeEach/AfterEach hooks for test file handling
+    // TODO add the needed annotations to the hook methods and then
+    // TODO add the proper assertions to complete the tests
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
