@@ -58,6 +58,6 @@ class Session2a_WordCounterTest {
     void shouldReturnRatioOfWords() {
         WordCounter counter = new WordCounter("green bar green");
         assertEquals(0.33, counter.ratioOf("bar"), 0.01);
-        // note that floating point numbers have accuracy delta 0.01
+        // Note that floating point numbers have an accuracy delta of 0.01.
     }
 }
