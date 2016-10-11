@@ -41,7 +41,7 @@ class Session3_WordCounterFileTest {
 
     @AfterEach
     void deleteTestFile() {
-        assertTrue(testFile.delete());
+        assertTrue(testFile.delete()); // keep
     }
 
     @Test

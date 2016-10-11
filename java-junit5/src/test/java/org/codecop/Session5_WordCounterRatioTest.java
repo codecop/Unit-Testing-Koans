@@ -47,7 +47,7 @@ class Session5_WordCounterRatioTest {
 
         void shouldReturnRatioOfGivenWord() {
             WordCounter counter = new WordCounter(sentence);
-            assertEquals(expectedRatio, counter.ratioOf(word), 0.01);
+            assertEquals(expectedRatio, counter.ratioOf(word), 0.01); // keep
         }
     }
 

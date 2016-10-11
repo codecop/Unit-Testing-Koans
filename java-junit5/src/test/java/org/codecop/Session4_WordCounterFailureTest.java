@@ -41,6 +41,6 @@ class Session4_WordCounterFailureTest {
     @Disabled("work in progress, will continue tomorrow")
     void shouldCountUniqueWordsCaseInsensitive() {
         WordCounter counter = new WordCounter("green bar Green hat");
-        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());
+        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords()); // keep
     }
 }
