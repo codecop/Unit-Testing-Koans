@@ -23,22 +23,22 @@ class Session4_WordCounterFailureTest {
     @Test
     void shouldThrowIOExceptionOnMissingFile() {
         Executable wordCountOfMissingFile = () -> new WordCounter(new File("IamSureThisDoesNotExist.txt"));
-        // TODO Check that IOException.class, wordCountOfMissingFile is thrown.
+        assertThrows(IOException.class, wordCountOfMissingFile);
     }
 
     @Test
     void shouldThrowIllegalArgumentExceptionWithMessage() {
         WordCounter counter = new WordCounter("green bar green");
         Executable ratioOfMissingWord = () -> counter.ratioOf("missingWord");
-        // TODO Expect IllegalArgumentException exception is thrown from IllegalArgumentException.class, ratioOfMissingWord.
-        // TODO Check that "missingWord not in sentence", exception.getMessage().
+        IllegalArgumentException exception = expectThrows(IllegalArgumentException.class, ratioOfMissingWord);
+        assertEquals("missingWord not in sentence", exception.getMessage());
     }
 
     // TODO The next test does not work, we need to change the code,
     // but we will do that tomorrow. For today let's ignore it.
 
     @Test
-    // TODO Mark this test as ignored with "work in progress, will continue tomorrow".
+    @Disabled("work in progress, will continue tomorrow")
     void shouldCountUniqueWordsCaseInsensitive() {
         WordCounter counter = new WordCounter("green bar Green hat");
         assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords()); // keep

@@ -21,43 +21,43 @@ class Session2a_WordCounterTest {
     @Test
     void shouldCountNumberOfWords() {
         WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
-        // TODO Check that 9, counter.numberOfWords().
+        assertEquals(9, counter.numberOfWords());
     }
 
     @Test
     void shouldVerifyContainmentOfWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO Check that counter.containsWord("bar").
+        assertTrue(counter.containsWord("bar"));
     }
 
     @Test
     void shouldVerifyNonContainmentOfWord() {
         WordCounter counter = new WordCounter("green hat");
-        // TODO Check that counter.containsWord("red") is false.
+        assertFalse(counter.containsWord("red"));
     }
 
     @Test
     void shouldReturnNullForUnknownWordCount() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO Check that counter.countOf("else") is null.
+        assertNull(counter.countOf("else"));
     }
 
     @Test
     void shouldReturnNotNullWordCountForExistingWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO Check that counter.countOf("green") is not null.
+        assertNotNull(counter.countOf("green"));
     }
 
     @Test
     void shouldFindUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO Check that new String[] { "bar", "green", "hat" }, counter.uniqueWords().
+        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());
     }
 
     @Test
     void shouldReturnRatioOfWords() {
         WordCounter counter = new WordCounter("green bar green");
-        // TODO Check that 0.33, counter.ratioOf("bar").
+        assertEquals(0.33, counter.ratioOf("bar"), 0.01);
         // Note that floating point numbers have an accuracy delta of 0.01.
     }
 }

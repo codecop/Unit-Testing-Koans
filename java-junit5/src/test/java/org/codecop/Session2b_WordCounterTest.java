@@ -18,13 +18,13 @@ class Session2b_WordCounterTest {
     @Test
     void shouldCountGreenTwice() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO Check that Integer.valueOf(2), counter.countOf("green").
+        assertEquals(Integer.valueOf(2), counter.countOf("green"));
     }
 
     @Test
     void shouldNotCountCapitalizedWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO Check that 1, counter.countOf("HAT") is not equals.
+        assertNotEquals(1, counter.countOf("HAT"));
     }
 
     @Test
@@ -32,7 +32,9 @@ class Session2b_WordCounterTest {
         WordCounter counter = new WordCounter("green green");
         WordCounter.Summary summary = counter.summaryOf("green");
         // TODO All these attributes of summary should be asserted at once.
-        //        () -> assertEquals("green", summary.word), //
-        //        () -> assertEquals(2, summary.count) //
+        assertAll( //
+                () -> assertEquals("green", summary.word), //
+                () -> assertEquals(2, summary.count) //
+        );
     }
 }

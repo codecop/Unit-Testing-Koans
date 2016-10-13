@@ -35,12 +35,12 @@ class Session3_WordCounterFileTest {
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
-    // TODO This method needs to be called before each test.
+    @BeforeEach
     void createFreshTestFileForEachTest() throws IOException {
         StringToFile.write("Keep the bar green to keep the code clean.", testFile);
     }
 
-    // TODO This method needs to be called after each test.
+    @AfterEach
     void deleteTestFile() {
         assertTrue(testFile.delete()); // keep
     }
@@ -48,12 +48,12 @@ class Session3_WordCounterFileTest {
     @Test
     void shouldReturnCountOfWordsBetter() throws IOException {
         WordCounter counter = new WordCounter(testFile);
-        // TODO Check that 9, counter.numberOfWords().
+        assertEquals(9, counter.numberOfWords());
     }
 
     @Test
     void shouldVerifyContainmentOfWord() throws IOException {
         WordCounter counter = new WordCounter(testFile);
-        // TODO Check that counter.containsWord("bar").
+        assertTrue(counter.containsWord("bar"));
     }
 }
