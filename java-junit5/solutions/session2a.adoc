@@ -1,4 +1,4 @@
-== Session 2a
+=== Session 2a
 
 Basic assertions.
 
