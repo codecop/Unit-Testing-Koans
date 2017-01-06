@@ -2,12 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+    <!-- Run JUnit 5 with Maven -->
+    <!-- See https://github.com/junit-team/junit5-samples/blob/r5.0.0-M3/junit5-maven-consumer/pom.xml -->
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.codecop</groupId>
     <artifactId>junit5-koans</artifactId>
-    <packaging>jar</packaging>
-    <name>JUnit5 Koans</name>
     <version>1.0-SNAPSHOT</version>
+
+    <name>JUnit5 Koans</name>
     <description>Java Koans to understand how to write unit tests with JUnit 5</description>
     <inceptionYear>2016</inceptionYear>
     <url>http://blog.code-cop.org/2015/12/testing-koans.html</url>
@@ -18,11 +21,19 @@
         <url>https://bitbucket.org/pkofler/${project.artifactId}/src</url>
     </scm>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <dependencies>
+        <!-- setup JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.0-M2</version>
+            <version>5.0.0-M3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -42,24 +53,16 @@
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>1.0.0-M2</version>
+                        <version>1.0.0-M3</version>
                     </dependency>
+                    <!-- API and engine are separated -->
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
-                        <version>5.0.0-M2</version>
+                        <version>5.0.0-M3</version>
                     </dependency>
                 </dependencies>
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <encoding>UTF-8</encoding>
-        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
 </project>

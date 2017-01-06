@@ -1,10 +1,13 @@
+// Run JUnit 5 with Gradle
+// See https://github.com/junit-team/junit5-samples/blob/r5.0.0-M3/junit5-gradle-consumer/build.gradle
+
 buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
     }
     dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M2'
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M3'
     }
 }
 
@@ -23,16 +26,19 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    testCompile "org.junit.jupiter:junit-jupiter-api:5.0.0-M2"
+    // setup JUnit 5
+    testCompile "org.junit.jupiter:junit-jupiter-api:5.0.0-M3"
     testCompile "org.hamcrest:hamcrest-library:1.3"
 
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.0.0-M2"
+    // API and engine are separated
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.0.0-M3"
 }
 
 junitPlatform {
-    platformVersion = "1.0.0-M2"
-    includeClassNamePattern '.*Test'
-    engines {
-        include 'junit-jupiter'
+    platformVersion = "1.0.0-M3"
+    filters {
+        engines {
+            include 'junit-jupiter'
+        }
     }
 }
