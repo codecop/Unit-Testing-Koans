@@ -1,4 +1,4 @@
-== Session 2c
+=== Session 2c
 
 Assertions with Hamcrest.
 
