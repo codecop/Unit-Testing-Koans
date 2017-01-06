@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 
+import java.time.Duration;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
@@ -47,4 +49,10 @@ class Session2b_WordCounterTest {
         );
     }
 
+    @Test
+    void shouldCountNumberOfWorldsIn100Millis() {
+        WordCounter counter = new WordCounter("green bar green hat");
+        assertTimeout(Duration.ofMillis(100), counter::numberOfWords);
+    }
+    
 }
