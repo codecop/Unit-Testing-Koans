@@ -12,7 +12,7 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.api.Test;
 
 /**
- * Session 4: WordCounterFailureTest - testing for Exceptions and ignoring tests. <br />
+ * Session 4: WordCounterFailureTest - Exceptions and ignoring tests. <br />
  * See http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions
  */
 class Session4_WordCounterFailureTest {

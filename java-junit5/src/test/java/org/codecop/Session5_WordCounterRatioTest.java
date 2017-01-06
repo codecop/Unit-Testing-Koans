@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 /**
- * Session 5: WordCounterRatioTest - parameterised/table driven. <br />
+ * Session 5: WordCounterRatioTest - Parameterised/table driven tests. <br />
  * See http://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests
  */
 class Session5_WordCounterRatioTest {
