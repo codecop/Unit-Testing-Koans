@@ -9,9 +9,9 @@ Dir['**/Session*Test.java'].each do |file_name|
 
   # modify
   lines = lines.map do |line|
-    if line =~ /\/\/ keep/
-      # leave that line alone
-      line
+    if line =~ /\/\/ keep\s*$/
+      # leave that line alone, just remove marker
+      line.sub(/\/\/ keep\s*$/, '')
 
     elsif line =~ /(\S.*) = assertThrows\((.*)\);/
       "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
