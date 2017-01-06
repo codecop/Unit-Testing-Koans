@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Executable;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.api.Test;
 
 /**
