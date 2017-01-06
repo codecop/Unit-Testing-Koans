@@ -60,4 +60,7 @@ Dir['**/Session*Test.java'].each do |file_name|
   }
 end
 
+# remove useless test
+File.delete('org/codecop/StringToFileTest.java')
+
 Dir.chdir('../../..')
