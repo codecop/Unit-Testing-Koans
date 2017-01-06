@@ -3,7 +3,6 @@ package org.codecop;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.expectThrows;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +29,7 @@ class Session4_WordCounterFailureTest {
     void shouldThrowIllegalArgumentExceptionWithMessage() {
         WordCounter counter = new WordCounter("green bar green");
         Executable ratioOfMissingWord = () -> counter.ratioOf("missingWord");
-        IllegalArgumentException exception = expectThrows(IllegalArgumentException.class, ratioOfMissingWord);
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, ratioOfMissingWord);
         assertEquals("missingWord not in sentence", exception.getMessage());
     }
 
