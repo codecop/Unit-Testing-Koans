@@ -2,7 +2,10 @@ package org.codecop;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -28,6 +31,12 @@ class Session2b_WordCounterTest {
     }
 
     @Test
+    void shouldFindUniqueWordAsSequence() {
+        WordCounter counter = new WordCounter("green green");
+        assertIterableEquals(Arrays.asList("green"), counter.uniqueWordsAsSequence());
+    }
+    
+    @Test
     void shouldReportSummaryOfWord() {
         WordCounter counter = new WordCounter("green green");
         WordCounter.Summary summary = counter.summaryOf("green");
@@ -37,4 +46,5 @@ class Session2b_WordCounterTest {
                 () -> assertEquals(2, summary.count) //
         );
     }
+
 }

@@ -39,6 +39,10 @@ public class WordCounter {
         return uniqueWords.toArray(new String[uniqueWords.size()]);
     }
 
+    public Iterable<String> uniqueWordsAsSequence() {
+        return Arrays.asList(uniqueWords());
+    }
+
     public boolean containsWord(String word) {
         return words.contains(word);
     }
