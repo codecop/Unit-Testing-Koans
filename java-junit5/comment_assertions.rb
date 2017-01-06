@@ -10,11 +10,14 @@ Dir['**/Session*Test.java'].each do |file_name|
   # modify
   lines = lines.map do |line|
     if line =~ /\/\/ keep/
-      # leave keep alone
+      # leave that line alone
       line
 
+    elsif line =~ /(\S.*) = assertThrows\((.*)\);/
+      "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
+
     elsif line =~ /assert(\w+)\((.*)\);/
-      # comment assertions
+      # comment general assertions
       front = "#{$`}// TODO Check that "
       how = ''
       back = ".#{$'}"
@@ -29,9 +32,6 @@ Dir['**/Session*Test.java'].each do |file_name|
       end
 
       front + what + how + back
-
-    elsif line =~ /(\S.*) = expectThrows\((.*)\);/
-      "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
 
     elsif line =~ /@TestFactory/
       # comment test factory
