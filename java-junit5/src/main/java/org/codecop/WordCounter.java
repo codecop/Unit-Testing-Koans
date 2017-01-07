@@ -16,7 +16,7 @@ public class WordCounter {
     private final List<String> words;
 
     public WordCounter(String sentence) {
-        words = Arrays.asList(sentence.split("\\s+"));
+        words = new ArrayList<>(Arrays.asList(sentence.split("\\s+")));
     }
 
     /**
