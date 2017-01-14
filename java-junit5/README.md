@@ -4,10 +4,11 @@ Java [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to und
 ## Assignment ##
 
 * This project supports both [Apache Maven](https://maven.apache.org/) and [Gradle](https://gradle.org).
-* Running either `mvnw test` or `gradlew test`, you should see some test failures and errors (but no assertions).
+* Running either `mvnw test` or `gradlew test`, you should see some test failures and errors (but there are no assertions).
 * Go through the test code starting from Session 1:
     * All assertions are commented and incomplete.
     * Uncomment the assertions and complete them making the tests pass.
+    * You can run individual sessions using `mvnw test -Dtest=*1*`
 
 ### License ###
 [New BSD License](http://opensource.org/licenses/bsd-license.php), see `license.txt` in repository.
