@@ -10,8 +10,10 @@ import org.junit.jupiter.api.TestFactory;
 @TestFactory
 List<DynamicTest> createTests() {
     return TEST_CASES.stream(). 
-            map(testCase -> DynamicTest.dynamicTest(testCase.name(), 
-                                                    testCase::shouldReturnRatioOfGivenWord)). 
+            map(testCase -> DynamicTest.dynamicTest(
+                   testCase.name(), 
+                   testCase::shouldReturnRatioOfGivenWord)
+                ). 
             collect(Collectors.toList());
 }
 ----
