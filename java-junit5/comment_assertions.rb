@@ -33,19 +33,14 @@ Dir['**/Session*Test.java'].each do |file_name|
 
       front + what + how + back
 
-    elsif line =~ /@TestFactory/
+    elsif line =~ /@TestFactory|@BeforeEach|@AfterEach/
       # comment test factory
-      "#{$`}// TODO A test factory creates sequences of tests.#{$'}"
+      # comment life cycle
+      "#{$`}// TODO #{$'}"
 
     elsif line =~ /@Disabled\((.*)\)/
       # comment disabled
       "#{$`}// TODO Mark this test as ignored with #{$1}.#{$'}"
-
-    elsif line =~ /@BeforeEach/
-      # comment life cycle
-      "#{$`}// TODO This method needs to be called before each test.#{$'}"
-    elsif line =~ /@AfterEach/
-      "#{$`}// TODO This method needs to be called after each test.#{$'}"
 
     else
 

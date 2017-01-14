@@ -35,12 +35,12 @@ class Session3_WordCounterFileTest {
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
-    @BeforeEach
+    @BeforeEach // This method is called before each test.
     void createFreshTestFileForEachTest() throws IOException {
         StringToFile.write("Keep the bar green to keep the code clean.", testFile);
     }
 
-    @AfterEach
+    @AfterEach // This method is called after each test.
     void deleteTestFile() {
         assertTrue(testFile.delete()); // keep
     }
