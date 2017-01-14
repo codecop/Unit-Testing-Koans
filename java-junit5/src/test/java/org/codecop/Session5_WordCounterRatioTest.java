@@ -53,7 +53,7 @@ class Session5_WordCounterRatioTest {
         }
     }
 
-    @TestFactory
+    @TestFactory // test factory creates sequences of tests.
     List<DynamicTest> createTests() {
         // TODO Take data from TEST_CASES field and convert it to list of DynamicTests.
         return TEST_CASES.stream(). //
