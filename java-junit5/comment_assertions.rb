@@ -30,9 +30,9 @@ Dir['**/Session*.java'].each do |file_name|
       how = ''
       back = ".#{$'}"
 
-      if $1 == "Equals" or $1 == "That" or $1 == "True"
+      if $1 == "ArrayEquals" or $1 == "That" or $1 == "True"
         what = $2
-      elsif $1 == "ArrayEquals"
+      elsif $1 == "Equals"
         what = $2.gsub(/, 0\.01/, '') # ignore double rounding
       elsif $1 == "Timeout"
         what = "#{$2} has a "
