@@ -59,8 +59,8 @@ class Session5_WordCounterRatioTest {
         // TODO Take data from TEST_CASES field and convert it to list of DynamicTests.
         // use return Collections.<DynamicTest>emptyList().stream(). //
         // use        collect(Collectors.toList());
-        return TEST_CASES.stream(). //
-                map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord)). //
-                collect(Collectors.toList());
+        return TEST_CASES.stream(). // drop
+                map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord)). // drop
+                collect(Collectors.toList()); // drop
     }
 }
