@@ -11,7 +11,11 @@ Dir['**/Session*Test.java'].each do |file_name|
   lines = lines.map do |line|
     if line =~ /\/\/ keep\s*$/
       # leave that line alone, just remove marker
-      line.sub(/\/\/ keep\s*$/, '')
+      "#{$`}#{$'}"
+
+    elsif line =~ /\/\/ use\s$/
+      # remove comment to use code that was commented
+      "#{$`}#{$'}"
 
     elsif line =~ /(\S.*) = assertThrows\((.*)\);/
       "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"

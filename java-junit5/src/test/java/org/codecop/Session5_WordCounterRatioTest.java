@@ -3,6 +3,7 @@ package org.codecop;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,6 +57,8 @@ class Session5_WordCounterRatioTest {
     @TestFactory // test factory creates sequences of tests.
     List<DynamicTest> createTests() {
         // TODO Take data from TEST_CASES field and convert it to list of DynamicTests.
+        // use return Collections.<DynamicTest>emptyList().stream(). //
+        // use        collect(Collectors.toList());
         return TEST_CASES.stream(). //
                 map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord)). //
                 collect(Collectors.toList());
