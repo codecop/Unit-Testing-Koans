@@ -18,7 +18,7 @@ import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
 import org.junit.jupiter.api.extension.TestExtensionContext;
 
-class TempFile implements BeforeEachCallback, AfterEachCallback, ParameterResolver {
+class Session6_TempFile implements BeforeEachCallback, AfterEachCallback, ParameterResolver {
 
     @Target(ElementType.PARAMETER)
     @Retention(RetentionPolicy.RUNTIME)

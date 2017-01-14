@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 class Session2a_WordCounterTest {
 
     // TODO Add the proper assertions to complete the tests. 
-    // The test name explains what needs to be verified. 
+    // The test name explains what needs to be asserted. 
     
     @Test
     void shouldCountNumberOfWords() {
@@ -58,6 +58,6 @@ class Session2a_WordCounterTest {
     void shouldReturnRatioOfWords() {
         WordCounter counter = new WordCounter("green bar green");
         assertEquals(0.33, counter.ratioOf("bar"), 0.01);
-        // Note that floating point numbers have an accuracy delta of 0.01.
+        // Note that floating point numbers need an accuracy delta, e.g. 0.01.
     }
 }

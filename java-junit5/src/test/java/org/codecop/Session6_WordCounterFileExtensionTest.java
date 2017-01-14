@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
-import org.codecop.TempFile.Temp;
+import org.codecop.Session6_TempFile.Temp;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
  * Session 6: WordCounterFileExtensionTest - Reuse fixtures in Extensions. <br />
  * See http://junit.org/junit5/docs/current/user-guide/#extensions
  */
-@ExtendWith(TempFile.class)
+@ExtendWith(Session6_TempFile.class) // Use the TempFile extension to create a temporary words file for each test. 
 class Session6_WordCounterFileExtensionTest {
 
     @Test

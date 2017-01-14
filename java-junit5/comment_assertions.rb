@@ -1,6 +1,6 @@
 Dir.chdir('src/test/java')
 
-Dir['**/Session*Test.java'].each do |file_name|
+Dir['**/Session*.java'].each do |file_name|
   # report
   puts "modifying #{file_name}"
 
@@ -9,13 +9,17 @@ Dir['**/Session*Test.java'].each do |file_name|
 
   # modify
   lines = lines.map do |line|
-    if line =~ /\/\/ keep\s*$/
-      # leave that line alone, just remove marker
+    if line =~ /\/\/ keep/
+      # leave that line alone, just remove the marker
       "#{$`}#{$'}"
 
-    elsif line =~ /\/\/ use\s$/
+    elsif line =~ /\/\/ use\s/
       # remove comment to use code that was commented
       "#{$`}#{$'}"
+
+    elsif line =~ /\/\/ drop\s*$/
+      # drop line
+      "#{$'}"
 
     elsif line =~ /(\S.*) = assertThrows\((.*)\);/
       "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
@@ -26,21 +30,27 @@ Dir['**/Session*Test.java'].each do |file_name|
       how = ''
       back = ".#{$'}"
 
-      if $1 == "Equals" or $1 == "That" or $1 == "True" or $1 == "ArrayEquals"
+      if $1 == "Equals" or $1 == "That" or $1 == "True"
+        what = $2
+      elsif $1 == "ArrayEquals"
         what = $2.gsub(/, 0\.01/, '') # ignore double rounding
+      elsif $1 == "Timeout"
+        what = "#{$2} has a "
+        how = $1.downcase()
       else
         what = "#{$2} is "
         how = $1.downcase().
           sub(/not/, "not "). # needs to be last to preserve $0
+          sub(/iterable/, "iterable "). 
+          sub(/equals/, "equal"). 
           sub(/throws/, "thrown")
       end
 
       front + what + how + back
 
-    elsif line =~ /@TestFactory|@BeforeEach|@AfterEach/
-      # comment test factory
-      # comment life cycle
-      "#{$`}// TODO #{$'}"
+    elsif line =~ /@TestFactory|@BeforeEach|@AfterEach|@ExtendWith\([^)]+\)/
+      # comment test factory, life cycle, extension
+      "#{$`}// TODO#{$'}"
 
     elsif line =~ /@Disabled\((.*)\)/
       # comment disabled
@@ -60,6 +70,9 @@ Dir['**/Session*Test.java'].each do |file_name|
 end
 
 # remove useless test
-File.delete('org/codecop/StringToFileTest.java')
+['org/codecop/StringToFileTest.java'].each do |file_name|
+  puts "deleting #{file_name}"
+  File.delete(file_name)
+end
 
 Dir.chdir('../../..')

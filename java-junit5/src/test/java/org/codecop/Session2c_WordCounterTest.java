@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 class Session2c_WordCounterTest {
 
     // TODO Add the proper assertions to complete the tests. 
-    // The test name explains what needs to be verified. 
+    // The test name explains what needs to be asserted. 
     
     @Test
     void shouldContainUniqueWord() {
