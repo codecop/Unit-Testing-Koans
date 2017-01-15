@@ -24,18 +24,18 @@ class Session2c_WordCounterTest {
     @Test
     void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); // keep
-        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); // keep
+        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); 
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); 
         // Hamcrest improves readability:
-        assertThat(counter.uniqueWords(), hasItemInArray("bar"));
-        assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
+        // TODO Check that counter.uniqueWords(), hasItemInArray("bar").
+        // TODO Check that counter.uniqueWords(), not(hasItemInArray("foo")).
     }
 
     @Test
     void shouldFindNumberOfUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertEquals(3, counter.uniqueWords().length); // keep
+        assertEquals(3, counter.uniqueWords().length); 
         // Hamcrest improves readability:
-        assertThat(counter.uniqueWords(), arrayWithSize(3));
+        // TODO Check that counter.uniqueWords(), arrayWithSize(3).
     }
 }
