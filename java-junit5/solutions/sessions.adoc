@@ -15,3 +15,5 @@ include::session3.adoc[]
 include::session4.adoc[]
 
 include::session5.adoc[]
+
+include::session6.adoc[]
