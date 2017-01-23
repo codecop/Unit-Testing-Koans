@@ -33,7 +33,8 @@ Dir['**/Session*.java'].each do |file_name|
       if $1 == "ArrayEquals" or $1 == "That" or $1 == "True"
         what = $2
       elsif $1 == "Equals"
-        what = $2.gsub(/, 0\.01/, '') # ignore double rounding
+        what = $2.sub(/, 0\.01/, ''). # remove double rounding
+                  sub(/Integer.valueOf\(2\)/, '2') # remove boxing
       elsif $1 == "Timeout"
         what = "#{$2} has a "
         how = $1.downcase()
