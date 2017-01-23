@@ -52,7 +52,7 @@ class Session2b_WordCounterTest {
     @Test
     void shouldCountNumberOfWorldsIn100Millis() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertTimeout(Duration.ofMillis(100), counter::numberOfWords);
+        assertTimeout(Duration.ofMillis(200), counter::numberOfWords);
     }
     
 }
