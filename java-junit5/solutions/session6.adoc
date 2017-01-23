@@ -16,6 +16,7 @@ void shouldDoSomething(@Temp File file) {
 }
 ----
 
+=== !
 [source,java]
 ----
 import org.junit.jupiter.api.extension.AfterEachCallback;
