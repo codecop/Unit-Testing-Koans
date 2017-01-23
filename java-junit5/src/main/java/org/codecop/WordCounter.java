@@ -27,6 +27,12 @@ public class WordCounter {
     }
 
     public int numberOfWords() {
+        // here some hard core calculation...
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ignore) {
+            Thread.currentThread().interrupt();
+        }
         return words.size();
     }
 
