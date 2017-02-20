@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Package" basedir="." default="zip">
+
+    <target name="zip">
+        <delete file="../junit5-koans-new.zip" />
+        <zip destfile="../junit5-koans-new.zip">
+            <zipfileset dir="." includes=".mvn/**" prefix="junit5-koans">
+                <include name="pom.xml" />
+                <include name="stripped-pom.xml" />
+                <include name="mvnw" />
+                <include name="mvnw.cmd" />
+            </zipfileset>
+
+            <zipfileset dir="." includes="gradle/**" prefix="junit5-koans">
+                <include name="build.gradle" />
+                <include name="settings.gradle" />
+                <include name="gradlew" />
+                <include name="gradlew.bat" />
+            </zipfileset>
+
+            <zipfileset dir="." includes="src/**" prefix="junit5-koans">
+                <include name="README.md" />
+                <include name="license.txt" />
+            </zipfileset>
+        </zip>
+    </target>
+
+</project>
