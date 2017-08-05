@@ -16,7 +16,6 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
-import org.junit.jupiter.api.extension.TestExtensionContext;
 
 /**
  * Session 6: TempFile - Temporary file Extensions. <br />
@@ -34,14 +33,14 @@ class Session6_TempFile implements BeforeEachCallback, ParameterResolver, AfterE
     // from the empty methods of the extension interfaces implemented.
     
     @Override
-    public void beforeEach(TestExtensionContext context) throws IOException {
+    public void beforeEach(ExtensionContext context) throws IOException {
         Object testInstance = context.getTestInstance();
         // TODO create a temporary file before each test
         createTempFileFor(testInstance); // drop
     }
 
     @Override
-    public boolean supports(ParameterContext parameterContext, ExtensionContext context) {
+    public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext context) {
         Parameter parameter = parameterContext.getParameter();
         boolean parameterIsAnnotated = parameter.isAnnotationPresent(Temp.class);
         boolean parameterExpectsFile = parameter.getType() == File.class;
@@ -50,14 +49,14 @@ class Session6_TempFile implements BeforeEachCallback, ParameterResolver, AfterE
     }
 
     @Override
-    public Object resolve(ParameterContext parameterContext, ExtensionContext context) throws ParameterResolutionException {
+    public Object resolveParameter(ParameterContext parameterContext, ExtensionContext context) throws ParameterResolutionException {
         // TODO return the temporary file  whenever a test method parameter has been resolved to use it.
         // use return null;
         return getTempFile(); // drop
     }
 
     @Override
-    public void afterEach(TestExtensionContext context) {
+    public void afterEach(ExtensionContext context) {
         // TODO remove the temporary file after each test
         removeTempFile(); // drop
     }
