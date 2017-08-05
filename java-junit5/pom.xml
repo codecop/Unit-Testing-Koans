@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <!-- Run JUnit 5 with Maven -->
-    <!-- See https://github.com/junit-team/junit5-samples/blob/r5.0.0-M3/junit5-maven-consumer/pom.xml -->
+    <!-- See https://github.com/junit-team/junit5-samples/blob/r5.0.0-RC2/junit5-maven-consumer/pom.xml -->
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.codecop</groupId>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.0-M3</version>
+            <version>5.0.0-RC2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -53,13 +53,13 @@
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>1.0.0-M3</version>
+                        <version>1.0.0-RC2</version>
                     </dependency>
                     <!-- API and engine are separated -->
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
-                        <version>5.0.0-M3</version>
+                        <version>5.0.0-RC2</version>
                     </dependency>
                 </dependencies>
             </plugin>
