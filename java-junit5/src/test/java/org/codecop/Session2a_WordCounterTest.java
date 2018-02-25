@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Session 2a: WordCounterTest - Basic assertions. <br />
- * See http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions
+ * @see "http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions"
  */
 class Session2a_WordCounterTest {
 

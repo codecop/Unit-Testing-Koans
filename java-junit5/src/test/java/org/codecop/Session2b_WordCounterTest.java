@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Session 2b: WordCounterTest - Assertions new in JUnit 5. <br />
- * See http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions
+ * @see "http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions"
  */
 class Session2b_WordCounterTest {
 
