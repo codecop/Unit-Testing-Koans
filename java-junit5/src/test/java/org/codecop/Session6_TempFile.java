@@ -19,7 +19,7 @@ import org.junit.jupiter.api.extension.ParameterResolver;
 
 /**
  * Session 6: TempFile - Temporary file Extensions. <br />
- * See http://junit.org/junit5/docs/current/user-guide/#extensions
+ * @see "http://junit.org/junit5/docs/current/user-guide/#extensions"
  */
 class Session6_TempFile implements BeforeEachCallback, ParameterResolver, AfterEachCallback {
 

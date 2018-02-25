@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Bonus Session 2c: WordCounterTest - Assertions with Hamcrest. <br />
- * See http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/package-summary.html
+ * @see "http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/package-summary.html"
  */
 class Session2c_WordCounterTest {
 

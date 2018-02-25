@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * Session 6: WordCounterFileExtensionTest - Reuse fixtures in Extensions. <br />
- * See http://junit.org/junit5/docs/current/user-guide/#extensions
+ * @see "http://junit.org/junit5/docs/current/user-guide/#extensions"
  */
 @ExtendWith(Session6_TempFile.class) // Use the TempFile extension to create a temporary words file for each test. 
 class Session6_WordCounterFileExtensionTest {
