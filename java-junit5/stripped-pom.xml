@@ -13,11 +13,10 @@
     </properties>
 
     <dependencies>
-        <!-- setup JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.0-M3</version>
+            <version>5.0.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -31,13 +30,12 @@
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>1.0.0-M3</version>
+                        <version>1.0.0</version>
                     </dependency>
-                    <!-- API and engine are separated -->
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
-                        <version>5.0.0-M3</version>
+                        <version>5.0.0</version>
                     </dependency>
                 </dependencies>
             </plugin>
