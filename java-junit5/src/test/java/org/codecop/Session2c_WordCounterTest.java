@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  */
 class Session2c_WordCounterTest {
 
-    // TODO Add the proper assertions to complete the tests. 
+    // TODO Add the proper assertions to complete the tests using Hamcrest. 
     // The test name explains what needs to be asserted. 
     
     @Test
