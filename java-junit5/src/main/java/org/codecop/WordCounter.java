@@ -30,7 +30,7 @@ public class WordCounter {
         // here some hard core calculation...
         try {
             Thread.sleep(100);
-        } catch (InterruptedException ignore) {
+        } catch (@SuppressWarnings("unused") InterruptedException ignore) {
             Thread.currentThread().interrupt();
         }
         return words.size();
