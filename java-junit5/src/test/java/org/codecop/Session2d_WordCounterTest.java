@@ -23,18 +23,18 @@ class Session2d_WordCounterTest {
     @Test
     void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); // keep
-        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); // keep
+        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); 
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); 
         // AssertJ improves readability:
-        assertThat(counter.uniqueWords()).contains("bar");
-        assertThat(counter.uniqueWords()).doesNotContain("foo");
+        // TODO Check that counter.uniqueWords() contains "bar".
+        // TODO Check that counter.uniqueWords() doesNotContain "foo".
     }
 
     @Test
     void shouldFindNumberOfUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertEquals(3, counter.uniqueWords().length); // keep
+        assertEquals(3, counter.uniqueWords().length); 
         // AssertJ improves readability:
-        assertThat(counter.uniqueWords()).hasSize(3);
+        // TODO Check that counter.uniqueWords() hasSize 3.
     }
 }

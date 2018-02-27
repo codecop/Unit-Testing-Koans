@@ -34,11 +34,11 @@ class Session5b_WordCounterRatioTest {
         );
     }
 
-    @ParameterizedTest // mark this test as parameterised
-    @MethodSource("getTestCases") // tell it to take arguments from "getTestCases"  
+    // TODO mark this test as parameterised
+    // TODO tell it to take arguments from "getTestCases"  
     void shouldReturnRatioOfGivenWord(String sentence, String word, double expectedRatio) {
         WordCounter counter = new WordCounter(sentence);
-        assertEquals(expectedRatio, counter.ratioOf(word), 0.01); // keep
+        assertEquals(expectedRatio, counter.ratioOf(word), 0.01); 
     }
 
 }
