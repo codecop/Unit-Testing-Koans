@@ -18,4 +18,6 @@ include::session4.adoc[]
 
 include::session5.adoc[]
 
+include::session5b.adoc[]
+
 include::session6.adoc[]
