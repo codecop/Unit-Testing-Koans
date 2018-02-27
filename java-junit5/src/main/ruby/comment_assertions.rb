@@ -27,7 +27,7 @@ def comment_assertion_in(line)
   elsif line =~ /(\S.*) = assertThrows\((.*)\);/
     "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
 
-  elsif line =~ /assert(\w+)\((.*)\);/
+  elsif line =~ /assert(\w+)\((.*)\)(?:;|,)?/
     # comment general assertions
     comment_assert($`, $1, $2, $') 
     
@@ -47,14 +47,14 @@ def comment_assertion_in(line)
 end
 
 def comment_assert(before, term, args, after)
-  front = "#{before}// TODO Check that "
+  front = "#{before.sub(/\(\) -> /, '')}// TODO Check that "
   how = ''
   back = ".#{after}"
 
   if term == "That" 
     # Hamcrest and AssertJ
     what = args.gsub(/\)\.|\((?!\))/, ' '). # remove ). and ( 
-                gsub(/\)+$/, '') # remove trailing )
+                gsub(/\)+$/, '') # remove trailing )s
 
   elsif term == "ArrayEquals" or term == "True"
     what = args
