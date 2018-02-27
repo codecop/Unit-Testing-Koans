@@ -1,7 +1,7 @@
-		            BSD LICENSE
+                    BSD LICENSE
  http://www.opensource.org/licenses/bsd-license.php
 
-Copyright (c) 2016, Peter Kofler & Görge Albrecht
+Copyright (c) 2016, Peter Kofler and Görge Albrecht
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
