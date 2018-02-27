@@ -20,7 +20,7 @@ class Session5_WordCounterRatioTest {
     // TODO Add the needed code/annotations to run this test with all examples.
 
     @Test
-    public void convinceIntelliJThatThisIsValidJUnit5Test() {
+    void convinceIntelliJThatThisIsValidJUnit5Test() {
         // convince IntelliJ that this is a valid JUnit5 test
     }
 
