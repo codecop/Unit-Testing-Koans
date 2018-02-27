@@ -31,7 +31,7 @@ def comment_assertion_in(line)
     # comment general assertions
     comment_assert($`, $1, $2, $') 
     
-  elsif line =~ /@TestFactory|@BeforeEach|@AfterEach|@ExtendWith\([^)]+\)/
+  elsif line =~ /(@TestFactory|@BeforeEach|@AfterEach|@ExtendWith\([^)]+\)|@ParameterizedTest|@MethodSource\([^)]+\))(\s*\/\/)?/
     # comment test factory, life cycle, extension
     "#{$`}// TODO#{$'}"
 
@@ -51,7 +51,12 @@ def comment_assert(before, term, args, after)
   how = ''
   back = ".#{after}"
 
-  if term == "ArrayEquals" or term == "That" or term == "True"
+  if term == "That" 
+    # Hamcrest and AssertJ
+    what = args.gsub(/\)\.|\((?!\))/, ' '). # remove ). and ( 
+                gsub(/\)+$/, '') # remove trailing )
+
+  elsif term == "ArrayEquals" or term == "True"
     what = args
   
   elsif term == "Equals"
