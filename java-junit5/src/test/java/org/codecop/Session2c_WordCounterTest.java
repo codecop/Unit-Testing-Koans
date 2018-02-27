@@ -20,7 +20,7 @@ class Session2c_WordCounterTest {
 
     // TODO Add the proper assertions to complete the tests using Hamcrest. 
     // The test name explains what needs to be asserted. 
-    
+
     @Test
     void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
