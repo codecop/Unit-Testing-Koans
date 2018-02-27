@@ -11,14 +11,15 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Bonus Session 2d: WordCounterTest - Assertions with AssertJ. <br />
- * TODO @see "http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html"
- * @author Daniel Passecker 
+ * @see "http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html"
+ * 
+ * @author Daniel Passecker
  */
 class Session2d_WordCounterTest {
 
     // TODO Add the proper assertions to complete the tests using AssertJ. 
     // The test name explains what needs to be asserted. 
-    
+
     @Test
     void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
