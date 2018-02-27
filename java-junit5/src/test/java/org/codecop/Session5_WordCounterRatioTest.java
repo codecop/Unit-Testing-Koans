@@ -50,17 +50,14 @@ class Session5_WordCounterRatioTest {
 
         void shouldReturnRatioOfGivenWord() {
             WordCounter counter = new WordCounter(sentence);
-            assertEquals(expectedRatio, counter.ratioOf(word), 0.01); // keep
+            assertEquals(expectedRatio, counter.ratioOf(word), 0.01); 
         }
     }
 
-    @TestFactory // Test factory will create a sequence of tests.
+    // TODO Test factory will create a sequence of tests.
     List<DynamicTest> createTests() {
         // TODO Take data from TEST_CASES field and convert it to list of DynamicTests.
-        // use return Collections.<DynamicTest>emptyList().stream(). //
-        // use        collect(Collectors.toList());
-        return TEST_CASES.stream(). // drop
-                map(testCase -> DynamicTest.dynamicTest(testCase.name(), testCase::shouldReturnRatioOfGivenWord)). // drop
-                collect(Collectors.toList()); // drop
+        return Collections.<DynamicTest>emptyList().stream(). //
+               collect(Collectors.toList());
     }
 }

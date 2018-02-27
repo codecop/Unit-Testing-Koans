@@ -36,7 +36,6 @@ class Session6_TempFile implements BeforeEachCallback, ParameterResolver, AfterE
     public void beforeEach(ExtensionContext context) throws IOException {
         Object testInstance = context.getTestInstance();
         // TODO create a temporary file before each test
-        createTempFileFor(testInstance); // drop
     }
 
     @Override
@@ -51,14 +50,12 @@ class Session6_TempFile implements BeforeEachCallback, ParameterResolver, AfterE
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext context) throws ParameterResolutionException {
         // TODO return the temporary file  whenever a test method parameter has been resolved to use it.
-        // use return null;
-        return getTempFile(); // drop
+        return null;
     }
 
     @Override
     public void afterEach(ExtensionContext context) {
         // TODO remove the temporary file after each test
-        removeTempFile(); // drop
     }
     
     // --- actual temporary file logic
@@ -79,7 +76,7 @@ class Session6_TempFile implements BeforeEachCallback, ParameterResolver, AfterE
     }
     
     private void removeTempFile() {
-        assertTrue(tempFile.delete()); // keep
+        assertTrue(tempFile.delete()); 
     }
     
 }
