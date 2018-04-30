@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Package" basedir="." default="zip">
+
+    <target name="zip">
+        <delete file="../python-unittest-koans-new.zip" />
+        <zip destfile="../python-unittest-koans-new.zip">
+            <zipfileset dir="." prefix="python-unittest-koans">
+                <include name="README.md" />
+                <include name="license.txt" />
+            </zipfileset>
+            <zipfileset dir="." includes="wordcount/*.py" prefix="python-unittest-koans">
+            </zipfileset>
+            <zipfileset dir="." includes="test/*.py" prefix="python-unittest-koans">
+            </zipfileset>
+        </zip>
+    </target>
+
+</project>
