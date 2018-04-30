@@ -3,7 +3,7 @@ import unittest
 from wordcount.wordcounter import WordCounter
 
 
-# Session 2a: WordCounterTestCase - Basic assertions.
+# Session 2: WordCounterTestCase - Basic assertions.
 # See "https://docs.python.org/2/library/unittest.html#test-cases"
 class Session2a_WordCounterTestCase(unittest.TestCase):
 
