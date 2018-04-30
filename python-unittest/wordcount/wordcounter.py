@@ -36,7 +36,7 @@ class WordCounter:
     def ratioOf(self, word):
         count = self.countOf(word)
         if count is None:
-            raise word + " not in sentence"
+            raise ValueError(word + " not in sentence")
         return 1.0 * count / self.numberOfWords()
 
 #     def Summary summaryOf(String word):
