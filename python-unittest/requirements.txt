@@ -1,0 +1,2 @@
+# Python PIP (package manager) required dependencies
+parameterized=0.6.1 
