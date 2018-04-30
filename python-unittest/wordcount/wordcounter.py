@@ -38,15 +38,3 @@ class WordCounter:
         if count is None:
             raise ValueError(word + " not in sentence")
         return 1.0 * count / self.numberOfWords()
-
-#     def Summary summaryOf(String word):
-#         return new Summary(word, countOf(word))
-#
-#
-#     def static class Summary: {
-#         def final String word
-#         def final int count
-#
-#         def Summary(String word, int count):
-#             this.word = word
-#             this.count = count
