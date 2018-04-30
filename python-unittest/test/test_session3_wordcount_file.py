@@ -7,7 +7,7 @@ from wordcount.wordcounter import WordCounter
 testFile = "FileWordCounterTest.tmp"
 
 
-# Session 3: WordCounterFileTest - Fixtures, e.g. using a test file.
+# Session 3: WordCounterFileTestCase - Fixtures, e.g. using a test file.
 # See "https://docs.python.org/2/library/unittest.html#test-cases"
 class Session3_WordCounterFileTestCase(unittest.TestCase):
 
