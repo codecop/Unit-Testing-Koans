@@ -22,8 +22,7 @@ class Session4_WordCounterFailureTestCase(unittest.TestCase):
             counter = WordCounter("green bar green")
             return counter.ratioOf("missingWord")
 
-        self.assertRaisesRegexp(
-            ValueError, "missingWord not in sentence", ratioOfMissingWord)
+        self.assertRaisesRegexp(ValueError, "missingWord not in sentence", ratioOfMissingWord)
 
     # TODO The next test does not work, we need to change the code,
     # but we will do that tomorrow. For today let's skip it.
