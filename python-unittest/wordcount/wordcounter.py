@@ -7,9 +7,11 @@ class WordCounter:
     def __init__(self, sentence):
         self._words = sentence.split()
 
-#      # Load words from a text file.
-#     def __init__(File wordFile) throws IOException {
-#         this(StringToFile.read(wordFile))
+    # Load words from a text file.
+    @classmethod
+    def load(cls, textFile):
+        with open(textFile, "r") as text_file:
+            return WordCounter(text_file.read())
 
     def numberOfWords(self):
         # here some hard core calculation...
