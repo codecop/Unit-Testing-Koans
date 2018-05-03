@@ -6,7 +6,7 @@ from wordcount.wordcounter import WordCounter
 
 # Session 5b: WordCounterRatioTestCase - parameterised/table driven.
 # See external library "https://github.com/wolever/parameterized"
-# Install with "pip install parameterized".
+# Install with `pip install parameterized`.
 class Session5b_WordCounterRatioTestCase(unittest.TestCase):
 
     # TODO Add the needed decorators to run this test with all examples.
