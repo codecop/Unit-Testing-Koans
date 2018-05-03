@@ -51,7 +51,7 @@ class Session3WordCounterFileTestCase(unittest.TestCase):
         counter = WordCounter.load(TEST_FILE)
         self.assertTrue(counter.contains_word("bar"))
 
-    # Helper function to create test data.
     def _write(self, sentence, text_file_name):
+        """Helper function to create test data."""
         with open(text_file_name, "w") as text_file:
             text_file.write(sentence)
