@@ -12,6 +12,7 @@ syntax: glob
 .project
 .pydevproject
 .settings
+.buildpath
 
 # generated setup files
 *.egg-info
