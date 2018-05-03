@@ -6,7 +6,7 @@ from wordcount.wordcounter import WordCounter
 
 # Session 5: WordCounterRatioTestCase - parameterised/table driven. See
 # "https://docs.python.org/3/library/unittest.html#distinguishing-test-iterations-using-subtests"
-@unittest.skipIf(sys.version_info[0] < 3, "not supported in Python 2")  # keep
+@unittest.skipIf(sys.version_info[0] < 3, "needs Python 3")  # keep
 class Session5_WordCounterRatioTestCase(unittest.TestCase):
 
     # We want to test more cases for the ratio. Here is a table of test cases.
