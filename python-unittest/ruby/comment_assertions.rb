@@ -57,7 +57,10 @@ def comment_assert(before, term, args, after)
   if term == "_that"
     # Hamcrest and assertpy
     what = args.gsub(/\)\.|\((?!\))/, ' '). # remove ). and (
-      gsub(/\)+$/, '') # remove trailing )s
+      gsub(/\)+$/, ''). # remove trailing )s
+      sub(/is_not |does_not_/, 'not ').
+      sub(/has_/, 'has ').
+      sub(/is_/, 'is ')
 
   elsif term == "True"
     what = args
