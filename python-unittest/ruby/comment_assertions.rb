@@ -24,10 +24,10 @@ def comment_assertion_in(line)
     # drop line
     "#{$'}"
 
-  elsif line =~ /self\.assertRaises\(([^,]+), (.*)\);/
+  elsif line =~ /self\.assertRaises\(([^,]+), (.*)\)/
     "#{$`}# TODO Expect #{$1} is thrown from #{$2}.#{$'}"
 
-  elsif line =~ /self\.assertRaisesRegexp\(([^,]+), ("[^"]+"), (.*)\);/
+  elsif line =~ /self\.assertRaisesRegexp\(([^,]+), ("[^"]+"), (.*)\)/
     "#{$`}# TODO Expect #{$1} with message #{$2} is thrown from #{$3}.#{$'}"
 
   elsif line =~ /(?:self\.)?assert(\w+)\((.*)\)/
@@ -63,7 +63,7 @@ def comment_assert(before, term, args, after)
     what = args
 
   elsif term == "AlmostEqual"
-    what = args.sub(/, delta=0\.01/, '') # remove double rounding
+    what = args.sub(/, delta=0\.01/, ' is equal') # remove double rounding
 
   else
     what = "#{args} is "
@@ -71,8 +71,7 @@ def comment_assert(before, term, args, after)
       sub(/not|isnot/, "not ").
       sub(/isnone|none/, "None").
       sub(/in/, "included").
-      sub(/regexpmatches/, "matched by regular expression").
-      sub(/raises/, "raised")
+      sub(/regexpmatches/, "matched by regular expression")
   end
 
   front + what + how + back
