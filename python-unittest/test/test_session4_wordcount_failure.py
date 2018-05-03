@@ -16,26 +16,25 @@ class Session4WordCounterFailureTestCase(unittest.TestCase):
         def word_count_of_missing_file():
             WordCounter.load("DoesNotExist.txt")
 
-        self.assertRaises(IOError, word_count_of_missing_file)
-        self.assertRaises(IOError, WordCounter.load, "DoesNotExist.txt")  # drop
-        # use pass
+        # TODO Expect IOError is thrown from word_count_of_missing_file.
+        pass
 
     def test_throw_ioerror_with_file_name_on_missing_file(self):
-        self.assertRaisesRegexp(IOError, "DoesNotExist", WordCounter.load, "DoesNotExist.txt")
-        # use pass
+        # TODO Expect IOError with message "DoesNotExist" is thrown from WordCounter.load, "DoesNotExist.txt".
+        pass
 
     def test_throw_value_error_with_message_on_unknown_word(self):
         def ratio_of_missing_word():
             counter = WordCounter("green bar green")
             return counter.ratio_of("missingWord")
 
-        self.assertRaisesRegexp(ValueError, "missingWord not in sentence", ratio_of_missing_word)
-        # use pass
+        # TODO Expect ValueError with message "missingWord not in sentence" is thrown from ratio_of_missing_word.
+        pass
 
     # TODO The next test does not work, we need to change the code,
     # but we will do that tomorrow. For today let's skip it.
 
-    @unittest.skip("work in progress, will continue tomorrow")
+    # TODO Mark this test as ignored with "work in progress, will continue tomorrow".
     def test_count_unique_words_case_insensitive(self):
         counter = WordCounter("green bar Green hat")
-        self.assertEqual(["bar", "green", "hat"], counter.unique_words())  # keep
+        self.assertEqual(["bar", "green", "hat"], counter.unique_words())

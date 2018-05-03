@@ -13,23 +13,21 @@ class Session2bWordCounterTestCase(unittest.TestCase):
 
     def test_count_number_of_words(self):
         counter = WordCounter("Keep the bar green to keep the code clean.")
-        self.assertEqual(9, counter.number_of_words())
+        # TODO Check that 9, counter.number_of_words() is equal.
 
     def test_contain_unique_word(self):
         counter = WordCounter("green bar green hat")
-        self.assertIn("bar", counter.unique_words())
+        # TODO Check that "bar", counter.unique_words() is included.
 
     def test_not_contain_unique_word(self):
         counter = WordCounter("green bar green hat")
-        self.assertNotIn("foo", counter.unique_words())
+        # TODO Check that "foo", counter.unique_words() is not included.
 
     def test_ratio_of_word(self):
         counter = WordCounter("green bar green")
-        self.assertAlmostEqual(0.33, counter.ratio_of("bar"), delta=0.01)
+        # TODO Check that 0.33, counter.ratio_of("bar") is equal.
         # Note that floating point numbers need an accuracy delta, e.g. 0.01.
-        # also assertNotAlmostEqual(a, b) # drop
 
     def test_first_unique_word_starts_with_b(self):
         counter = WordCounter("green bar green")
-        self.assertRegexpMatches(counter.first_unique_word(), "^b")
-        # also assertNotRegexpMatches(s, r) # drop
+        # TODO Check that counter.first_unique_word(), "^b" is matched by regular expression.

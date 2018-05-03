@@ -15,24 +15,24 @@ class Session2dWordCounterTestCase(unittest.TestCase):
 
     def test_count_number_of_words(self):
         counter = WordCounter("Keep the bar green to keep the code clean.")
-        self.assertEqual(9, counter.number_of_words())  # keep
+        self.assertEqual(9, counter.number_of_words())
         # assertpy is fluent:
-        assert_that(counter.number_of_words()).is_equal_to(9)
+        # TODO Check that counter.number_of_words() is equal_to 9.
 
     def test_contain_unique_word(self):
         counter = WordCounter("green bar green hat")
-        self.assertIn("bar", counter.unique_words())  # keep
+        self.assertIn("bar", counter.unique_words())
         # assertpy is fluent:
-        assert_that(counter.unique_words()).contains("bar")
+        # TODO Check that counter.unique_words() contains "bar".
 
     def test_not_contain_unique_word(self):
         counter = WordCounter("green bar green hat")
-        self.assertNotIn("foo", counter.unique_words())  # keep
+        self.assertNotIn("foo", counter.unique_words())
         # assertpy is fluent:
-        assert_that(counter.unique_words()).does_not_contain("foo")
+        # TODO Check that counter.unique_words() not contain "foo".
 
     def test_find_number_of_unique_words(self):
         counter = WordCounter("green bar green hat")
-        self.assertEqual(3, len(counter.unique_words()))  # keep
+        self.assertEqual(3, len(counter.unique_words()))
         # assertpy is fluent:
-        assert_that(counter.unique_words()).is_length(3)
+        # TODO Check that counter.unique_words() is length 3.

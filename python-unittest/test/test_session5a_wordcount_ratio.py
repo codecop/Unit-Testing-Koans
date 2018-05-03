@@ -4,7 +4,7 @@ import sys
 from wordcount.wordcounter import WordCounter
 
 
-@unittest.skipIf(sys.version_info[0] < 3, "needs Python 3")  # keep
+@unittest.skipIf(sys.version_info[0] < 3, "needs Python 3")
 class Session5aWordCounterRatioTestCase(unittest.TestCase):
     """
     Session 5a: WordCounterRatioTestCase - parameterised/table driven.
@@ -25,10 +25,8 @@ class Session5aWordCounterRatioTestCase(unittest.TestCase):
         for test_case in self.table_data():
             sentence, word, expected_ratio = test_case
             # TODO Add code to run this test with all examples as sub tests.
-            with self.subTest("testRatioOfGivenWord_" + sentence + "_" + word):  # drop
-                self.ratio_of_given_word(sentence, word, expected_ratio)   # drop
 
     def ratio_of_given_word(self, sentence, word, expected_ratio):
         """Helper function for each set of parameters."""
         counter = WordCounter(sentence)
-        self.assertAlmostEqual(expected_ratio, counter.ratio_of(word), delta=0.01)  # keep
+        self.assertAlmostEqual(expected_ratio, counter.ratio_of(word), delta=0.01)

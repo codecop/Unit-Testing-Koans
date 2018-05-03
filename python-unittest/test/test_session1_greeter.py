@@ -10,12 +10,12 @@ class Session1GreeterTestCase(unittest.TestCase):
 
     def test_hello_name(self):
         greeter = Greeter()
-        self.assertEqual("Hello Peter", greeter.greet("Peter"))
+        # TODO Check that "Hello Peter", greeter.greet("Peter") is equal.
 
     def test_hello_none(self):
         greeter = Greeter()
-        self.assertEqual("Hello", greeter.greet(None))
+        # TODO Check that "Hello", greeter.greet(None) is equal.
 
     def test_ignore_whitespace(self):
         greeter = Greeter()
-        self.assertEqual("Hello Peter", greeter.greet(" Peter "))
+        # TODO Check that "Hello Peter", greeter.greet(" Peter ") is equal.
