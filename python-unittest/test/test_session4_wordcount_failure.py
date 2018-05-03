@@ -18,9 +18,11 @@ class Session4WordCounterFailureTestCase(unittest.TestCase):
 
         self.assertRaises(IOError, word_count_of_missing_file)
         self.assertRaises(IOError, WordCounter.load, "DoesNotExist.txt")  # drop
+        # use pass
 
     def test_throw_ioerror_with_file_name_on_missing_file(self):
         self.assertRaisesRegexp(IOError, "DoesNotExist", WordCounter.load, "DoesNotExist.txt")
+        # use pass
 
     def test_throw_value_error_with_message_on_unknown_word(self):
         def ratio_of_missing_word():
@@ -28,6 +30,7 @@ class Session4WordCounterFailureTestCase(unittest.TestCase):
             return counter.ratio_of("missingWord")
 
         self.assertRaisesRegexp(ValueError, "missingWord not in sentence", ratio_of_missing_word)
+        # use pass
 
     # TODO The next test does not work, we need to change the code,
     # but we will do that tomorrow. For today let's skip it.
