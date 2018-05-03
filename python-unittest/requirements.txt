@@ -1,3 +1,4 @@
 # Python PIP (package manager) required dependencies
 parameterized==0.6.1 
 PyHamcrest==1.9.0
+assertpy==0.13

@@ -7,9 +7,11 @@ Python [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to u
 This is a Python project. It is compatible with both Python 2 and 3. 
 Required dependencies are listed in [`requirements.txt`](requirements.txt).
 
-Additional exercises cover [parameterized](https://github.com/wolever/parameterized) and 
-[PyHamcrest](https://github.com/hamcrest/PyHamcrest). Run `pip install -r requirements.txt`
-to install the required packages. Alternatively the dependencies are available in the `wheels` folder.
+Additional exercises cover [parameterized](https://github.com/wolever/parameterized), 
+[PyHamcrest](https://github.com/hamcrest/PyHamcrest) and
+[assertpy](https://github.com/ActivisionGameScience/assertpy).  
+Run `pip install -r requirements.txt` to install the required packages. 
+Alternatively the dependencies are available in the `packages` folder.
 
 ## Assignment ##
 
