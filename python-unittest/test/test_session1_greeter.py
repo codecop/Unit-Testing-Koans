@@ -3,19 +3,19 @@ import unittest
 from wordcount.greeter import Greeter
 
 
-# Session 1: GreeterTestCase - Your first tests.
-class Session1_GreeterTestCase(unittest.TestCase):
+class Session1GreeterTestCase(unittest.TestCase):
+    """Session 1: GreeterTestCase - Your first tests."""
 
     # TODO We will add the proper self.assertions together.
 
-    def testHelloName(self):
+    def test_hello_name(self):
         greeter = Greeter()
         self.assertEqual("Hello Peter", greeter.greet("Peter"))
 
-    def testHelloNone(self):
+    def test_hello_none(self):
         greeter = Greeter()
         self.assertEqual("Hello", greeter.greet(None))
 
-    def testIgnoreWhitespace(self):
+    def test_ignore_whitespace(self):
         greeter = Greeter()
         self.assertEqual("Hello Peter", greeter.greet(" Peter "))

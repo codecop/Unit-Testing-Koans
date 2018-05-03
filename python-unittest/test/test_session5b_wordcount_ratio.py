@@ -4,10 +4,12 @@ from parameterized import parameterized
 from wordcount.wordcounter import WordCounter
 
 
-# Session 5b: WordCounterRatioTestCase - parameterised/table driven.
-# See external library "https://github.com/wolever/parameterized"
-# Install with `pip install parameterized`.
-class Session5b_WordCounterRatioTestCase(unittest.TestCase):
+class Session5bWordCounterRatioTestCase(unittest.TestCase):
+    """
+    Session 5b: WordCounterRatioTestCase - parameterised/table driven.
+    See external library "https://github.com/wolever/parameterized"
+    Install with `pip install parameterized`.
+    """
 
     # TODO Add the needed decorators to run this test with all examples.
 
@@ -20,6 +22,6 @@ class Session5b_WordCounterRatioTestCase(unittest.TestCase):
     ]
 
     @parameterized.expand(TableData)  # mark this test as parameterised
-    def testRatioOfGivenWordParameterized(self, sentence, word, expectedRatio):
+    def test_ratio_parameterized(self, sentence, word, expected_ratio):
         counter = WordCounter(sentence)
-        self.assertAlmostEqual(expectedRatio, counter.ratio_of(word), delta=0.01)  # keep
+        self.assertAlmostEqual(expected_ratio, counter.ratio_of(word), delta=0.01)  # keep
