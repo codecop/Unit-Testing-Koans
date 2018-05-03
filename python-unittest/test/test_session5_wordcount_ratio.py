@@ -10,7 +10,7 @@ from wordcount.wordcounter import WordCounter
 class Session5_WordCounterRatioTestCase(unittest.TestCase):
 
     # We want to test more cases for the ratio. Here is a table of test cases.
-    def tableOfTestCases(self):
+    def tableData(self):
         return [
             ("green", "green", 1.0),  #
             ("green bar green", "green", 0.66),  #
@@ -20,8 +20,11 @@ class Session5_WordCounterRatioTestCase(unittest.TestCase):
 
     def testRatioOfGivenWordAllCases(self):
         # TODO Add the needed code to run this test with all examples.
-        for tc in self.tableOfTestCases():
+        for tc in self.tableData():
             sentence, word, expectedRatio = tc
             with self.subTest("testRatioOfGivenWord_" + sentence + "_" + word):
-                counter = WordCounter(sentence)
-                self.assertAlmostEqual(expectedRatio, counter.ratioOf(word), delta=0.01)  # keep
+                self.ratioOfGivenWord(sentence, word, expectedRatio)
+
+    def ratioOfGivenWord(self, sentence, word, expectedRatio):
+        counter = WordCounter(sentence)
+        self.assertAlmostEqual(expectedRatio, counter.ratioOf(word), delta=0.01)  # keep

@@ -4,7 +4,7 @@ import unittest
 from wordcount.wordcounter import WordCounter
 
 
-testFile = "FileWordCounterTest.tmp"
+TEST_FILE = "FileWordCounterTest.tmp"
 
 
 # Session 3: WordCounterFileTestCase - Fixtures, e.g. using a test file.
@@ -12,12 +12,12 @@ testFile = "FileWordCounterTest.tmp"
 class Session3_WordCounterFileTestCase(unittest.TestCase):
 
     def testCountOfWords(self):
-        self._write("Keep the bar green to keep the code clean.", testFile)
+        self._write("Keep the bar green to keep the code clean.", TEST_FILE)
 
-        counter = WordCounter.load(testFile)
+        counter = WordCounter.load(TEST_FILE)
         self.assertEqual(9, counter.numberOfWords())  # keep
 
-        os.remove(testFile)
+        os.remove(TEST_FILE)
 
     # The problem is that os.remove is not called in case of test failures.
     # Better use setUp/tearDown hooks for test file handling.
@@ -29,24 +29,24 @@ class Session3_WordCounterFileTestCase(unittest.TestCase):
 
     # This method should be called before each test.
     def createFreshTestFileForEachTest(self):
-        self._write("Keep the bar green to keep the code clean.", testFile)
+        self._write("Keep the bar green to keep the code clean.", TEST_FILE)
 
     def tearDown(self):  # drop
         self.deleteTestFile()  # drop
 
     # This method should be called after each test.
     def deleteTestFile(self):
-        if os.path.exists(testFile):
-            os.remove(testFile)
+        if os.path.exists(TEST_FILE):
+            os.remove(TEST_FILE)
 
     # TODO Add the proper assertions to complete the tests.
 
     def testCountOfWordsBetter(self):
-        counter = WordCounter.load(testFile)
+        counter = WordCounter.load(TEST_FILE)
         self.assertEqual(9, counter.numberOfWords())
 
     def testContainmentOfWord(self):
-        counter = WordCounter.load(testFile)
+        counter = WordCounter.load(TEST_FILE)
         self.assertTrue(counter.containsWord("bar"))
 
     # Helper function to create test data.

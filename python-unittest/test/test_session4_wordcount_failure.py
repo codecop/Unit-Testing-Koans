@@ -12,12 +12,15 @@ class Session4_WordCounterFailureTestCase(unittest.TestCase):
 
     def testThrowIOErrorOnMissingFile(self):
         def wordCountOfMissingFile():
-            WordCounter.load("IamSureThisDoesNotExist.txt")
+            WordCounter.load("DoesNotExist.txt")
 
         self.assertRaises(IOError, wordCountOfMissingFile)
-        self.assertRaises(IOError, WordCounter.load, "ThisDoesNotExist.txt")  # drop
+        self.assertRaises(IOError, WordCounter.load, "DoesNotExist.txt")  # drop
 
-    def testThrowValueErrorWithMessage(self):
+    def testThrowIOErrorWithFileNameOnMissingFile(self):
+        self.assertRaisesRegexp(IOError, "DoesNotExist", WordCounter.load, "DoesNotExist.txt")
+
+    def testThrowValueErrorWithMessageOnUnknownWord(self):
         def ratioOfMissingWord():
             counter = WordCounter("green bar green")
             return counter.ratioOf("missingWord")

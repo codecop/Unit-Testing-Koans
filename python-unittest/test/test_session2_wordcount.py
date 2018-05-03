@@ -34,6 +34,10 @@ class Session2a_WordCounterTestCase(unittest.TestCase):
         counter = WordCounter("green bar green hat")
         self.assertIsNotNone(counter.countOf("green"))
 
+    def testCountGreenTwice(self):
+        counter = WordCounter("green bar green hat")
+        self.assertEqual(2, counter.countOf("green"))
+
     def testFindUniqueWords(self):
         counter = WordCounter("green bar green hat")
         self.assertEqual(["bar", "green", "hat"], counter.uniqueWords())
