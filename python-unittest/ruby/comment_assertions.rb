@@ -12,7 +12,7 @@ def load(file_name)
 end
 
 def comment_assertion_in(line)
-  if line =~ /  # keep/
+  if line =~ /\s*# keep/
     # leave that line alone, just remove the marker
     "#{$`}#{$'}"
 
@@ -20,20 +20,27 @@ def comment_assertion_in(line)
     # remove comment to use code that was commented
     "#{$`}#{$'}"
 
-  elsif line =~ /  # drop\s*$/
+  elsif line =~ /\s*# drop\s*$/
     # drop line
     "#{$'}"
 
-  elsif line =~ /(\S.*) = assertThrows\((.*)\);/
-    "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
+  elsif line =~ /self\.assertRaises\(([^,]+), (.*)\);/
+    "#{$`}# TODO Expect #{$1} is thrown from #{$2}.#{$'}"
+
+  elsif line =~ /self\.assertRaisesRegexp\(([^,]+), ("[^"]+"), (.*)\);/
+    "#{$`}# TODO Expect #{$1} with message #{$2} is thrown from #{$3}.#{$'}"
 
   elsif line =~ /(?:self\.)?assert(\w+)\((.*)\)/
     # comment general assertions
     comment_assert($`, $1, $2, $')
 
-  elsif line =~ /@unittest\.skip\((.*)\)/
+  elsif line =~ /@parameterized\.expand\(([^)]+)\)/
+    # parameterized
+    "#{$`}# TODO Mark this test as parameterized with #{$1}.#{$'}"
+
+  elsif line =~ /@unittest\.skip\(([^)]+)\)/
     # comment disabled
-    "#{$`}// TODO Mark this test as ignored with #{$1}.#{$'}"
+    "#{$`}# TODO Mark this test as ignored with #{$1}.#{$'}"
 
   else
     # regular line
@@ -43,14 +50,14 @@ def comment_assertion_in(line)
 end
 
 def comment_assert(before, term, args, after)
-  front = "#{before.sub(/\(\) -> /, '')}// TODO Check that "
+  front = "#{before.sub(/\(\) -> /, '')}# TODO Check that "
   how = ''
   back = ".#{after}"
 
   if term == "_that"
-    # Hamcrest and AssertJ
+    # Hamcrest and assertpy
     what = args.gsub(/\)\.|\((?!\))/, ' '). # remove ). and (
-    gsub(/\)+$/, '') # remove trailing )s
+      gsub(/\)+$/, '') # remove trailing )s
 
   elsif term == "True"
     what = args
@@ -61,8 +68,11 @@ def comment_assert(before, term, args, after)
   else
     what = "#{args} is "
     how = term.downcase().
-    sub(/Not/, "not ")
-    # sub(/Raises/, "thrown")
+      sub(/not|isnot/, "not ").
+      sub(/isnone|none/, "None").
+      sub(/in/, "included").
+      sub(/regexpmatches/, "matched by regular expression").
+      sub(/raises/, "raised")
   end
 
   front + what + how + back
