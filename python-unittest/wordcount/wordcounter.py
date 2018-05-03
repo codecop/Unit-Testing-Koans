@@ -38,3 +38,6 @@ class WordCounter:
         if count is None:
             raise ValueError(word + " not in sentence")
         return 1.0 * count / self.numberOfWords()
+
+    def firstUniqueWord(self):
+        return self.uniqueWords()[0]

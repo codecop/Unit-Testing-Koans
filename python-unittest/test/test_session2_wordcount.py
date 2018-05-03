@@ -41,8 +41,3 @@ class Session2a_WordCounterTestCase(unittest.TestCase):
     def testFindUniqueWords(self):
         counter = WordCounter("green bar green hat")
         self.assertEqual(["bar", "green", "hat"], counter.uniqueWords())
-
-    def testRatioOfWords(self):
-        counter = WordCounter("green bar green")
-        self.assertAlmostEqual(0.33, counter.ratioOf("bar"), delta=0.01)
-        # Note that floating point numbers need an accuracy delta, e.g. 0.01.
