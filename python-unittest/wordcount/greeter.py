@@ -1,10 +1,11 @@
 GREETING = "Hello"
 
 
-class Greeter:
+class Greeter(object):
+    """Greetings."""
 
-    # Return a proper greeting for a person.
     def greet(self, name):
+        """Return a proper greeting for a person."""
         if name is None:
             return GREETING
         return GREETING + " " + name.strip()

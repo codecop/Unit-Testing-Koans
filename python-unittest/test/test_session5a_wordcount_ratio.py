@@ -27,4 +27,4 @@ class Session5a_WordCounterRatioTestCase(unittest.TestCase):
 
     def ratioOfGivenWord(self, sentence, word, expectedRatio):
         counter = WordCounter(sentence)
-        self.assertAlmostEqual(expectedRatio, counter.ratioOf(word), delta=0.01)  # keep
+        self.assertAlmostEqual(expectedRatio, counter.ratio_of(word), delta=0.01)  # keep

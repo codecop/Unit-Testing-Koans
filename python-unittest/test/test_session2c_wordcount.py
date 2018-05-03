@@ -13,24 +13,24 @@ class Session2c_WordCounterTestCase(unittest.TestCase):
 
     def testCountNumberOfWords(self):
         counter = WordCounter("Keep the bar green to keep the code clean.")
-        self.assertEqual(9, counter.numberOfWords())  # keep
+        self.assertEqual(9, counter.number_of_words())  # keep
         # Hamcrest improves readability:
-        assert_that(9, equal_to(counter.numberOfWords()))
+        assert_that(9, equal_to(counter.number_of_words()))
 
     def testContainUniqueWord(self):
         counter = WordCounter("green bar green hat")
-        self.assertIn("bar", counter.uniqueWords())  # keep
+        self.assertIn("bar", counter.unique_words())  # keep
         # Hamcrest improves readability:
-        assert_that(counter.uniqueWords(), has_item("bar"))
+        assert_that(counter.unique_words(), has_item("bar"))
 
     def testNotContainInUniqueWords(self):
         counter = WordCounter("green bar green hat")
-        self.assertNotIn("foo", counter.uniqueWords())  # keep
+        self.assertNotIn("foo", counter.unique_words())  # keep
         # Hamcrest improves readability:
-        assert_that(counter.uniqueWords(), is_not(has_item("foo")))
+        assert_that(counter.unique_words(), is_not(has_item("foo")))
 
     def testFindNumberOfUniqueWords(self):
         counter = WordCounter("green bar green hat")
-        self.assertEqual(3, len(counter.uniqueWords()))  # keep
+        self.assertEqual(3, len(counter.unique_words()))  # keep
         # Hamcrest improves readability:
-        assert_that(counter.uniqueWords(), has_length(3))
+        assert_that(counter.unique_words(), has_length(3))

@@ -12,32 +12,32 @@ class Session2a_WordCounterTestCase(unittest.TestCase):
 
     def testCountNumberOfWords(self):
         counter = WordCounter("Keep the bar green to keep the code clean.")
-        self.assertEqual(9, counter.numberOfWords())
+        self.assertEqual(9, counter.number_of_words())
 
     def testNotCountCapitalizedWord(self):
         counter = WordCounter("green bar green hat")
-        self.assertNotEqual(1, counter.countOf("HAT"))
+        self.assertNotEqual(1, counter.count_of("HAT"))
 
     def testContainmentOfWord(self):
         counter = WordCounter("green bar green hat")
-        self.assertTrue(counter.containsWord("bar"))
+        self.assertTrue(counter.contains_word("bar"))
 
     def testNonContainmentOfWord(self):
         counter = WordCounter("green hat")
-        self.assertFalse(counter.containsWord("red"))
+        self.assertFalse(counter.contains_word("red"))
 
     def testReturnNoneForUnknownWordCount(self):
         counter = WordCounter("green bar green hat")
-        self.assertIsNone(counter.countOf("else"))
+        self.assertIsNone(counter.count_of("else"))
 
     def testReturnNotNoneWordCountForExistingWord(self):
         counter = WordCounter("green bar green hat")
-        self.assertIsNotNone(counter.countOf("green"))
+        self.assertIsNotNone(counter.count_of("green"))
 
     def testCountGreenTwice(self):
         counter = WordCounter("green bar green hat")
-        self.assertEqual(2, counter.countOf("green"))
+        self.assertEqual(2, counter.count_of("green"))
 
     def testFindUniqueWords(self):
         counter = WordCounter("green bar green hat")
-        self.assertEqual(["bar", "green", "hat"], counter.uniqueWords())
+        self.assertEqual(["bar", "green", "hat"], counter.unique_words())

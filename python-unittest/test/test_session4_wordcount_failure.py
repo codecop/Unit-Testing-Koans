@@ -23,7 +23,7 @@ class Session4_WordCounterFailureTestCase(unittest.TestCase):
     def testThrowValueErrorWithMessageOnUnknownWord(self):
         def ratioOfMissingWord():
             counter = WordCounter("green bar green")
-            return counter.ratioOf("missingWord")
+            return counter.ratio_of("missingWord")
 
         self.assertRaisesRegexp(ValueError, "missingWord not in sentence", ratioOfMissingWord)
 
@@ -33,4 +33,4 @@ class Session4_WordCounterFailureTestCase(unittest.TestCase):
     @unittest.skip("work in progress, will continue tomorrow")
     def testCountUniqueWordsCaseInsensitive(self):
         counter = WordCounter("green bar Green hat")
-        self.assertEqual(["bar", "green", "hat"], counter.uniqueWords())  # keep
+        self.assertEqual(["bar", "green", "hat"], counter.unique_words())  # keep

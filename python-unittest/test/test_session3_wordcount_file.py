@@ -15,7 +15,7 @@ class Session3_WordCounterFileTestCase(unittest.TestCase):
         self._write("Keep the bar green to keep the code clean.", TEST_FILE)
 
         counter = WordCounter.load(TEST_FILE)
-        self.assertEqual(9, counter.numberOfWords())  # keep
+        self.assertEqual(9, counter.number_of_words())  # keep
 
         os.remove(TEST_FILE)
 
@@ -43,11 +43,11 @@ class Session3_WordCounterFileTestCase(unittest.TestCase):
 
     def testCountOfWordsBetter(self):
         counter = WordCounter.load(TEST_FILE)
-        self.assertEqual(9, counter.numberOfWords())
+        self.assertEqual(9, counter.number_of_words())
 
     def testContainmentOfWord(self):
         counter = WordCounter.load(TEST_FILE)
-        self.assertTrue(counter.containsWord("bar"))
+        self.assertTrue(counter.contains_word("bar"))
 
     # Helper function to create test data.
     def _write(self, sentence, fileName):

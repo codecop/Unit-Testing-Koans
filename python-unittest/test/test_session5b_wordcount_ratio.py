@@ -22,4 +22,4 @@ class Session5b_WordCounterRatioTestCase(unittest.TestCase):
     @parameterized.expand(TableData)  # mark this test as parameterised
     def testRatioOfGivenWordParameterized(self, sentence, word, expectedRatio):
         counter = WordCounter(sentence)
-        self.assertAlmostEqual(expectedRatio, counter.ratioOf(word), delta=0.01)  # keep
+        self.assertAlmostEqual(expectedRatio, counter.ratio_of(word), delta=0.01)  # keep
