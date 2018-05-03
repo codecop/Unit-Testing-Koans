@@ -13,7 +13,7 @@ class Session3WordCounterFileTestCase(unittest.TestCase):
     See "https://docs.python.org/2/library/unittest.html#test-cases"
     """
 
-    def test_count_of_words(self):
+    def test_a_count_of_words(self):
         self._write("Keep the bar green to keep the code clean.", TEST_FILE)
 
         counter = WordCounter.load(TEST_FILE)
