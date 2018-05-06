@@ -17,7 +17,7 @@ class Session3WordCounterFileTestCase(unittest.TestCase):
         self._write("Keep the bar green to keep the code clean.", TEST_FILE)
 
         counter = WordCounter.load(TEST_FILE)
-        self.assertEqual(9, counter.number_of_words())  # keep
+        self.assertEqual(9, counter.number_of_words())
 
         os.remove(TEST_FILE)
 
@@ -26,15 +26,11 @@ class Session3WordCounterFileTestCase(unittest.TestCase):
 
     # TODO Add the needed methods and calls to create and delete test files.
 
-    def setUp(self):  # drop
-        self.create_fresh_test_file_for_each_test()  # drop
 
     # This method should be called before each test.
     def create_fresh_test_file_for_each_test(self):
         self._write("Keep the bar green to keep the code clean.", TEST_FILE)
 
-    def tearDown(self):  # drop
-        self.delete_test_file()  # drop
 
     # This method should be called after each test.
     def delete_test_file(self):
@@ -45,11 +41,11 @@ class Session3WordCounterFileTestCase(unittest.TestCase):
 
     def test_count_of_words_better(self):
         counter = WordCounter.load(TEST_FILE)
-        self.assertEqual(9, counter.number_of_words())
+        # TODO Check that 9, counter.number_of_words() is equal.
 
     def test_containment_of_word(self):
         counter = WordCounter.load(TEST_FILE)
-        self.assertTrue(counter.contains_word("bar"))
+        # TODO Check that counter.contains_word("bar").
 
     def _write(self, sentence, text_file_name):
         """Helper function to create test data."""
