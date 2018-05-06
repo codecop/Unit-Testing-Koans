@@ -20,6 +20,8 @@
             <zipfileset dir="." includes="test/*.py" prefix="python-unittest-koans">
                 <include name="run_tests.bat" />
                 <include name="run_tests.sh" />
+                <include name="run_first_session.bat" />
+                <include name="run_first_session.sh" />
             </zipfileset>
 
         </zip>
