@@ -16,7 +16,7 @@ public class WordCounter {
     private final List<String> words;
 
     public WordCounter(String sentence) {
-        words = Arrays.asList(sentence.split("\\s+"));
+        words = new ArrayList<>(Arrays.asList(sentence.split("\\s+")));
     }
 
     /**
@@ -27,6 +27,12 @@ public class WordCounter {
     }
 
     public int numberOfWords() {
+        // here some hard core calculation...
+        try {
+            Thread.sleep(100);
+        } catch (@SuppressWarnings("unused") InterruptedException ignore) {
+            Thread.currentThread().interrupt();
+        }
         return words.size();
     }
 

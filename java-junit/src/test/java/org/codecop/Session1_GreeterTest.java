@@ -9,6 +9,8 @@ import org.junit.Test;
  */
 public class Session1_GreeterTest {
 
+    // TODO We will add the proper assertions together.
+
     @Test
     public void shouldReturnHelloName() {
         Greeter greeter = new Greeter();
