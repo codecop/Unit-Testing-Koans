@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Package" basedir="." default="zip">
+
+    <target name="zip">
+        <delete file="../junit-koans-new.zip" />
+
+        <zip destfile="../junit-koans-new.zip">
+            <zipfileset dir="." prefix="junit-koans">
+                <include name="README.md" />
+                <include name="license.txt" />
+            </zipfileset>
+
+            <zipfileset dir="." includes=".mvn/**" prefix="junit-koans">
+                <include name="pom.xml" />
+                <include name="mvnw" />
+                <include name="mvnw.cmd" />
+            </zipfileset>
+
+            <zipfileset dir="." includes="src/**/*.java" prefix="junit-koans">
+            </zipfileset>
+
+        </zip>
+    </target>
+
+</project>
