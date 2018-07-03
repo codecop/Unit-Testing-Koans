@@ -11,14 +11,17 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 /**
- * Session 5: WordCounterTableTest - parameterised/table driven. <br />
- * See https://github.com/junit-team/junit/wiki/Parameterized-tests
+ * Session 5: WordCounterRatioTest - parameterised/table driven tests. <br />
+ * @see "https://github.com/junit-team/junit/wiki/Parameterized-tests"
  */
+// TODO mark this test as parameterised
 @RunWith(Parameterized.class)
 public class Session5_WordCounterRatioTest {
 
-    // we want to test more corner cases for the ratio, here is a table of test cases
-    private static final List<Object[]> TEST_TABLE = Arrays.asList(//
+    // TODO Add the needed annotations to run this test with all examples.
+
+    // We want to test more corner cases for the ratio. Here is a table of test cases.
+    private static final List<Object[]> TEST_CASES = Arrays.asList(//
             new Object[] { "green", "green", 1.0 }, //
             new Object[] { "green bar green", "green", 0.66 }, //
             new Object[] { "green bar green bar", "green", 0.5 }, //
@@ -26,24 +29,24 @@ public class Session5_WordCounterRatioTest {
             );
 
     @Parameters(name = "ratio of '{1}' in words '{0}' should be {2}")
-    public static List<Object[]> tableData() {
-        return TEST_TABLE;
+    public static List<Object[]> getTestCases() {
+        return TEST_CASES;
     }
 
-    private String sentence;
-    private String word;
-    private double expectedRratio;
+    private final String sentence;
+    private final String word;
+    private final double expectedRatio;
 
     public Session5_WordCounterRatioTest(String sentence, String word, double expectedRratio) {
         this.sentence = sentence;
         this.word = word;
-        this.expectedRratio = expectedRratio;
+        this.expectedRatio = expectedRratio;
     }
 
     @Test
     public void shouldReturnRatioOfGivenWord() {
         WordCounter counter = new WordCounter(sentence);
-        assertEquals(expectedRratio, counter.ratioOf(word), 0.01);
+        assertEquals(expectedRatio, counter.ratioOf(word), 0.01); // keep
     }
 
 }

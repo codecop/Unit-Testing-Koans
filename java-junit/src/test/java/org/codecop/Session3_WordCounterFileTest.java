@@ -12,7 +12,7 @@ import org.junit.Test;
 
 /**
  * Session 3: WordCounterFileTest - Fixtures, e.g. using a test file. <br />
- * See https://github.com/junit-team/junit/wiki/Test-fixtures
+ * @see "https://github.com/junit-team/junit/wiki/Test-fixtures"
  */
 public class Session3_WordCounterFileTest {
 
@@ -22,25 +22,29 @@ public class Session3_WordCounterFileTest {
         StringToFile.write("Keep the bar green to keep the code clean.", file);
 
         WordCounter counter = new WordCounter(file);
-        assertEquals(9, counter.numberOfWords());
+        assertEquals(9, counter.numberOfWords()); // keep
 
         file.delete();
     }
 
-    // the problem is that delete is not called in case of test failure,
-    // better use Before/After hooks for test file handling
+    // The problem is that `delete´ is not called in case of test failures.
+    // Better use `BeforeEach/AfterEach´ hooks for test file handling.
+
+    // TODO Add the needed annotations to the hook methods and then
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
-    @Before
+    @Before // This method should be called before each test.
     public void createFreshTestFileForEachTest() throws IOException {
         StringToFile.write("Keep the bar green to keep the code clean.", testFile);
     }
 
-    @After
+    @After // This method should be called after each test.
     public void deleteTestFile() {
-        assertTrue(testFile.delete());
+        assertTrue(testFile.delete()); // keep
     }
+
+    // TODO add the proper assertions to complete the tests.
 
     @Test
     public void shouldReturnCountOfWordsBetter() throws IOException {
