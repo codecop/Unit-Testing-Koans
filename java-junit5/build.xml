@@ -3,7 +3,13 @@
 
     <target name="zip">
         <delete file="../junit5-koans-new.zip" />
+
         <zip destfile="../junit5-koans-new.zip">
+            <zipfileset dir="." prefix="junit5-koans">
+                <include name="README.md" />
+                <include name="license.txt" />
+            </zipfileset>
+
             <zipfileset dir="." includes=".mvn/**" prefix="junit5-koans">
                 <include name="pom.xml" />
                 <include name="stripped-pom.xml" />
@@ -19,9 +25,8 @@
             </zipfileset>
 
             <zipfileset dir="." includes="src/**/*.java" prefix="junit5-koans">
-                <include name="README.md" />
-                <include name="license.txt" />
             </zipfileset>
+
         </zip>
     </target>
 
