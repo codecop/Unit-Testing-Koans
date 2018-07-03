@@ -14,7 +14,7 @@ import org.junit.runners.Parameterized.Parameters;
  * Session 5: WordCounterRatioTest - parameterised/table driven tests. <br />
  * @see "https://github.com/junit-team/junit/wiki/Parameterized-tests"
  */
-@RunWith(Parameterized.class) // mark this test as parameterised
+@RunWith(Parameterized.class) // Mark this test as parameterised
 public class Session5_WordCounterRatioTest {
 
     // TODO Add the needed annotations to run this test with all examples.
@@ -27,7 +27,7 @@ public class Session5_WordCounterRatioTest {
             new Object[] { "green bar green", "bar", 0.33 } //
             );
 
-    @Parameters(name = "ratio of '{1}' in words '{0}' should be {2}")
+    @Parameters(name = "ratio of '{1}' in words '{0}' should be {2}") // This method returns the parameters
     public static List<Object[]> getTestCases() {
         return TEST_CASES;
     }

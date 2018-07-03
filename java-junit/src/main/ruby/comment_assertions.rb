@@ -24,7 +24,12 @@ def comment_assertion_in(line)
     # drop line
     "#{$'}"
 
+  elsif line =~ /@Test\(expected = ([^)]+)\)/
+    # comment expected exception
+    "#{$`}// TODO Mark this test to expect #{$1}.#{$'}"
+    
   elsif line =~ /verifyException\(([^,]+), ([^)]+)\)./
+    # comment catch-exception
     "#{$`}// TODO Verify #{$2} is thrown from #{$1}.#{$'}"
 
   elsif line =~ /assert(\w+)\((.*)\)(?:;|,)?/
@@ -32,11 +37,11 @@ def comment_assertion_in(line)
     comment_assert($`, $1, $2, $') 
     
   elsif line =~ /(@Before|@After|@RunWith\([^)]+\)|@Parameters\([^)]+\))(\s*\/\/)?/
-    # comment test factory, life cycle, extension
+    # comment life cycle, extensions
     "#{$`}// TODO#{$'}"
 
   elsif line =~ /@Ignore\((.*)\)/
-    # comment disabled
+    # comment ignore
     "#{$`}// TODO Mark this test as ignored with #{$1}.#{$'}"
 
   else
