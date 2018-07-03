@@ -4,9 +4,13 @@ syntax: glob
 .classpath
 .checkstyle
 .pmd
+.buildpath
 
 .idea
 *.iml
 *.iwr
 
 target
+
+.gradle
+build
