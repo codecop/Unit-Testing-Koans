@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.codecop</groupId>
     <artifactId>junit-koans</artifactId>
-    <packaging>jar</packaging>
-    <name>JUnit Koans</name>
     <version>1.0-SNAPSHOT</version>
+
+    <name>JUnit Koans</name>
     <description>Java Koans to understand how to write unit tests with JUnit</description>
     <inceptionYear>2012</inceptionYear>
-    <url>https://bitbucket.org/pkofler/${project.artifactId}/</url>
+    <url>http://blog.code-cop.org/2015/12/testing-koans.html</url>
 
     <scm>
         <connection>scm:hg:https://bitbucket.org/pkofler/${project.artifactId}</connection>
@@ -25,6 +25,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!-- add different/alternative assertion libraries -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
