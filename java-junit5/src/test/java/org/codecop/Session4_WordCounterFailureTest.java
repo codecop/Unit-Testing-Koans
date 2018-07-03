@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 class Session4_WordCounterFailureTest {
 
     // TODO Add the needed code/annotations to test for an expected exception.
-    
+
     @Test
     void shouldThrowIOExceptionOnMissingFile() {
         Executable wordCountOfMissingFile = () -> new WordCounter(new File("IamSureThisDoesNotExist.txt"));
@@ -27,7 +27,7 @@ class Session4_WordCounterFailureTest {
     }
 
     @Test
-    void shouldThrowIllegalArgumentExceptionWithMessage() {
+    void shouldThrowIllegalArgumentExceptionWithMessageOnUnknownWord() {
         WordCounter counter = new WordCounter("green bar green");
         Executable ratioOfMissingWord = () -> counter.ratioOf("missingWord");
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, ratioOfMissingWord);
