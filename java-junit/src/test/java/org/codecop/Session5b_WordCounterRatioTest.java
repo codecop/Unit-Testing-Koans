@@ -15,18 +15,18 @@ import org.junit.runner.RunWith;
 public class Session5b_WordCounterRatioTest {
 
     // TODO Add the needed annotations to run this test with all examples.
-    
+
     @Test // keep
     // We want to test more cases for the ratio. Here is a table of test cases.
-    @Parameters(// // drop
-        // use /*
-        {
+    @Parameters( // drop
+    // use /*
+    { //
         "green, green, 1.0", //
         "green bar green, green, 0.66", //
         "green bar green bar, green, 0.5", //
         "green bar green, bar, 0.33" //
-        }
-        // use */
+    }
+    // use */
     ) // drop
     public void shouldReturnRatioOfGivenWord(String sentence, String word, double expectedRatio) {
         WordCounter counter = new WordCounter(sentence);
