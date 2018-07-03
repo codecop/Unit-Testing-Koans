@@ -31,7 +31,6 @@ class Session3_WordCounterFileTest {
     // Better use `BeforeEach/AfterEach´ hooks for test file handling.
 
     // TODO Add the needed annotations to the hook methods and then
-    // TODO add the proper assertions to complete the tests.
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
@@ -44,6 +43,8 @@ class Session3_WordCounterFileTest {
     void deleteTestFile() {
         assertTrue(testFile.delete()); // keep
     }
+
+    // TODO add the proper assertions to complete the tests.
 
     @Test
     void shouldReturnCountOfWordsBetter() throws IOException {
