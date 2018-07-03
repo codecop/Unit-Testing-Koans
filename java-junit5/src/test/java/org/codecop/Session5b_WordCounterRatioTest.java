@@ -10,9 +10,9 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 /**
- * Session 5b: WordCounterRatioTest - (experimental) Parameterised tests. <br />
+ * Session 5b: WordCounterRatioTest - (experimental) parameterised/table driven tests. <br />
  * @see "https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests"
- * 
+ *
  * @author Daniel Mühlbachler
  */
 class Session5b_WordCounterRatioTest {
@@ -24,7 +24,7 @@ class Session5b_WordCounterRatioTest {
         // convince IntelliJ that this is a valid JUnit5 test
     }
 
-    // We want to test more corner cases for the ratio. Here is a table of test cases.
+    // We want to test more cases for the ratio. Here is a table of test cases.
     static Stream<Arguments> getTestCases() {
         return Stream.of(//
                 Arguments.of("green", "green", 1.0), //

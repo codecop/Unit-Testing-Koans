@@ -6,7 +6,7 @@ Java [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to und
 * This is a Java 8 project.
 * It supports both [Apache Maven](https://maven.apache.org/) and [Gradle](https://gradle.org).
 
-Additional exercises cover 
+Additional exercises cover [junit-jupiter-params](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests),
 [Hamcrest](http://hamcrest.org/JavaHamcrest/) and
 [AssertJ](http://joel-costigliola.github.io/assertj/).
 
