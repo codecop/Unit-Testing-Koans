@@ -16,12 +16,12 @@ public class Session4_WordCounterFailureTest {
 
     // TODO Add the needed code/annotations to test for an expected exception.
 
-    @Test(expected = IOException.class)
+    // TODO Mark this test to expect IOException.class.
     public void shouldThrowIOExceptionOnMissingFile() throws IOException {
         new WordCounter(new File("IamSureThisDoesNotExist.txt"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    // TODO Mark this test to expect IllegalArgumentException.class.
     public void shouldThrowIllegalArgumentExceptionForUnknownWord() {
         WordCounter counter = new WordCounter("green bar green");
         counter.ratioOf("missingWord");
@@ -31,10 +31,10 @@ public class Session4_WordCounterFailureTest {
     // but we will do that tomorrow. For today let's ignore it.
 
     @Test
-    @Ignore("work in progress, will continue tomorrow")
+    // TODO Mark this test as ignored with "work in progress, will continue tomorrow".
     public void shouldCountUniqueWordsCaseInsensitive() {
         WordCounter counter = new WordCounter("green bar Green hat");
-        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords()); // keep
+        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords()); 
     }
 
 }

@@ -14,19 +14,19 @@ public class Session1_GreeterTest {
     @Test
     public void shouldReturnHelloName() {
         Greeter greeter = new Greeter();
-        assertEquals("Hello Peter", greeter.greet("Peter"));
+        // TODO Check that "Hello Peter", greeter.greet("Peter").
     }
 
     @Test
     public void shouldReturnHelloForNull() {
         Greeter greeter = new Greeter();
-        assertEquals("Hello", greeter.greet(null));
+        // TODO Check that "Hello", greeter.greet(null).
     }
 
     @Test
     public void shouldIgnoreWhitespace() {
         Greeter greeter = new Greeter();
-        assertEquals("Hello Peter", greeter.greet(" Peter "));
+        // TODO Check that "Hello Peter", greeter.greet(" Peter ").
     }
 
 }

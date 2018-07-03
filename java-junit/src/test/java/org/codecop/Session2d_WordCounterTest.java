@@ -23,32 +23,32 @@ public class Session2d_WordCounterTest {
     @Test
     public void shouldCountNumberOfWords() {
         WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
-        assertEquals(9, counter.numberOfWords()); // keep
+        assertEquals(9, counter.numberOfWords()); 
         // AssertJ is fluent:
-        assertThat(counter.numberOfWords()).isEqualTo(9);
+        // TODO Check that counter.numberOfWords() isEqualTo 9.
     }
 
     @Test
     public void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); // keep
+        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); 
         // AssertJ is fluent:
-        assertThat(counter.uniqueWords()).contains("bar");
+        // TODO Check that counter.uniqueWords() contains "bar".
     }
 
     @Test
     public void shouldNotContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); // keep
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); 
         // AssertJ is fluent:
-        assertThat(counter.uniqueWords()).doesNotContain("foo");
+        // TODO Check that counter.uniqueWords() doesNotContain "foo".
     }
 
     @Test
     public void shouldFindNumberOfUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertEquals(3, counter.uniqueWords().length); // keep
+        assertEquals(3, counter.uniqueWords().length); 
         // AssertJ is fluent:
-        assertThat(counter.uniqueWords()).hasSize(3);
+        // TODO Check that counter.uniqueWords() hasSize 3.
     }
 }

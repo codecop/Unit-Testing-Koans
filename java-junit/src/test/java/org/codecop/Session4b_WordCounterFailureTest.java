@@ -20,12 +20,12 @@ public class Session4b_WordCounterFailureTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWithMessageOnUnknownWord() {
         WordCounter counter = new WordCounter("green bar green");
-        verifyException(counter, IllegalArgumentException.class).ratioOf("missingWord");
+        // TODO Verify IllegalArgumentException.class is thrown from counter.ratioOf("missingWord");
 
         // Hamcrest improves readability:
-        catchException(counter).ratioOf("missingWord"); // keep
-        assertThat(caughtException(), IsInstanceOf.instanceOf(IllegalArgumentException.class));
-        assertEquals("missingWord not in sentence", caughtException().getMessage());
+        catchException(counter).ratioOf("missingWord"); 
+        // TODO Check that caughtException(), IsInstanceOf.instanceOf IllegalArgumentException.class.
+        // TODO Check that "missingWord not in sentence", caughtException().getMessage().
     }
 
 }
