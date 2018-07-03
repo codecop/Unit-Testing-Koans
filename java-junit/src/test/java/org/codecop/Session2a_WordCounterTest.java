@@ -1,26 +1,23 @@
 package org.codecop;
 
-import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
-import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
-import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-
-import java.util.Arrays;
 
 import org.junit.Test;
 
 /**
- * Session 2: WordCounterTest - All kind of assertions. <br />
- * See https://github.com/junit-team/junit/wiki/Assertions
+ * Session 2a: WordCounterTest - Basic assertions. <br />
+ * @see "https://github.com/junit-team/junit/wiki/Assertions"
  */
-public class Session2_WordCounterTest {
+public class Session2a_WordCounterTest {
 
+    // TODO Add the proper assertions to complete the tests. 
+    // The test name explains what needs to be asserted. 
+    
     @Test
     public void shouldCountNumberOfWords() {
         WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
@@ -64,28 +61,10 @@ public class Session2_WordCounterTest {
     }
 
     @Test
-    public void shouldContainUniqueWord() {
-        WordCounter counter = new WordCounter("green bar green hat");
-        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
-        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
-        // optional - Hamcrest can do it better
-        assertThat(counter.uniqueWords(), hasItemInArray("bar"));
-        assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
-    }
-
-    @Test
-    public void shouldFindNumberOfUniqueWords() {
-        WordCounter counter = new WordCounter("green bar green hat");
-        assertEquals(3, counter.uniqueWords().length);
-        // optional - Hamcrest can do it better
-        assertThat(counter.uniqueWords(), arrayWithSize(3));
-    }
-
-    @Test
     public void shouldReturnRatioOfWords() {
         WordCounter counter = new WordCounter("green bar green");
         assertEquals(0.33, counter.ratioOf("bar"), 0.01);
-        // note that floating point numbers have accuracy delta 0.01
+        // Note that floating point numbers need an accuracy delta, e.g. 0.01.
     }
 
 }
