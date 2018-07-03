@@ -18,23 +18,37 @@ import org.junit.jupiter.api.Test;
  */
 class Session2c_WordCounterTest {
 
-    // TODO Add the proper assertions to complete the tests using Hamcrest. 
-    // The test name explains what needs to be asserted. 
+    // TODO Add the proper assertions to complete the tests using Hamcrest.
+    // The test name explains what needs to be asserted.
+
+    @Test
+    void shouldCountNumberOfWords() {
+        WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
+        assertEquals(9, counter.numberOfWords());
+        // Hamcrest improves readability:
+        // TODO Check that counter.numberOfWords(), equalTo 9.
+    }
 
     @Test
     void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); 
-        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); 
+        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
         // Hamcrest improves readability:
         // TODO Check that counter.uniqueWords(), hasItemInArray "bar".
+    }
+
+    @Test
+    void shouldNotContainUniqueWord() {
+        WordCounter counter = new WordCounter("green bar green hat");
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
+        // Hamcrest improves readability:
         // TODO Check that counter.uniqueWords(), not hasItemInArray "foo".
     }
 
     @Test
     void shouldFindNumberOfUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        assertEquals(3, counter.uniqueWords().length); 
+        assertEquals(3, counter.uniqueWords().length);
         // Hamcrest improves readability:
         // TODO Check that counter.uniqueWords(), arrayWithSize 3.
     }
