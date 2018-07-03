@@ -22,7 +22,7 @@ class Session3_WordCounterFileTest {
         StringToFile.write("Keep the bar green to keep the code clean.", file);
 
         WordCounter counter = new WordCounter(file);
-        assertEquals(9, counter.numberOfWords()); 
+        assertEquals(9, counter.numberOfWords());
 
         file.delete();
     }
@@ -31,7 +31,6 @@ class Session3_WordCounterFileTest {
     // Better use `BeforeEach/AfterEach´ hooks for test file handling.
 
     // TODO Add the needed annotations to the hook methods and then
-    // TODO add the proper assertions to complete the tests.
 
     private final File testFile = new File("FileWordCounterTest.tmp");
 
@@ -42,8 +41,10 @@ class Session3_WordCounterFileTest {
 
     // TODO This method should be called after each test.
     void deleteTestFile() {
-        assertTrue(testFile.delete()); 
+        assertTrue(testFile.delete());
     }
+
+    // TODO add the proper assertions to complete the tests.
 
     @Test
     void shouldReturnCountOfWordsBetter() throws IOException {
