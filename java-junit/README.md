@@ -7,8 +7,9 @@ Java [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to und
 * This is an [Apache Maven](https://maven.apache.org/) project.
 
 Additional exercises cover [JUnitParams](http://pragmatists.github.io/JUnitParams/),
-[Hamcrest](http://hamcrest.org/JavaHamcrest/) and
-[catchException](https://github.com/Codearte/catch-exception).
+[Hamcrest](http://hamcrest.org/JavaHamcrest/),
+[catchException](https://github.com/Codearte/catch-exception) and
+[AssertJ](http://joel-costigliola.github.io/assertj/).
 
 ## Assignment ##
 
