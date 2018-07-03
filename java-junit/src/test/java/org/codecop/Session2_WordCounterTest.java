@@ -1,5 +1,18 @@
 package org.codecop;
 
+import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
+import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
+import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Arrays;
+
 import org.junit.Test;
 
 /**
@@ -8,73 +21,70 @@ import org.junit.Test;
  */
 public class Session2_WordCounterTest {
 
-    // TODO add the proper assertions to complete the tests, 
-    // the test name explains what needs to be verified 
-
     @Test
     public void shouldCountNumberOfWords() {
         WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
-        // TODO check that 9, counter.numberOfWords()
+        assertEquals(9, counter.numberOfWords());
     }
 
     @Test
     public void shouldVerifyContainmentOfWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO check that counter.containsWord("bar")
+        assertTrue(counter.containsWord("bar"));
     }
 
     @Test
     public void shouldVerifyNonContainmentOfWord() {
         WordCounter counter = new WordCounter("green hat");
-        // TODO check that counter.containsWord("red")
+        assertFalse(counter.containsWord("red"));
     }
 
     @Test
     public void shouldReturnNullForUnknownWordCount() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO check that counter.countOf("else") is null
+        assertNull(counter.countOf("else"));
     }
 
     @Test
     public void shouldReturnNotNullWordCountForExistingWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO check that counter.countOf("green") is not null
+        assertNotNull(counter.countOf("green"));
     }
 
     @Test
     public void shouldCountGreenTwice() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO check that 2, counter.countOf("green")
+        assertEquals(Integer.valueOf(2), counter.countOf("green"));
     }
 
     @Test
     public void shouldFindUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO check that  "bar", "green", "hat", counter.uniqueWords()
+        assertArrayEquals(new String[] { "bar", "green", "hat" }, counter.uniqueWords());
     }
 
     @Test
     public void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO check that counter.uniqueWords() contains("bar")
-        // TODO check that counter.uniqueWords() not contains("foo")
+        assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar"));
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo"));
         // optional - Hamcrest can do it better
-        // TODO check that counter.uniqueWords(), hasItemInArray("bar")
-        // TODO check that counter.uniqueWords(), not hasItemInArray("foo")
+        assertThat(counter.uniqueWords(), hasItemInArray("bar"));
+        assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
     }
 
     @Test
     public void shouldFindNumberOfUniqueWords() {
         WordCounter counter = new WordCounter("green bar green hat");
-        // TODO check that 3, counter.uniqueWords() len
+        assertEquals(3, counter.uniqueWords().length);
         // optional - Hamcrest can do it better
-        // TODO check that counter.uniqueWords(), arrayWithSize 3
+        assertThat(counter.uniqueWords(), arrayWithSize(3));
     }
 
     @Test
     public void shouldReturnRatioOfWords() {
         WordCounter counter = new WordCounter("green bar green");
-        // TODO check that 0.33, counter.ratioOf("bar")
+        assertEquals(0.33, counter.ratioOf("bar"), 0.01);
         // note that floating point numbers have accuracy delta 0.01
     }
 

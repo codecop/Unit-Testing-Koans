@@ -1,5 +1,7 @@
 package org.codecop;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -7,24 +9,22 @@ import org.junit.Test;
  */
 public class Session1_GreeterTest {
 
-    // TODO we will add the proper assertions together
-
     @Test
     public void shouldReturnHelloName() {
         Greeter greeter = new Greeter();
-        // TODO check that "Hello Peter", greeter.greet("Peter")
+        assertEquals("Hello Peter", greeter.greet("Peter"));
     }
 
     @Test
     public void shouldReturnHelloForNull() {
         Greeter greeter = new Greeter();
-        // TODO check that "Hello", greeter.greet(null)
+        assertEquals("Hello", greeter.greet(null));
     }
 
     @Test
     public void shouldIgnoreWhitespace() {
         Greeter greeter = new Greeter();
-        // TODO check that "Hello Peter", greeter.greet(" Peter ")
+        assertEquals("Hello Peter", greeter.greet(" Peter "));
     }
 
 }
