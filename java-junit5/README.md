@@ -1,10 +1,19 @@
 # JUnit5-Koans
 Java [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to understand how to write unit tests with [JUnit 5](http://junit.org/junit5).
 
+## Dependencies ##
+
+* This is a Java 8 project.
+* It supports both [Apache Maven](https://maven.apache.org/) and [Gradle](https://gradle.org).
+
+Additional exercises cover 
+[Hamcrest](http://hamcrest.org/JavaHamcrest/) and
+[AssertJ](http://joel-costigliola.github.io/assertj/).
+
 ## Assignment ##
 
-* This project supports both [Apache Maven](https://maven.apache.org/) and [Gradle](https://gradle.org).
-* Running either `mvnw test` or `gradlew test`, you should see some test failures and errors (but there are no assertions).
+* Run tests with `mvnw test` or `gradlew test`.
+* You should see some test failures and errors (but there are no assertions).
 * Go through the test code starting from Session 1:
     * All assertions are commented and incomplete.
     * Uncomment the assertions and complete them making the tests pass.
