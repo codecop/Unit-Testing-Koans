@@ -1,6 +1,7 @@
 package org.codecop;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
 import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
 import static org.hamcrest.core.IsNot.not;
@@ -18,16 +19,30 @@ import org.junit.jupiter.api.Test;
  */
 class Session2c_WordCounterTest {
 
-    // TODO Add the proper assertions to complete the tests using Hamcrest. 
-    // The test name explains what needs to be asserted. 
+    // TODO Add the proper assertions to complete the tests using Hamcrest.
+    // The test name explains what needs to be asserted.
+
+    @Test
+    void shouldCountNumberOfWords() {
+        WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
+        assertEquals(9, counter.numberOfWords()); // keep
+        // Hamcrest improves readability:
+        assertThat(counter.numberOfWords(), equalTo(9));
+    }
 
     @Test
     void shouldContainUniqueWord() {
         WordCounter counter = new WordCounter("green bar green hat");
         assertTrue(Arrays.asList(counter.uniqueWords()).contains("bar")); // keep
-        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); // keep
         // Hamcrest improves readability:
         assertThat(counter.uniqueWords(), hasItemInArray("bar"));
+    }
+
+    @Test
+    void shouldNotContainUniqueWord() {
+        WordCounter counter = new WordCounter("green bar green hat");
+        assertFalse(Arrays.asList(counter.uniqueWords()).contains("foo")); // keep
+        // Hamcrest improves readability:
         assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
     }
 
