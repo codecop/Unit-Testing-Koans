@@ -11,13 +11,12 @@ import org.junit.runner.RunWith;
  * Session 5b: WordCounterRatioTest - parameterised/table driven tests with JUnitParams. <br />
  * @see "https://github.com/Pragmatists/junitparams"
  */
-@RunWith(JUnitParamsRunner.class)
+@RunWith(JUnitParamsRunner.class) // mark this test as parameterised with JUnitParams
 public class Session5b_WordCounterRatioTest {
 
     // TODO Add the needed annotations to run this test with all examples.
     
-    @Test
-    // TODO mark this test as parameterised
+    @Test // keep
     @Parameters({//
         // We want to test more cases for the ratio. Here is a table of test cases.
         "green, green, 1.0", //

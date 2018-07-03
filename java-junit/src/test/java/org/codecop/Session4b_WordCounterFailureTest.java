@@ -23,7 +23,7 @@ public class Session4b_WordCounterFailureTest {
         verifyException(counter, IllegalArgumentException.class).ratioOf("missingWord");
 
         // Hamcrest improves readability:
-        catchException(counter).ratioOf("missingWord");
+        catchException(counter).ratioOf("missingWord"); // keep
         assertThat(caughtException(), IsInstanceOf.instanceOf(IllegalArgumentException.class));
         assertEquals("missingWord not in sentence", caughtException().getMessage());
     }
