@@ -48,7 +48,7 @@ class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
     function shouldCountUniqueWordsCaseInsensitive() {
         $counter = new WordCounter("green bar Green hat");
         $this->markTestIncomplete("work in progress, will continue tomorrow");
-        $this->assertEquals([ "bar", "green", "hat" ], $counter->uniqueWords());
+        $this->assertEquals([ "bar", "green", "hat" ], $counter->uniqueWords()); // keep
     }
 
 }

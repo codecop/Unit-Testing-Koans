@@ -37,15 +37,15 @@ def comment_assertion_in(line)
 
   elsif line =~ /@dataProvider /
     # comment parameters
-    "#{$`}// TODO Mark this test as parameterized with #{$'}"
+    "#{$`}TODO Mark this test as parameterized with #{$'}"
 
   elsif line =~ /@expectedException (\S+)/
     # comment expected
-    "#{$`}// TODO Expect #{$1} is thrown#{$'}"
+    "#{$`}TODO Expect #{$1} is thrown#{$'}"
 
   elsif line =~ /@expectedExceptionMessage /
     # comment expected
-    "#{$`}// TODO Expect exception message #{$'}"
+    "#{$`}TODO Expect exception message #{$'}"
 
   elsif line =~ /\$this->markTestIncomplete\((.*)\);/
     # comment disabled
