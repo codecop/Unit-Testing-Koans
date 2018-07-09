@@ -14,49 +14,49 @@ class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
     /** @test */
     function shouldCountNumberOfWords() {
         $counter = new WordCounter("Keep the bar green to keep the code clean.");
-        $this->assertEquals(9, $counter->numberOfWords());
+        // TODO Check that 9, $counter->numberOfWords().
     }
 
     /** @test */
     function shouldNotCountCapitalizedWord() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertNotEquals(1, $counter->countOf("HAT"));
+        // TODO Check that 1, $counter->countOf("HAT") is not equal.
     }
 
     /** @test */
     function shouldVerifyContainmentOfWord() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertTrue($counter->containsWord("bar"));
+        // TODO Check that $counter->containsWord("bar").
     }
 
     /** @test */
     function shouldVerifyNonContainmentOfWord() {
         $counter = new WordCounter("green hat");
-        $this->assertFalse($counter->containsWord("red"));
+        // TODO Check that $counter->containsWord("red") is false.
     }
 
     /** @test */
     function shouldReturnNullForUnknownWordCount() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertNull($counter->countOf("else"));
+        // TODO Check that $counter->countOf("else") is null.
     }
 
     /** @test */
     function shouldReturnNotNullExistingWordCount() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertNotNull($counter->countOf("green"));
+        // TODO Check that $counter->countOf("green") is not null.
     }
 
     /** @test */
     function shouldCountGreenTwice() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertEquals(2, $counter->countOf("green"));
+        // TODO Check that 2, $counter->countOf("green").
     }
 
     /** @test */
     function shouldFindUniqueWords() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertEquals(["bar", "green", "hat"], $counter->uniqueWords());
+        // TODO Check that ["bar", "green", "hat"], $counter->uniqueWords().
     }
 
 }

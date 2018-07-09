@@ -22,10 +22,10 @@ class Session5_WordCounterRatioTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @test
-     * @dataProvider tableData
+     * TODO Mark this test as parameterized with tableData
      */
     function shouldReturnRatioOfGivenWord($sentence, $word, $expectedRratio) {
         $counter = new WordCounter($sentence);
-        $this->assertEquals($expectedRratio, $counter->ratioOf($word), "", 0.01);
+        // TODO Check that $expectedRratio, $counter->ratioOf($word), "".
     }
 }

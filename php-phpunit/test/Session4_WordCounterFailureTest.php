@@ -14,7 +14,7 @@ class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
+     * TODO Expect \InvalidArgumentException is thrown
      */
     function shouldThrowInvalidArgumentExceptionForUnknownWord() {
         $counter = new WordCounter("green bar green");
@@ -23,8 +23,8 @@ class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @test
-     * @expectedException \Wordcount\FileNotFoundException
-     * @expectedExceptionMessage IamSureThisDoesNotExist.txt
+     * TODO Expect \Wordcount\FileNotFoundException is thrown
+     * TODO Expect exception message IamSureThisDoesNotExist.txt
      */
     function shouldThrowExceptionOnMissingFile() {
         WordCounter::fromFile("IamSureThisDoesNotExist.txt");
@@ -34,7 +34,7 @@ class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
      * @test
      */
     function shouldThrowIllegalArgumentExceptionWithMessageOnUnknownWord() {
-        $this->setExpectedException("\InvalidArgumentException", "missingWord");
+        // TODO Expect "\InvalidArgumentException" is thrown with message "missingWord".
         $counter = new WordCounter("green bar green");
         $counter->ratioOf("missingWord");
     }
@@ -47,8 +47,8 @@ class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
      */
     function shouldCountUniqueWordsCaseInsensitive() {
         $counter = new WordCounter("green bar Green hat");
-        $this->markTestIncomplete("work in progress, will continue tomorrow");
-        $this->assertEquals([ "bar", "green", "hat" ], $counter->uniqueWords()); // keep
+        // TODO Mark this test as incomplete with "work in progress, will continue tomorrow".
+        $this->assertEquals([ "bar", "green", "hat" ], $counter->uniqueWords()); 
     }
 
 }

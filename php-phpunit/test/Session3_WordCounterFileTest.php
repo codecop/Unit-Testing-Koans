@@ -15,7 +15,7 @@ class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
         file_put_contents($file, "Keep the bar green to keep the code clean.");
 
         $counter = WordCounter::fromFile($file);
-        $this->assertEquals(9, $counter->numberOfWords()); // keep
+        $this->assertEquals(9, $counter->numberOfWords()); 
 
         unlink($file);
     }
@@ -27,15 +27,15 @@ class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
 
     // TODO Add the needed annotations to create and delete test files.
 
-    /** @before */ // This method should be called before each test.
+    // TODO This method should be called before each test.
     function createFreshTestFileForEachTest() {
         file_put_contents(self::TEST_FILE,
         "Keep the bar green to keep the code clean.");
     }
 
-    /** @after */ // This method should be called after each test.
+    // TODO This method should be called after each test.
     function deleteTestFile() {
-        $this->assertTrue(unlink(self::TEST_FILE)); // keep
+        $this->assertTrue(unlink(self::TEST_FILE)); 
     }
 
     // TODO Add the proper assertions to complete the tests.
@@ -43,12 +43,12 @@ class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
     /** @test */
     function shouldReturnCountOfWordsBetter() {
         $counter = WordCounter::fromFile(self::TEST_FILE);
-        $this->assertEquals(9, $counter->numberOfWords());
+        // TODO Check that 9, $counter->numberOfWords().
     }
 
     /** @test */
     function shouldVerifyContainmentOfWord() {
         $counter = WordCounter::fromFile(self::TEST_FILE);
-        $this->assertTrue($counter->containsWord("bar"));
+        // TODO Check that $counter->containsWord("bar").
     }
 }

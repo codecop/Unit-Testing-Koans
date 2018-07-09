@@ -13,33 +13,33 @@ class Session2c_WordCounterTest extends \PHPUnit_Framework_TestCase {
     /** @test */
     function shouldCountNumberOfWords() {
         $counter = new WordCounter("Keep the bar green to keep the code clean.");
-        $this->assertEquals(9, $counter->numberOfWords()); // keep
+        $this->assertEquals(9, $counter->numberOfWords()); 
         // Hamcrest improves readability:
-        assertThat($counter->numberOfWords(), equalTo(9));
+        // TODO Check that $counter->numberOfWords(), equalTo 9.
     }
 
     /** @test */
     function shouldContainUniqueWord() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertContains("bar", $counter->uniqueWords()); // keep
+        $this->assertContains("bar", $counter->uniqueWords()); 
         // Hamcrest improves readability:
-        assertThat($counter->uniqueWords(), hasItem("bar"));
+        // TODO Check that $counter->uniqueWords(), hasItem "bar".
     }
 
     /** @test */
     function shouldNotContainUniqueWord() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertNotContains("foo", $counter->uniqueWords()); // keep
+        $this->assertNotContains("foo", $counter->uniqueWords()); 
         // Hamcrest improves readability:
-        assertThat($counter->uniqueWords(), not(hasItem("foo")));
+        // TODO Check that $counter->uniqueWords(), not hasItem "foo".
     }
 
     /** @test */
     function shouldFindNumberOfUniqueWords() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertCount(3, $counter->uniqueWords()); // keep
+        $this->assertCount(3, $counter->uniqueWords()); 
         // Hamcrest improves readability:
-        assertThat($counter->uniqueWords(), arrayWithSize(3));
+        // TODO Check that $counter->uniqueWords(), arrayWithSize 3.
     }
 
 }

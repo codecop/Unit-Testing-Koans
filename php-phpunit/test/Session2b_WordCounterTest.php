@@ -13,38 +13,38 @@ class Session2b_WordCounterTest extends \PHPUnit_Framework_TestCase {
     /** @test */
     function shouldCountNumberOfWords() {
         $counter = new WordCounter("Keep the bar green to keep the code clean.");
-        $this->assertEquals(9, $counter->numberOfWords());
+        // TODO Check that 9, $counter->numberOfWords().
     }
 
     /** @test */
     function shouldContainUniqueWord() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertContains("bar", $counter->uniqueWords());
+        // TODO Check that "bar", $counter->uniqueWords() is contained.
     }
 
     /** @test */
     function shouldNotContainUniqueWord() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertNotContains("foo", $counter->uniqueWords());
+        // TODO Check that "foo", $counter->uniqueWords() is not contained.
     }
 
     /** @test */
     function shouldReturnRatioOfWords() {
         $counter = new WordCounter("green bar green");
-        $this->assertEquals(0.33, $counter->ratioOf("bar"), "", 0.01);
+        // TODO Check that 0.33, $counter->ratioOf("bar"), "".
         // Note that floating point numbers need an accuracy delta, e.g. 0.01.
     }
 
     /** @test */
     function shouldVerifyFirstUniqueWordStartsWithB() {
         $counter = new WordCounter("green bar green");
-        $this->assertRegExp("/^b/", $counter->firstUniqueWord());
+        // TODO Check that "/^b/", $counter->firstUniqueWord() is regexp.
     }
 
     /** @test */
     function shouldFindNumberOfUniqueWords() {
         $counter = new WordCounter("green bar green hat");
-        $this->assertCount(3, $counter->uniqueWords());
+        // TODO Check that 3, $counter->uniqueWords() is count.
     }
 
 }
