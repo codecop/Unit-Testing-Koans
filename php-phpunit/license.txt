@@ -1,4 +1,4 @@
-		            BSD LICENSE
+                    BSD LICENSE
  http://www.opensource.org/licenses/bsd-license.php
 
 Copyright (c) 2015, Peter Kofler
