@@ -4,13 +4,22 @@
     "license": "BSD",
     "authors": [
         {
-            "name": "Peter Kofler",
+            "name": "Peter 'Code Cop' Kofler",
             "email": "peter.kofler@code-cop.org"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Wordcount\\": "src/"
+        }
+    },
+	"autoload-dev": {
+		"files": ["vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"]
+	},
     "require": {
     },
     "require-dev": {
-        "phpunit/phpunit": "4.5.*"
+        "phpunit/phpunit": "4.8.*",
+        "hamcrest/hamcrest-php": "2.0.*"
     }
 }

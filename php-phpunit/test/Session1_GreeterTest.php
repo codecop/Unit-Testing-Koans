@@ -1,11 +1,13 @@
 <?php
 
-require 'Greeter.php';
+use \Wordcount\Greeter;
 
 /**
  * Session 1: GreeterTest - Your first tests.
  */
 class Session1_GreeterTest extends \PHPUnit_Framework_TestCase {
+
+    // TODO We will add the proper self.assertions together.
 
     /** @test */
     function shouldReturnHelloName() {
@@ -13,15 +15,11 @@ class Session1_GreeterTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals("Hello Peter", $greeter->greet("Peter"));
     }
 
-    // add another test method, what about null?
-
     /** @test */
     function shouldReturnHelloForNull() {
         $greeter = new Greeter();
         $this->assertEquals("Hello", $greeter->greet(null));
     }
-
-    // add another test method, what about blanks?
 
     /** @test */
     function shouldIgnoreWhitespace() {

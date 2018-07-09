@@ -1,13 +1,14 @@
 <?php
+namespace Wordcount;
 
-class FileNotFoundException extends Exception {}
+class FileNotFoundException extends \Exception {}
 
 /**
- * Counts words of a text and provides basic analytics of that.
+ * Counts words of a text and provides basic analysis of that.
  */
 class WordCounter {
 
-    private $_words;
+    private $words;
 
     static function fromFile($fileName) {
         if (!file_exists($fileName)) {
@@ -18,29 +19,30 @@ class WordCounter {
     }
 
     function __construct($sentence) {
-        $this->_words =  preg_split("/\s+/", $sentence);
+        $this->words =  preg_split("/\s+/", $sentence);
     }
 
     function numberOfWords() {
-        return count($this->_words);
+        sleep(0.1); // here some hard core calculation...
+        return count($this->words);
     }
 
     /**
      * @return unique words sorted alphabetically.
      */
     function uniqueWords() {
-        $uniqueWords = array_unique($this->_words);
+        $uniqueWords = array_unique($this->words);
         sort($uniqueWords);
         return $uniqueWords;
     }
 
     function containsWord($word) {
-        return in_array($word, $this->_words);
+        return in_array($word, $this->words);
     }
 
     function countOf($word) {
         $sum = 0;
-        foreach ($this->_words as $s) {
+        foreach ($this->words as $s) {
             if ($word == $s) {
                 $sum++;
             }
@@ -53,7 +55,7 @@ class WordCounter {
     }
 
     /**
-     * @return ratio of this word's occurance against all words.
+     * @return ratio of this word's occurrence against all words.
      */
     function ratioOf($word) {
         $count = $this->countOf($word);
@@ -61,6 +63,10 @@ class WordCounter {
             throw new InvalidArgumentException($word . " not in sentence");
         }
         return 1.0 * $count / $this->numberOfWords();
+    }
+
+    function firstUniqueWord() {
+        return $this->uniqueWords()[0];
     }
 
 }

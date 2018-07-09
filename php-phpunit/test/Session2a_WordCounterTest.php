@@ -1,15 +1,15 @@
 <?php
 
-require_once 'WordCounter.php';
+use \Wordcount\WordCounter;
 
 /**
- * Session 2: WordCounterTest - All kind of asserts.
+ * Session 2: WordCounterTest - Basic assertions.
  * See https://phpunit.de/manual/current/en/appendixes.assertions.html
  */
 class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
 
-    // TODO add the proper assertions to complete the tests,
-    // the test name explains what needs to be verified
+    // TODO Add the proper assertions to complete the tests.
+    // The test name explains what needs to be asserted.
 
     /** @test */
     function shouldCountNumberOfWords() {
@@ -17,7 +17,11 @@ class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals(9, $counter->numberOfWords());
     }
 
-    // $this->assertTrue - show everything but the assert line
+    /** @test */
+    function shouldNotCountCapitalizedWord() {
+        $counter = new WordCounter("green bar green hat");
+        $this->assertNotEquals(1, $counter->countOf("HAT"));
+    }
 
     /** @test */
     function shouldVerifyContainmentOfWord() {
@@ -25,15 +29,11 @@ class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue($counter->containsWord("bar"));
     }
 
-    // $this->assertFalse - let do themselves
-
     /** @test */
     function shouldVerifyNonContainmentOfWord() {
         $counter = new WordCounter("green hat");
         $this->assertFalse($counter->containsWord("red"));
     }
-
-    // $this->assertNull
 
     /** @test */
     function shouldReturnNullForUnknownWordCount() {
@@ -41,39 +41,22 @@ class Session2_WordCounterTest extends \PHPUnit_Framework_TestCase {
         $this->assertNull($counter->countOf("else"));
     }
 
-    // $this->assertNotNull
-    function shouldReturnNotNullWordCountForExistingWord() {
-
     /** @test */
-    function shouldReturnWordCount() {
+    function shouldReturnNotNullExistingWordCount() {
         $counter = new WordCounter("green bar green hat");
         $this->assertNotNull($counter->countOf("green"));
-        $this->assertEquals(2, $counter->countOf("green"));
     }
 
-    // $this->assertEquals also for arrays
+    /** @test */
+    function shouldCountGreenTwice() {
+        $counter = new WordCounter("green bar green hat");
+        $this->assertEquals(2, $counter->countOf("green"));
+    }
 
     /** @test */
     function shouldFindUniqueWords() {
         $counter = new WordCounter("green bar green hat");
         $this->assertEquals(["bar", "green", "hat"], $counter->uniqueWords());
-        $this->assertContains("bar", $counter->uniqueWords());
-    }
-    
-    // $this->assertCount
-
-    /** @test */
-    function shouldFindNumberOfUniqueWords() {
-        $counter = new WordCounter("green bar green hat");
-        $this->assertCount(3, $counter->uniqueWords());
-    }
-
-    // $this->assertEquals(float expected, float actual, message, float delta)
-
-    /** @test */
-    function shouldReturnRatioOfWords() {
-        $counter = new WordCounter("green bar green");
-        $this->assertEquals(0.33, $counter->ratioOf("bar"), '', 0.01);
     }
 
 }
