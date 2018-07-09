@@ -27,6 +27,6 @@ class Session5_WordCounterRatioTest extends \PHPUnit_Framework_TestCase {
      */
     function shouldReturnRatioOfGivenWord($sentence, $word, $expectedRratio) {
         $counter = new WordCounter($sentence);
-        $this->assertEquals($expectedRratio, $counter->ratioOf($word), '', 0.01);
+        $this->assertEquals($expectedRratio, $counter->ratioOf($word), "", 0.01);
     }
 }
