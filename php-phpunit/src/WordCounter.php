@@ -60,7 +60,7 @@ class WordCounter {
     function ratioOf($word) {
         $count = $this->countOf($word);
         if (!$count) {
-            throw new InvalidArgumentException($word . " not in sentence");
+            throw new \InvalidArgumentException($word . " not in sentence");
         }
         return 1.0 * $count / $this->numberOfWords();
     }

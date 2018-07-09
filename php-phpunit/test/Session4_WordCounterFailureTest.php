@@ -1,19 +1,20 @@
 <?php
 
-require_once 'WordCounter.php';
+use \Wordcount\WordCounter;
+use \Wordcount\FileNotFoundException;
 
 /**
- * Session 4: WordCounterTest - testing for Exceptions.
+ * Session 4: WordCounterFailureTest - Exceptions and ignoring tests.
  * See https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions
  * See https://phpunit.de/manual/current/en/appendixes.annotations.html
  */
 class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
 
-    // expected to test Exception, Trainer should show this one
+	// TODO Add the needed code/annotations to test for an expected exception.
 
     /**
      * @test
-     * @expectedException InvalidArgumentException
+     * @expectedException \InvalidArgumentException
      */
     function shouldThrowInvalidArgumentExceptionForUnknownWord() {
         $counter = new WordCounter("green bar green");
@@ -22,27 +23,24 @@ class Session4_WordCounterFailureTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @test
-     */
-    function shouldThrowInvalidArgumentExceptionForOtherUnknownWord() {
-        $this->setExpectedException('InvalidArgumentException');
-        $counter = new WordCounter("green bar green");
-        $counter->ratioOf("anotherMissingWord");
-    }
-
-    // now do the second one yourself
-
-    /**
-     * @test
-     * @expectedException FileNotFoundException
+     * @expectedException \Wordcount\FileNotFoundException
      * @expectedExceptionMessage IamSureThisDoesNotExist.txt
      */
     function shouldThrowExceptionOnMissingFile() {
         WordCounter::fromFile("IamSureThisDoesNotExist.txt");
     }
 
-    // add a test but it is not implemented yet. Let them write a test,
-    // then it does not work, we need to change the code,
-    // will do that tomorrow. for the time skip it
+    /**
+     * @test
+     */
+    function shouldThrowIllegalArgumentExceptionWithMessageOnUnknownWord() {
+        $this->setExpectedException("\InvalidArgumentException", "missingWord");
+        $counter = new WordCounter("green bar green");
+        $counter->ratioOf("missingWord");
+    }
+
+    // TODO The next test does not work, we need to change the code,
+    // but we will do that tomorrow. For today let's skip it.
 
     /**
      * @test

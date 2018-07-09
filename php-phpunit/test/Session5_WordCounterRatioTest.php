@@ -1,14 +1,16 @@
 <?php
 
-require_once 'WordCounter.php';
+use \Wordcount\WordCounter;
 
 /**
- * Session 5: WordCounterTableTest - parametrized/table driven.
+ * Session 5: WordCounterTableTest - parameterised/table driven tests.
  * See https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
  */
 class Session5_WordCounterRatioTest extends \PHPUnit_Framework_TestCase {
 
-    // want to test more corner cases for ratio, have a table of test cases
+    // TODO Add the needed annotations to run this test with all examples.
+
+    // We want to test more corner cases for the ratio. Here is a table of test cases.
     static function tableData() {
         return [
             // instructor shows this table data in slides
