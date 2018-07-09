@@ -6,8 +6,7 @@ PHP [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to unde
 
 This is a [Composer](https://getcomposer.org/) project.
 
-Additional exercises cover [Hamcrest matchers](https://github.com/hamcrest/hamcrest-php) and
-[TODO fluent assertions](https://github.com/TODO).
+Additional exercises cover [Hamcrest matchers](https://github.com/hamcrest/hamcrest-php).
 Run `composer install` to install the required dependencies.
 
 ## Assignment ##
