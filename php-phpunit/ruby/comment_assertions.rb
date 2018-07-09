@@ -24,7 +24,7 @@ def comment_assertion_in(line)
     # drop line
     "#{$'}"
 
-  elsif line =~ /\$this->setExpectedException\(([^,]+),(.+)\);/
+  elsif line =~ /\$this->setExpectedException\(([^,]+), ?(.+)\);/
     "#{$`}// TODO Expect #{$1} is thrown with message #{$2}.#{$'}"
 
   elsif line =~ /(?:\$this->)?assert(\w+)\((.*)\)(?:;|,)?/
@@ -35,7 +35,19 @@ def comment_assertion_in(line)
     # comment life cycle
     "#{$`}// TODO#{$'}"
 
-  elsif line =~ /$this->markTestIncomplete\((.*)\);/
+  elsif line =~ /@dataProvider /
+    # comment parameters
+    "#{$`}// TODO Mark this test as parameterized with #{$'}"
+
+  elsif line =~ /@expectedException (\S+)/
+    # comment expected
+    "#{$`}// TODO Expect #{$1} is thrown#{$'}"
+
+  elsif line =~ /@expectedExceptionMessage /
+    # comment expected
+    "#{$`}// TODO Expect exception message #{$'}"
+
+  elsif line =~ /\$this->markTestIncomplete\((.*)\);/
     # comment disabled
     "#{$`}// TODO Mark this test as incomplete with #{$1}.#{$'}"
 
@@ -66,7 +78,9 @@ def comment_assert(before, term, args, after)
     what = "#{args} is "
     how = term.downcase().
       sub(/not/, "not ").
-      sub(/equals/, "equal")
+      sub(/equals/, "equal").
+      sub(/contains/, "contained")
+
   end
 
   front + what + how + back

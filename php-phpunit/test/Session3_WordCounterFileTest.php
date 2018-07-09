@@ -35,7 +35,7 @@ class Session3_WordCounterFileTest extends \PHPUnit_Framework_TestCase {
 
     /** @after */ // This method should be called after each test.
     function deleteTestFile() {
-        $this->assertTrue(unlink(self::TEST_FILE));
+        $this->assertTrue(unlink(self::TEST_FILE)); // keep
     }
 
     // TODO Add the proper assertions to complete the tests.
