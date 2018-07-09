@@ -7,24 +7,26 @@ require 'Greeter.php';
  */
 class Session1_GreeterTest extends \PHPUnit_Framework_TestCase {
 
-    // TODO we will add the proper assertions together
-    
     /** @test */
     function shouldReturnHelloName() {
         $greeter = new Greeter();
-        // TODO check that "Hello Peter", $greeter->greet("Peter")
+        $this->assertEquals("Hello Peter", $greeter->greet("Peter"));
     }
+
+    // add another test method, what about null?
 
     /** @test */
     function shouldReturnHelloForNull() {
         $greeter = new Greeter();
-        // TODO check that "Hello", $greeter->greet(null)
+        $this->assertEquals("Hello", $greeter->greet(null));
     }
+
+    // add another test method, what about blanks?
 
     /** @test */
     function shouldIgnoreWhitespace() {
         $greeter = new Greeter();
-        // TODO check that "Hello Peter", $greeter->greet(" Peter ")
+        $this->assertEquals("Hello Peter", $greeter->greet(" Peter "));
     }
 
 }
