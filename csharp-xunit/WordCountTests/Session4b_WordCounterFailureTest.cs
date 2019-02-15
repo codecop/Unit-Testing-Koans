@@ -13,9 +13,9 @@ namespace Org.Codecop.WordCount.Tests
 	{
 		// TODO Add the needed code/annotations to test for an expected exception.
 		[Fact]
-		public virtual void ShouldThrowIllegalArgumentExceptionWithMessageOnUnknownWord()
+		public void ShouldThrowIllegalArgumentExceptionWithMessageOnUnknownWord()
 		{
-			WordCounter counter = new WordCounter("green bar green");
+			var counter = new WordCounter("green bar green");
 			CatchException.VerifyException<ArgumentException>(counter).RatioOf("missingWord");
 			// Hamcrest improves readability:
 			CatchException.CatchException(counter).RatioOf("missingWord");

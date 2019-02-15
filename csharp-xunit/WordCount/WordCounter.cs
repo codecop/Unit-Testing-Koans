@@ -33,7 +33,7 @@ namespace Org.Codecop.WordCount
         /// <returns>unique words sorted alphabetically.</returns>
         public string[] UniqueWords()
         {
-            IEnumerable<string> uniqueWords = words.Distinct();
+            var uniqueWords = words.Distinct();
             return uniqueWords.OrderBy(w => w).ToArray();
         }
 

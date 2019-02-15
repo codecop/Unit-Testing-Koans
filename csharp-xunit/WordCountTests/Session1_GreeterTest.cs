@@ -10,23 +10,23 @@ namespace Org.Codecop.WordCount.Tests
         // TODO We will add the proper assertions together.
 
         [Fact]
-        public virtual void ShouldReturnHelloName()
+        public void ShouldReturnHelloName()
         {
-            Greeter greeter = new Greeter();
+            var greeter = new Greeter();
             Assert.Equal("Hello Peter", greeter.Greet("Peter"));
         }
 
         [Fact]
-        public virtual void ShouldReturnHelloForNull()
+        public void ShouldReturnHelloForNull()
         {
-            Greeter greeter = new Greeter();
+            var greeter = new Greeter();
             Assert.Equal("Hello", greeter.Greet(null));
         }
 
         [Fact]
-        public virtual void ShouldIgnoreWhitespace()
+        public void ShouldIgnoreWhitespace()
         {
-            Greeter greeter = new Greeter();
+            var greeter = new Greeter();
             Assert.Equal("Hello Peter", greeter.Greet(" Peter "));
         }
     }

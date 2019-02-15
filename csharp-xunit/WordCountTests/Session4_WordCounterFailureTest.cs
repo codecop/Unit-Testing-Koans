@@ -1,4 +1,5 @@
 using Org.Codecop.WordCount;
+using System.IO;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
@@ -9,14 +10,14 @@ namespace Org.Codecop.WordCount.Tests
     {
         // TODO Add the needed code/annotations to test for an expected exception.
 
-        public virtual void ShouldThrowIOExceptionOnMissingFile()
+        public void ShouldThrowIOExceptionOnMissingFile()
         {
-            new WordCounter(new FilePath("IamSureThisDoesNotExist.txt"));
+            new WordCounter(new FileInfo("IamSureThisDoesNotExist.txt"));
         }
 
-        public virtual void ShouldThrowIllegalArgumentExceptionForUnknownWord()
+        public void ShouldThrowIllegalArgumentExceptionForUnknownWord()
         {
-            WordCounter counter = new WordCounter("green bar green");
+            var counter = new WordCounter("green bar green");
             counter.RatioOf("missingWord");
         }
 
@@ -24,10 +25,10 @@ namespace Org.Codecop.WordCount.Tests
         // but we will do that tomorrow. For today let's ignore it.
 
         [Fact]
-        public virtual void ShouldCountUniqueWordsCaseInsensitive()
+        public void ShouldCountUniqueWordsCaseInsensitive()
         {
-            WordCounter counter = new WordCounter("green bar Green hat");
-            Assert.AssertArrayEquals(new string[] { "bar", "green", "hat" }, counter.UniqueWords()); // keep
+            var counter = new WordCounter("green bar Green hat");
+            Assert.Equal(new string[] { "bar", "green", "hat" }, counter.UniqueWords()); // keep
         }
     }
 }

@@ -12,60 +12,60 @@ namespace Org.Codecop.WordCount.Tests
         // The test name explains what needs to be asserted.
 
         [Fact]
-        public virtual void ShouldCountNumberOfWords()
+        public void ShouldCountNumberOfWords()
         {
-            WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
+            var counter = new WordCounter("Keep the bar green to keep the code clean.");
             Assert.Equal(9, counter.NumberOfWords());
         }
 
         [Fact]
-        public virtual void ShouldVerifyContainmentOfWord()
+        public void ShouldVerifyContainmentOfWord()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
+            var counter = new WordCounter("green bar green hat");
             Assert.True(counter.ContainsWord("bar"));
         }
 
         [Fact]
-        public virtual void ShouldVerifyNonContainmentOfWord()
+        public void ShouldVerifyNonContainmentOfWord()
         {
-            WordCounter counter = new WordCounter("green hat");
-            Assert.IsFalse(counter.ContainsWord("red"));
+            var counter = new WordCounter("green hat");
+            Assert.False(counter.ContainsWord("red"));
         }
 
         [Fact]
-        public virtual void ShouldReturnNullForUnknownWordCount()
+        public void ShouldReturnNullForUnknownWordCount()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
-            Assert.IsNull(counter.CountOf("else"));
+            var counter = new WordCounter("green bar green hat");
+            Assert.Null(counter.CountOf("else"));
         }
 
         [Fact]
-        public virtual void ShouldReturnNotNullWordCountForExistingWord()
+        public void ShouldReturnNotNullWordCountForExistingWord()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
-            Assert.IsNotNull(counter.CountOf("green"));
+            var counter = new WordCounter("green bar green hat");
+            Assert.NotNull(counter.CountOf("green"));
         }
 
         [Fact]
-        public virtual void ShouldCountGreenTwice()
+        public void ShouldCountGreenTwice()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
-            Assert.Equal(Sharpen.Extensions.ValueOf(2), counter.CountOf("green"));
+            var counter = new WordCounter("green bar green hat");
+            Assert.Equal(2, counter.CountOf("green"));
         }
 
         [Fact]
-        public virtual void ShouldFindUniqueWords()
+        public void ShouldFindUniqueWords()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
-            Assert.AssertArrayEquals(new string[] { "bar", "green", "hat" }, counter.UniqueWords());
+            var counter = new WordCounter("green bar green hat");
+            Assert.Equal(new string[] { "bar", "green", "hat" }, counter.UniqueWords());
         }
 
         [Fact]
-        public virtual void ShouldReturnRatioOfWords()
+        public void ShouldReturnRatioOfWords()
         {
-            WordCounter counter = new WordCounter("green bar green");
-            Assert.Equal(0.33, counter.RatioOf("bar"), 0.01);
-            // Note that floating point numbers need an accuracy delta, e.g. 0.01.
+            var counter = new WordCounter("green bar green");
+            Assert.Equal(0.33, counter.RatioOf("bar"), 3);
+            // Note that floating point numbers need an accuracy precision, e.g. 3.
         }
     }
 }

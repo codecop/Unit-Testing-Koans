@@ -1,6 +1,5 @@
 using Org.Codecop.WordCount;
-using NHamcrest.Collection;
-using NHamcrest.Core;
+using NHamcrest;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
@@ -14,39 +13,39 @@ namespace Org.Codecop.WordCount.Tests
         // The test name explains what needs to be asserted.
 
         [Fact]
-        public virtual void ShouldCountNumberOfWords()
+        public void ShouldCountNumberOfWords()
         {
-            WordCounter counter = new WordCounter("Keep the bar green to keep the code clean.");
+            var counter = new WordCounter("Keep the bar green to keep the code clean.");
             Assert.Equal(9, counter.NumberOfWords()); // keep
             // Hamcrest improves readability:
-            Assert.AssertThat(counter.NumberOfWords(), IsEqual.EqualTo(9));
+            Assert.That(counter.NumberOfWords(), Is.EqualTo(9));
         }
 
         [Fact]
-        public virtual void ShouldContainUniqueWord()
+        public void ShouldContainUniqueWord()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
-            Assert.True(Arrays.AsList(counter.UniqueWords()).Contains("bar")); // keep
+            var counter = new WordCounter("green bar green hat");
+            Assert.Contains(counter.UniqueWords(), w => w == "bar"); // keep
             // Hamcrest improves readability:
-            Assert.AssertThat(counter.UniqueWords(), IsArrayContaining.HasItemInArray("bar"));
+            Assert.That(counter.UniqueWords(), IsArrayContaining.HasItemInArray("bar"));
         }
 
         [Fact]
-        public virtual void ShouldNotContainUniqueWord()
+        public void ShouldNotContainUniqueWord()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
-            Assert.IsFalse(Arrays.AsList(counter.UniqueWords()).Contains("foo")); // keep
+            var counter = new WordCounter("green bar green hat");
+            Assert.DoesNotContain(counter.UniqueWords(), w => w == "foo"); // keep
             // Hamcrest improves readability:
-            Assert.AssertThat(counter.UniqueWords(), IsNot.Not(IsArrayContaining.HasItemInArray("foo")));
+            Assert.That(counter.UniqueWords(), Is.Not(IsArrayContaining.HasItemInArray("foo")));
         }
 
         [Fact]
-        public virtual void ShouldFindNumberOfUniqueWords()
+        public void ShouldFindNumberOfUniqueWords()
         {
-            WordCounter counter = new WordCounter("green bar green hat");
+            var counter = new WordCounter("green bar green hat");
             Assert.Equal(3, counter.UniqueWords().Length); // keep
             // Hamcrest improves readability:
-            Assert.AssertThat(counter.UniqueWords(), IsArrayWithSize.ArrayWithSize(3));
+            Assert.That(counter.UniqueWords(), IsArrayWithSize.ArrayWithSize(3));
         }
     }
 }

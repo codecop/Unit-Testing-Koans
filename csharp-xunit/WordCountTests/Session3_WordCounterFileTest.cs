@@ -9,11 +9,11 @@ namespace Org.Codecop.WordCount.Tests
     {
 
         [Fact]
-        public virtual void ShouldReturnCountOfWords()
+        public void ShouldReturnCountOfWords()
         {
             FilePath file = new FilePath("tmp");
             StringToFile.Write("Keep the bar green to keep the code clean.", file);
-            WordCounter counter = new WordCounter(file);
+            var counter = new WordCounter(file);
             Assert.Equal(9, counter.NumberOfWords());
             // keep
             file.Delete();
@@ -26,14 +26,14 @@ namespace Org.Codecop.WordCount.Tests
         // TODO Add the needed annotations to the hook methods and then
 
         [Before]
-        public virtual void CreateFreshTestFileForEachTest()
+        public void CreateFreshTestFileForEachTest()
         {
             // This method should be called before each test.
             StringToFile.Write("Keep the bar green to keep the code clean.", testFile);
         }
 
         [After]
-        public virtual void DeleteTestFile()
+        public void DeleteTestFile()
         {
             // This method should be called after each test.
             Assert.True(testFile.Delete()); // keep
@@ -42,16 +42,16 @@ namespace Org.Codecop.WordCount.Tests
         // TODO add the proper assertions to complete the tests.
 
         [Fact]
-        public virtual void ShouldReturnCountOfWordsBetter()
+        public void ShouldReturnCountOfWordsBetter()
         {
-            WordCounter counter = new WordCounter(testFile);
+            var counter = new WordCounter(testFile);
             Assert.Equal(9, counter.NumberOfWords());
         }
 
         [Fact]
-        public virtual void ShouldVerifyContainmentOfWord()
+        public void ShouldVerifyContainmentOfWord()
         {
-            WordCounter counter = new WordCounter(testFile);
+            var counter = new WordCounter(testFile);
             Assert.True(counter.ContainsWord("bar"));
         }
     }

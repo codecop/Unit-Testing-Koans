@@ -42,10 +42,10 @@ namespace Org.Codecop.WordCount.Tests
         }
 
         [Fact]
-        public virtual void ShouldReturnRatioOfGivenWord()
+        public void ShouldReturnRatioOfGivenWord()
         {
-            WordCounter counter = new WordCounter(sentence);
-            Assert.Equal(expectedRatio, counter.RatioOf(word), 0.01); // keep
+            var counter = new WordCounter(sentence);
+            Assert.Equal(expectedRatio, counter.RatioOf(word), 3); // keep
         }
     }
 }
