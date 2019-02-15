@@ -1,4 +1,5 @@
 using Org.Codecop.WordCount;
+using System.IO;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
@@ -11,15 +12,14 @@ namespace Org.Codecop.WordCount.Tests
         [Fact]
         public void ShouldReturnCountOfWords()
         {
-            FilePath file = new FilePath("tmp");
-            StringToFile.Write("Keep the bar green to keep the code clean.", file);
+            FileInfo file = new FileInfo("tmp");
+            System.IO.File.WriteAllText(file.FullName, "Keep the bar green to keep the code clean.");
             var counter = new WordCounter(file);
-            Assert.Equal(9, counter.NumberOfWords());
-            // keep
+            Assert.Equal(9, counter.NumberOfWords()); // keep
             file.Delete();
         }
 
-        private readonly FilePath testFile = new FilePath("FileWordCounterTest.tmp");
+        private readonly FileInfo testFile = new FileInfo("FileWordCounterTest.tmp");
 
         // The problem is that `delete´ is not called in case of test failures.
         // Better use `BeforeEach/AfterEach´ hooks for test file handling.
@@ -29,14 +29,14 @@ namespace Org.Codecop.WordCount.Tests
         public void CreateFreshTestFileForEachTest()
         {
             // This method should be called before each test.
-            StringToFile.Write("Keep the bar green to keep the code clean.", testFile);
+            System.IO.File.WriteAllText(testFile.FullName, "Keep the bar green to keep the code clean.");
         }
 
         [After]
         public void DeleteTestFile()
         {
             // This method should be called after each test.
-            Assert.True(testFile.Delete()); // keep
+            testFile.Delete();
         }
 
         // TODO add the proper assertions to complete the tests.
