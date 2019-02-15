@@ -6,20 +6,14 @@
 
         <zip destfile="../c#-xunit-koans-new.zip">
             <zipfileset dir="." prefix="c#-xunit-koans">
-                <include name="DependencyBreakingKatas/README.md" />
                 <include name="license.txt" />
+                <include name="XUnitKoans.sln" />
             </zipfileset>
 
-            <zipfileset dir="." prefix="c#-xunit-koans">
-                <include name="DependencyBreakingKatas.sln" />
+            <zipfileset dir="." includes="WordCount/**" prefix="c#-xunit-koans">
             </zipfileset>
 
-            <zipfileset dir="." includes="DependencyBreakingKatas/**" prefix="c#-xunit-koans">
-            </zipfileset>
-
-            <zipfileset dir="." includes="DependencyBreakingTests/**" prefix="c#-xunit-koans">
-                <include name="run_tests.bat" />
-                <include name="run_first_session.bat" />
+            <zipfileset dir="." includes="WordCountTests/**" prefix="c#-xunit-koans">
             </zipfileset>
 
         </zip>
