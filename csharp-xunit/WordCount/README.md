@@ -16,7 +16,3 @@ Additional exercises cover [NHamcrest](https://github.com/nhamcrest/NHamcrest) a
     * All assertions are commented and incomplete.
     * Uncomment the assertions and complete them making the tests pass.
     * You can run individual sessions using `dotnet test --filter Session1`
-
-### License ###
-
-[New BSD License](http://opensource.org/licenses/bsd-license.php), see `license.txt` in repository.
