@@ -13,12 +13,12 @@ Run `dotnet restore` to install the dependencies.
 
 ## Assignment ##
 
-* Run tests with `dotnet test`.
+* Run tests with `dotnet test` or script `run_tests`.
 * You should see some test failures and errors (but there are no assertions).
 * Go through the test code starting from Session 1:
   * All assertions are commented and incomplete.
   * Uncomment the assertions and complete them making the tests pass.
-  * You can run individual sessions using `TODO`
+  * You can run individual sessions using `dotnet test --filter Session1`
 
 ### License ###
 
