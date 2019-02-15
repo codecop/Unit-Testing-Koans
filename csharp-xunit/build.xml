@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Package" basedir="." default="zip">
+
+    <target name="zip">
+        <delete file="../c#-xunit-koans-new.zip" />
+
+        <zip destfile="../c#-xunit-koans-new.zip">
+            <zipfileset dir="." prefix="c#-xunit-koans">
+                <include name="DependencyBreakingKatas/README.md" />
+                <include name="license.txt" />
+            </zipfileset>
+
+            <zipfileset dir="." prefix="c#-xunit-koans">
+                <include name="DependencyBreakingKatas.sln" />
+            </zipfileset>
+
+            <zipfileset dir="." includes="DependencyBreakingKatas/**" prefix="c#-xunit-koans">
+            </zipfileset>
+
+            <zipfileset dir="." includes="DependencyBreakingTests/**" prefix="c#-xunit-koans">
+                <include name="run_tests.bat" />
+                <include name="run_first_session.bat" />
+            </zipfileset>
+
+        </zip>
+    </target>
+
+</project>
