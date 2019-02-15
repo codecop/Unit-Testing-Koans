@@ -7,7 +7,7 @@ C# [Testing Koans](http://blog.code-cop.org/2015/12/testing-koans.html) to under
 This is a .NET Core 2.0 project. The programming language is C# 7.1 (Visual Studio 2017 version 15.3).
 
 Additional exercises cover TODO [parameterized](https://github.com/wolever/parameterized),
-TODO [PyHamcrest](https://github.com/hamcrest/PyHamcrest) and
+[NHamcrest](https://github.com/nhamcrest/NHamcrest) and
 [FluentAssertions](https://fluentassertions.com/).
 Run `dotnet restore` to install the dependencies.
 
