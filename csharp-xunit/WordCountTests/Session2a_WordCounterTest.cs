@@ -47,13 +47,6 @@ namespace Org.Codecop.WordCount.Tests
         }
 
         [Fact]
-        public void ShouldCountGreenTwice()
-        {
-            var counter = new WordCounter("green bar green hat");
-            Assert.Equal(2, counter.CountOf("green"));
-        }
-
-        [Fact]
         public void ShouldFindUniqueWords()
         {
             var counter = new WordCounter("green bar green hat");
