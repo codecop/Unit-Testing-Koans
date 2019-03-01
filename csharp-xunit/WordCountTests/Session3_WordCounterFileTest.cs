@@ -1,41 +1,52 @@
 using Org.Codecop.WordCount;
+using System;
 using System.IO;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
 {
     /// <summary>Session 3: WordCounterFileTest - Fixtures, e.g. using a test file.</summary>
-    /// <seealso>"TODO"</seealso>
-    public class Session3_WordCounterFileTest
+    /// <seealso>"https://xunit.github.io/docs/shared-context"</seealso>
+    public class Session3_WordCounterFileTest : IDisposable
     {
+
+        public Session3_WordCounterFileTest()
+        {
+            CreateFreshTestFileForEachTest(); // drop
+        }
+
+        public void Dispose()
+        {
+            DeleteTestFile(); // drop
+        }
 
         [Fact]
         public void ShouldReturnCountOfWords()
         {
             FileInfo file = new FileInfo("tmp");
-            System.IO.File.WriteAllText(file.FullName, "Keep the bar green to keep the code clean.");
+            File.WriteAllText(file.FullName, "Keep the bar green to keep the code clean.");
+
             var counter = new WordCounter(file);
             Assert.Equal(9, counter.NumberOfWords()); // keep
+
             file.Delete();
         }
 
         private readonly FileInfo testFile = new FileInfo("FileWordCounterTest.tmp");
 
         // The problem is that `delete´ is not called in case of test failures.
-        // Better use `BeforeEach/AfterEach´ hooks for test file handling.
-        // TODO Add the needed annotations to the hook methods and then
+        // Better use `Shared Context´ hooks for test file handling.
+        // TODO Add the needed method calls to the create and delete methods
 
-        [Before]
-        public void CreateFreshTestFileForEachTest()
+        // This method should be called before each test.
+        private void CreateFreshTestFileForEachTest()
         {
-            // This method should be called before each test.
-            System.IO.File.WriteAllText(testFile.FullName, "Keep the bar green to keep the code clean.");
+            File.WriteAllText(testFile.FullName, "Keep the bar green to keep the code clean.");
         }
 
-        [After]
-        public void DeleteTestFile()
+        // This method should be called after each test.
+        private void DeleteTestFile()
         {
-            // This method should be called after each test.
             testFile.Delete();
         }
 
@@ -54,5 +65,6 @@ namespace Org.Codecop.WordCount.Tests
             var counter = new WordCounter(testFile);
             Assert.True(counter.ContainsWord("bar"));
         }
+
     }
 }
