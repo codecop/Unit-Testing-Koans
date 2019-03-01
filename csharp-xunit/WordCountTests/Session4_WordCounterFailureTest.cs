@@ -9,7 +9,7 @@ namespace Org.Codecop.WordCount.Tests
     /// <seealso>"https://hadihariri.com/2008/10/17/testing-exceptions-with-xunit/"</seealso>
     public class Session4_WordCounterFailureTest
     {
-        // TODO Add the needed code/annotations to test for an expected exception.
+        // TODO Add the needed code/attributes to test for an expected exception.
 
         [Fact]
         public void ShouldThrowExceptionOnMissingFile()

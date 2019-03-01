@@ -10,7 +10,7 @@ namespace Org.Codecop.WordCount.Tests
     public class Session5b_WordCounterRatioTest
     {
 
-        // TODO Add the needed annotations to run this test with all examples.
+        // TODO Add the needed attributes to run this test with all examples.
         [Theory] // mark this test as parameterised
         [ClassData(typeof(TestCases))] // tell it to take arguments from "TestCases"
         public void ShouldReturnRatioOfGivenWord(string sentence, string word, double expectedRatio)
