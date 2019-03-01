@@ -1,10 +1,9 @@
 using Org.Codecop.WordCount;
-using System.Collections.Generic;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
 {
-    /// <summary>Session 5: WordCounterRatioTest - parameterised/table driven tests.</summary>
+    /// <summary>Session 5: WordCounterRatioTest - parameterised/table driven tests with InlineData.</summary>
     /// <seealso>"http://hamidmosalla.com/2017/02/25/xunit-theory-working-with-inlinedata-memberdata-classdata/"</seealso>
     public class Session5_WordCounterRatioTest
     {

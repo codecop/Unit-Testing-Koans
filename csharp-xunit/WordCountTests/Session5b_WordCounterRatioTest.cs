@@ -1,33 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
 using Org.Codecop.WordCount;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
 {
-    /// <summary>Session 5b: WordCounterRatioTest - parameterised/table driven tests with JUnitParams.</summary>
-    /// <seealso>"TODO"</seealso>
+    /// <summary>Session 5b: WordCounterRatioTest - parameterised/table driven tests with ClassData.</summary>
+    /// <seealso>"http://hamidmosalla.com/2017/02/25/xunit-theory-working-with-inlinedata-memberdata-classdata/"</seealso>
     public class Session5b_WordCounterRatioTest
     {
 
-        // Mark this test as parameterised with JUnitParams
         // TODO Add the needed annotations to run this test with all examples.
-
-        [Fact]
+        [Theory] // mark this test as parameterised
+        [ClassData(typeof(TestCases))] // tell it to take arguments from "TestCases"
         public void ShouldReturnRatioOfGivenWord(string sentence, string word, double expectedRatio)
         {
-            // keep
-            // We want to test more cases for the ratio. Here is a table of test cases.
-            // drop
-            // use /*
-            //
-            //
-            //
-            //
-            //
-            // use */
-            // drop
             var counter = new WordCounter(sentence);
             Assert.Equal(expectedRatio, counter.RatioOf(word), 3); // keep
         }
+    }
 
+    public class TestCases : IEnumerable<object[]>
+    {
+        // We want to test more corner cases for the ratio. Here is a table of test cases.
+        private readonly List<object[]> testCases = new List<object[]>{
+            new object[] {"green", "green", 1.0},
+            new object[] {"green bar green", "green", 0.66},
+            new object[] {"green bar green bar", "green", 0.5},
+            new object[] {"green bar green", "bar", 0.33}
+        };
+
+        public IEnumerator<object[]> GetEnumerator() => testCases.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
