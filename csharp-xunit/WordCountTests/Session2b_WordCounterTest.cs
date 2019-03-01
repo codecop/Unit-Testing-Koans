@@ -4,7 +4,7 @@ using Xunit;
 namespace Org.Codecop.WordCount.Tests
 {
     /// <summary>Session 2b: WordCounterTest - More assertions.</summary>
-    /// <seealso>"TODO"</seealso>
+    /// <seealso>"https://xunit.github.io/docs/comparisons#assertions"</seealso>
     public class Session2b_WordCounterTest
     {
 
