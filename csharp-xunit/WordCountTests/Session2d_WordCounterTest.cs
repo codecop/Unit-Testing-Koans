@@ -5,7 +5,7 @@ using Xunit;
 namespace Org.Codecop.WordCount.Tests
 {
     /// <summary>Bonus Session 2d: WordCounterTest - Assertions with FluentAssertions.</summary>
-    /// <seealso>"TODO"</seealso>
+    /// <seealso>"https://fluentassertions.com/documentation/"</seealso>
     public class Session2d_WordCounterTest
     {
 
@@ -17,7 +17,7 @@ namespace Org.Codecop.WordCount.Tests
         {
             var counter = new WordCounter("Keep the bar green to keep the code clean.");
             Assert.Equal(9, counter.NumberOfWords()); // keep
-			// FluentAssertions is fluent:
+            // FluentAssertions is fluent:
             counter.NumberOfWords().Should().Equals(9);
         }
 
