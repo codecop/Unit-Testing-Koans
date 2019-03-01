@@ -65,7 +65,7 @@ namespace Org.Codecop.WordCount.Tests
         {
             var counter = new WordCounter("green bar green");
             Assert.Equal(0.33, counter.RatioOf("bar"), 3);
-            // Note that floating point numbers need an accuracy precision, e.g. 3.
+            // Note that floating point numbers need an accuracy precision, e.g. 3 digits.
         }
     }
 }
