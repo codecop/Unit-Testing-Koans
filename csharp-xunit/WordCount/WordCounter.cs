@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading;
 
 namespace Org.Codecop.WordCount
 {
@@ -26,7 +25,6 @@ namespace Org.Codecop.WordCount
         public int NumberOfWords()
         {
             // here some hard core calculation...
-            Thread.Sleep(100);
             return words.Count;
         }
 
