@@ -12,10 +12,10 @@ namespace Org.Codecop.WordCount.Tests
         // TODO Add the needed code/annotations to test for an expected exception.
 
         [Fact]
-        public void ShouldThrowIOExceptionOnMissingFile()
+        public void ShouldThrowExceptionOnMissingFile()
         {
             Action wordCountOfMissingFile = () => new WordCounter(new FileInfo("IamSureThisDoesNotExist.txt"));
-            Assert.Throws(typeof(FileNotFoundException), wordCountOfMissingFile);
+            Assert.Throws<FileNotFoundException>(wordCountOfMissingFile);
         }
 
         [Fact]
@@ -23,7 +23,7 @@ namespace Org.Codecop.WordCount.Tests
         {
             var counter = new WordCounter("green bar green");
             Action ratioOfMissingWord = () => counter.RatioOf("missingWord");
-            var exception = Assert.Throws(typeof(ArgumentException), ratioOfMissingWord);
+            var exception = Assert.Throws<ArgumentException>(ratioOfMissingWord);
             Assert.Equal("missingWord not in sentence", exception.Message);
         }
 
