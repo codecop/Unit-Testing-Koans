@@ -36,7 +36,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldReturnRatioOfWordsAccuracyInRange()
         {
             var counter = new WordCounter("green bar green red green");
-            Assert.InRange(counter.RatioOf("bar"), 0.55, 0.65);
+            Assert.InRange(counter.RatioOf("bar"), 0.19, 0.21);
         }
 
         [Fact]

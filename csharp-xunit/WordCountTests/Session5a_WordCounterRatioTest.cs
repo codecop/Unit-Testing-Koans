@@ -12,13 +12,13 @@ namespace Org.Codecop.WordCount.Tests
         // We want to test more corner cases for the ratio. Here is a table of test cases.
         [Theory]
         [InlineData("green", "green", 1.0)]
-        [InlineData("green bar green", "green", 0.66)]
+        [InlineData("green bar green", "green", 0.67)]
         [InlineData("green bar green bar", "green", 0.5)]
         [InlineData("green bar green", "bar", 0.33)]
         public void ShouldReturnRatioOfGivenWord(string sentence, string word, double expectedRatio)
         {
             var counter = new WordCounter(sentence);
-            Assert.Equal(expectedRatio, counter.RatioOf(word), 3); // keep
+            Assert.Equal(expectedRatio, counter.RatioOf(word), 2); // keep
         }
     }
 }

@@ -57,7 +57,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldReturnRatioOfWords()
         {
             var counter = new WordCounter("green bar green");
-            Assert.Equal(0.33, counter.RatioOf("bar"), 3);
+            Assert.Equal(0.333, counter.RatioOf("bar"), 3);
             // Note that floating point numbers need an accuracy precision, e.g. 3 digits.
         }
     }

@@ -13,7 +13,7 @@ namespace Org.Codecop.WordCount
 
         public WordCounter(string sentence)
         {
-            words = sentence.Split("\\s+");
+            words = Regex.Split(sentence, @"\s+");
         }
 
         /// <summary>Load words from a text file.</summary>
