@@ -37,6 +37,11 @@ namespace Org.Codecop.WordCount
             return uniqueWords.OrderBy(w => w).ToArray();
         }
 
+        public ICollection<string> UniqueWordsAsSequence()
+        {
+            return UniqueWords();
+        }
+
         public bool ContainsWord(string word)
         {
             return words.Contains(word);
@@ -44,7 +49,7 @@ namespace Org.Codecop.WordCount
 
         public int? CountOf(string word)
         {
-            int sum = 0;
+            var sum = 0;
             foreach (string w in words)
             {
                 if (word.Equals(w))
@@ -62,12 +67,30 @@ namespace Org.Codecop.WordCount
         /// <returns>ratio of this word's occurrence against all words.</returns>
         public double RatioOf(string word)
         {
-            int? count = CountOf(word);
+            var count = CountOf(word);
             if (count == null)
             {
                 throw new ArgumentException(word + " not in sentence");
             }
             return 1.0 * count.Value / NumberOfWords();
         }
+
+        public Summary SummaryOf(string word)
+        {
+            return new Summary(word, CountOf(word).Value);
+        }
     }
+
+    public class Summary
+    {
+        public readonly string word;
+        public readonly int count;
+
+        public Summary(String word, int count)
+        {
+            this.word = word;
+            this.count = count;
+        }
+    }
+
 }
