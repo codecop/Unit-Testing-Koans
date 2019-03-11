@@ -63,18 +63,24 @@ def comment_assert(before, term, args, after)
                 gsub(/\)\.|\((?!\))/, ' '). # remove ). and (
                 gsub(/\)+$/, '') # remove trailing )s
 
-  elsif term == 'Equal'
-    what = "#{args.sub(/, 3/, '')} are " # remove double rounding
+  elsif term == 'Equal' || term == 'NotEqual'
+    a = args.sub(/, 3/, ''). # remove double rounding
+             sub(/, /, ' and ')
+    what = "#{a} are "
     how = term.downcase().
       sub(/not/, 'not ')
+
+  elsif term == 'InRange' || term == 'Contains'
+    how = term.downcase().
+      sub(/inrange/, 'in range').
+      sub(/contains/, 'contained')
+    what = args.sub(/, /, " is #{how} ")
+    how = ''
 
   else
     what = "#{args} is "
     how = term.downcase().
-      sub(/not/, 'not ').
-      sub(/throws/, 'thrown').
-      sub(/inrange/, 'in range').
-      sub(/contains/, 'contained')
+      sub(/not/, 'not ')
   end
 
   front + what + how + back
