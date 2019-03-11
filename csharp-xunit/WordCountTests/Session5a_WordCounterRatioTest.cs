@@ -10,7 +10,7 @@ namespace Org.Codecop.WordCount.Tests
 
         // TODO Add the needed annotations to run this test with all examples.
         // We want to test more corner cases for the ratio. Here is a table of test cases.
-        [Theory] // mark this test as parameterised
+        [Theory] // Mark this test as parameterised.
         [InlineData("green", "green", 1.0)]
         [InlineData("green bar green", "green", 0.67)]
         [InlineData("green bar green bar", "green", 0.5)]

@@ -11,8 +11,8 @@ namespace Org.Codecop.WordCount.Tests
     {
 
         // TODO Add the needed attributes to run this test with all examples.
-        [Theory] // mark this test as parameterised
-        [ClassData(typeof(TestCases))] // tell it to take arguments from "TestCases"
+        [Theory] // Mark this test as parameterised.
+        [ClassData(typeof(TestCases))] // Tell it to take arguments from "TestCases".
         public void ShouldReturnRatioOfGivenWord(string sentence, string word, double expectedRatio)
         {
             var counter = new WordCounter(sentence);
