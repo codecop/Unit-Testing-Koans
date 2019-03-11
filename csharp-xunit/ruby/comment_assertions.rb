@@ -33,6 +33,10 @@ def comment_assertion_in(line)
     # comment general assertions
     comment_assert($`, $1, $2, $')
 
+  elsif line =~ /(.*)\.Should\(\).(\w+)\((.*)\);/
+    # comment fluent assertions
+    comment_assert($`, $2, $3 + ', ' + $1.strip, $')
+
   elsif line =~ /\[InlineData\((.*)\)\]/
     # comment test data
     "#{$`}// * #{$1}#{$'}"
@@ -63,17 +67,19 @@ def comment_assert(before, term, args, after)
                 gsub(/\)\.|\((?!\))/, ' '). # remove ). and (
                 gsub(/\)+$/, '') # remove trailing )s
 
-  elsif term == 'Equal' || term == 'NotEqual'
+  elsif term == 'Equals?' || term == 'NotEquals?'
     a = args.sub(/, 3/, ''). # remove double rounding
              sub(/, /, ' and ')
     what = "#{a} are "
     how = term.downcase().
-      sub(/not/, 'not ')
+      sub(/not/, 'not ').
+      sub(/equals/, 'equal')
 
-  elsif term == 'InRange' || term == 'Contains'
+  elsif term == 'InRange' || term == 'Contains?' || term == 'NotContains?'
     how = term.downcase().
+      sub(/not/, 'not ').
       sub(/inrange/, 'in range').
-      sub(/contains/, 'contained')
+      sub(/contains?/, 'contained')
     what = args.sub(/, /, " is #{how} ")
     how = ''
 
