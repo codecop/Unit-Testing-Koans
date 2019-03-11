@@ -25,9 +25,9 @@ def comment_assertion_in(line)
     "#{$'}"
 
   elsif line =~ /(\S.*) = Assert.Throws<([^>]+)>\((.*)\);/
-    "#{$`}// TODO Expect #{$2} thrown from #{$3}.#{$'}"
+    "#{$`}// TODO Check #{$2} thrown from #{$3}.#{$'}"
   elsif line =~ /Assert.Throws<([^>]+)>\((.*)\);/
-    "#{$`}// TODO Expect #{$1} thrown from #{$2}.#{$'}"
+    "#{$`}// TODO Check #{$1} thrown from #{$2}.#{$'}"
 
   elsif line =~ /Assert\.(\w+)\((.*)\);/
     # comment general assertions
@@ -35,7 +35,7 @@ def comment_assertion_in(line)
 
   elsif line =~ /(\S.*)\.Should\(\).(\w+)\((.*)\);/
     # comment fluent assertions
-    comment_assert($`, $2, $3 + ', ' + $1.strip, $')
+    comment_assert($`, $2, $1 + ', ' + $3, $')
 
   elsif line =~ /\[InlineData\((.*)\)\]/
     # comment test data
@@ -77,14 +77,20 @@ def comment_assert(before, term, args, after)
       sub(/equals/, 'equal')
 
   elsif term == 'InRange' ||
-        term == 'Contain' || term == 'NotContain' || term == 'Contains' || term == 'NotContains' ||
-        term == 'HaveCount'
+        term == 'Contains' || term == 'NotContains'
     how = term.downcase().
       sub(/not/, 'not ').
       sub(/inrange/, 'in range').
-      sub(/contains?/, 'contained in').
-      sub(/havecount/, 'count of')
+      sub(/contains/, 'contained in')
     what = args.sub(/, /, " is #{how} ")
+    how = ''
+
+  elsif term == 'Contain' || term == 'NotContain' ||
+        term == 'HaveCount'
+    how = term.downcase().
+      sub(/not/, 'not ').
+      sub(/havecount/, 'have count of')
+    what = args.sub(/, /, " does #{how} ")
     how = ''
 
   else
