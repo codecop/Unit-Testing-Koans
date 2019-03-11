@@ -24,8 +24,10 @@ def comment_assertion_in(line)
     # drop line
     "#{$'}"
 
-  elsif line =~ /(\S.*) = Assert.Throws<([^>]+)>\((.*)\);/
+  elsif line =~ /Assert.Throws<([^>]+)>\((.*)\);/
     "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
+  elsif line =~ /(\S.*) = Assert.Throws<([^>]+)>\((.*)\);/
+    "#{$`}// TODO Expect #{$2} is thrown from #{$3}.#{$'}"
 
   elsif line =~ /Assert\.(\w+)\((.*)\);/
     # comment general assertions
@@ -39,9 +41,9 @@ def comment_assertion_in(line)
     # comment test factory
     "#{$`}// TODO#{$'}"
 
-  elsif line =~ /\(Skip = "(.*)"\)/
+  elsif line =~ /\(Skip = "(.*)"\)\]/
     # comment disabled
-    "#{$`}// TODO Mark this test as ignored with #{$1}.#{$'}"
+    "#{$`}] // TODO Mark this test as ignored with \"#{$1}\".#{$'}"
 
   else
     # regular line
@@ -55,20 +57,24 @@ def comment_assert(before, term, args, after)
   how = ''
   back = ".#{after}"
 
-  if term == "That"
+  if term == 'That'
     # Hamcrest
-    what = args.gsub(/\)\.|\((?!\))/, ' '). # remove ). and (
+    what = args.gsub(/Is\./, ''). # too verbose
+                gsub(/\)\.|\((?!\))/, ' '). # remove ). and (
                 gsub(/\)+$/, '') # remove trailing )s
 
-  elsif term == "Equals"
-    what = args.sub(/, 0\.01/, ''). # remove double rounding
-              sub(/Integer.valueOf\(2\)/, '2') # remove boxing
+  elsif term == 'Equal'
+    what = "#{args.sub(/, 3/, '')} are " # remove double rounding
+    how = term.downcase().
+      sub(/not/, 'not ')
 
   else
     what = "#{args} is "
     how = term.downcase().
-      sub(/not/, "not ").
-      sub(/throws/, "thrown")
+      sub(/not/, 'not ').
+      sub(/throws/, 'thrown').
+      sub(/inrange/, 'in range').
+      sub(/contains/, 'contained')
   end
 
   front + what + how + back
