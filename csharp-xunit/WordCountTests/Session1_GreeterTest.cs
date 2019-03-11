@@ -13,21 +13,21 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldReturnHelloName()
         {
             var greeter = new Greeter();
-            Assert.Equal("Hello Peter", greeter.Greet("Peter"));
+            // TODO Check that "Hello Peter" and greeter.Greet("Peter") are equal.
         }
 
         [Fact]
         public void ShouldReturnHelloForNull()
         {
             var greeter = new Greeter();
-            Assert.Equal("Hello", greeter.Greet(null));
+            // TODO Check that "Hello" and greeter.Greet(null) are equal.
         }
 
         [Fact]
         public void ShouldIgnoreWhitespace()
         {
             var greeter = new Greeter();
-            Assert.Equal("Hello Peter", greeter.Greet(" Peter "));
+            // TODO Check that "Hello Peter" and greeter.Greet(" Peter ") are equal.
         }
     }
 }

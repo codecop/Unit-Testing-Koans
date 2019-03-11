@@ -15,28 +15,28 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldCountGreenTwice()
         {
             var counter = new WordCounter("green bar green hat");
-            Assert.Equal(2, counter.CountOf("green"));
+            // TODO Check that 2 and counter.CountOf("green") are equal.
         }
 
         [Fact]
         public void ShouldNotCountCapitalizedWord()
         {
             var counter = new WordCounter("green bar green hat");
-            Assert.NotEqual(1, counter.CountOf("HAT"));
+            // TODO Check that 1 and counter.CountOf("HAT") are not equal.
         }
 
         [Fact]
         public void ShouldFindUniqueWordInUniqueWordSequence()
         {
             var counter = new WordCounter("green green");
-            Assert.Contains("green", counter.UniqueWordsAsSequence());
+            // TODO Check that "green" is contained in counter.UniqueWordsAsSequence().
         }
 
         [Fact]
         public void ShouldReturnRatioOfWordsAccuracyInRange()
         {
             var counter = new WordCounter("green bar green red green");
-            Assert.InRange(counter.RatioOf("bar"), 0.19, 0.21);
+            // TODO Check that counter.RatioOf("bar") is in range 0.19, 0.21.
         }
 
         [Fact]
@@ -44,8 +44,8 @@ namespace Org.Codecop.WordCount.Tests
         {
             var counter = new WordCounter("green green");
             var summary = counter.SummaryOf("green");
-            Assert.Equal("green", summary.word);
-            Assert.Equal(2, summary.count);
+            // TODO Check that "green" and summary.word are equal.
+            // TODO Check that 2 and summary.count are equal.
         }
     }
 }

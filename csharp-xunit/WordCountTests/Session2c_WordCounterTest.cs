@@ -16,36 +16,36 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldCountNumberOfWords()
         {
             var counter = new WordCounter("Keep the bar green to keep the code clean.");
-            Xunit.Assert.Equal(9, counter.NumberOfWords()); // keep
+            Xunit.Assert.Equal(9, counter.NumberOfWords()); 
             // Hamcrest improves readability:
-            Assert.That(counter.NumberOfWords(), Is.EqualTo(9));
+            // TODO Check that counter.NumberOfWords(), EqualTo 9.
         }
 
         [Xunit.Fact]
         public void ShouldContainUniqueWord()
         {
             var counter = new WordCounter("green bar green hat");
-            Xunit.Assert.Contains(counter.UniqueWords(), w => w == "bar"); // keep
+            Xunit.Assert.Contains(counter.UniqueWords(), w => w == "bar"); 
             // Hamcrest improves readability:
-            Assert.That(counter.UniqueWords(), Has.Item(Is.EqualTo("bar")));
+            // TODO Check that counter.UniqueWords(), Has.Item EqualTo "bar".
         }
 
         [Xunit.Fact]
         public void ShouldNotContainUniqueWord()
         {
             var counter = new WordCounter("green bar green hat");
-            Xunit.Assert.DoesNotContain(counter.UniqueWords(), w => w == "foo"); // keep
+            Xunit.Assert.DoesNotContain(counter.UniqueWords(), w => w == "foo"); 
             // Hamcrest improves readability:
-            Assert.That(counter.UniqueWords(), Is.Not(Has.Item(Is.EqualTo("foo"))));
+            // TODO Check that counter.UniqueWords(), Not Has.Item EqualTo "foo".
         }
 
         [Xunit.Fact]
         public void ShouldFindNumberOfUniqueWords()
         {
             var counter = new WordCounter("green bar green hat");
-            Xunit.Assert.Equal(3, counter.UniqueWords().Length); // keep
+            Xunit.Assert.Equal(3, counter.UniqueWords().Length); 
             // Hamcrest improves readability:
-            Assert.That(counter.UniqueWords(), Is.OfLength(3));
+            // TODO Check that counter.UniqueWords(), OfLength 3.
         }
     }
 }

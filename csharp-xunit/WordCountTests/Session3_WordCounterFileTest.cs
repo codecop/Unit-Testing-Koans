@@ -12,12 +12,10 @@ namespace Org.Codecop.WordCount.Tests
 
         public Session3_WordCounterFileTest()
         {
-            CreateFreshTestFileForEachTest(); // drop
         }
 
         public void Dispose()
         {
-            DeleteTestFile(); // drop
         }
 
         [Fact]
@@ -27,7 +25,7 @@ namespace Org.Codecop.WordCount.Tests
             File.WriteAllText(file.FullName, "Keep the bar green to keep the code clean.");
 
             var counter = new WordCounter(file);
-            Assert.Equal(9, counter.NumberOfWords()); // keep
+            Assert.Equal(9, counter.NumberOfWords()); 
 
             file.Delete();
         }
@@ -56,14 +54,14 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldReturnCountOfWordsBetter()
         {
             var counter = new WordCounter(testFile);
-            Assert.Equal(9, counter.NumberOfWords());
+            // TODO Check that 9 and counter.NumberOfWords() are equal.
         }
 
         [Fact]
         public void ShouldVerifyContainmentOfWord()
         {
             var counter = new WordCounter(testFile);
-            Assert.True(counter.ContainsWord("bar"));
+            // TODO Check that counter.ContainsWord("bar") is true.
         }
 
     }

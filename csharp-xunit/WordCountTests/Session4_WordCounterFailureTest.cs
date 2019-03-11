@@ -15,7 +15,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldThrowExceptionOnMissingFile()
         {
             Action wordCountOfMissingFile = () => new WordCounter(new FileInfo("IamSureThisDoesNotExist.txt"));
-            Assert.Throws<FileNotFoundException>(wordCountOfMissingFile);
+            // TODO Check FileNotFoundException thrown from wordCountOfMissingFile.
         }
 
         [Fact]
@@ -23,18 +23,18 @@ namespace Org.Codecop.WordCount.Tests
         {
             var counter = new WordCounter("green bar green");
             Action ratioOfMissingWord = () => counter.RatioOf("missingWord");
-            var exception = Assert.Throws<ArgumentException>(ratioOfMissingWord);
-            Assert.Equal("missingWord not in sentence", exception.Message);
+            // TODO Check ArgumentException thrown from ratioOfMissingWord.
+            // TODO Check that "missingWord not in sentence" and exception.Message are equal.
         }
 
         // TODO The next test does not work, we need to change the code,
         // but we will do that tomorrow. For today let's ignore it.
 
-        [Fact(Skip = "work in progress, will continue tomorrow")]
+        [Fact] // TODO Mark this test as ignored with "work in progress, will continue tomorrow".
         public void ShouldCountUniqueWordsCaseInsensitive()
         {
             var counter = new WordCounter("green bar Green hat");
-            Assert.Equal(new string[] { "bar", "green", "hat" }, counter.UniqueWords()); // keep
+            Assert.Equal(new string[] { "bar", "green", "hat" }, counter.UniqueWords()); 
         }
     }
 }
