@@ -24,10 +24,10 @@ def comment_assertion_in(line)
     # drop line
     "#{$'}"
 
-  elsif line =~ /Assert.Throws<([^>]+)>\((.*)\);/
-    "#{$`}// TODO Expect #{$1} is thrown from #{$2}.#{$'}"
   elsif line =~ /(\S.*) = Assert.Throws<([^>]+)>\((.*)\);/
-    "#{$`}// TODO Expect #{$2} is thrown from #{$3}.#{$'}"
+    "#{$`}// TODO Expect #{$2} thrown from #{$3}.#{$'}"
+  elsif line =~ /Assert.Throws<([^>]+)>\((.*)\);/
+    "#{$`}// TODO Expect #{$1} thrown from #{$2}.#{$'}"
 
   elsif line =~ /Assert\.(\w+)\((.*)\);/
     # comment general assertions
