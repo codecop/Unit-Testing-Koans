@@ -33,7 +33,7 @@ def comment_assertion_in(line)
     # comment general assertions
     comment_assert($`, $1, $2, $')
 
-  elsif line =~ /(.*)\.Should\(\).(\w+)\((.*)\);/
+  elsif line =~ /(\S.*)\.Should\(\).(\w+)\((.*)\);/
     # comment fluent assertions
     comment_assert($`, $2, $3 + ', ' + $1.strip, $')
 
@@ -67,7 +67,8 @@ def comment_assert(before, term, args, after)
                 gsub(/\)\.|\((?!\))/, ' '). # remove ). and (
                 gsub(/\)+$/, '') # remove trailing )s
 
-  elsif term == 'Equals?' || term == 'NotEquals?'
+  elsif term == 'Equal' || term == 'NotEqual' ||
+        term == 'Equals' || term == 'NotEquals'
     a = args.sub(/, 3/, ''). # remove double rounding
              sub(/, /, ' and ')
     what = "#{a} are "
@@ -75,11 +76,14 @@ def comment_assert(before, term, args, after)
       sub(/not/, 'not ').
       sub(/equals/, 'equal')
 
-  elsif term == 'InRange' || term == 'Contains?' || term == 'NotContains?'
+  elsif term == 'InRange' ||
+        term == 'Contain' || term == 'NotContain' || term == 'Contains' || term == 'NotContains' ||
+        term == 'HaveCount'
     how = term.downcase().
       sub(/not/, 'not ').
       sub(/inrange/, 'in range').
-      sub(/contains?/, 'contained')
+      sub(/contains?/, 'contained in').
+      sub(/havecount/, 'count of')
     what = args.sub(/, /, " is #{how} ")
     how = ''
 
