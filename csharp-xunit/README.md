@@ -8,6 +8,7 @@ See [README.md inside WordCount](WordCount/README.md).
 * 3h convert exercises
 * 2h finish convert exercises
 * 30' project setup with packaging
+* 1h commenting out assertions script
 
 ### License ###
 
