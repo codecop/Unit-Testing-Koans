@@ -1,4 +1,3 @@
-using Org.Codecop.WordCount;
 using NHamcrest;
 using NHamcrest.XUnit;
 
@@ -16,7 +15,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldCountNumberOfWords()
         {
             var counter = new WordCounter("Keep the bar green to keep the code clean.");
-            Xunit.Assert.Equal(9, counter.NumberOfWords()); 
+            Xunit.Assert.Equal(9, counter.NumberOfWords());
             // Hamcrest improves readability:
             // TODO Check that counter.NumberOfWords(), EqualTo 9.
         }
@@ -25,7 +24,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldContainUniqueWord()
         {
             var counter = new WordCounter("green bar green hat");
-            Xunit.Assert.Contains(counter.UniqueWords(), w => w == "bar"); 
+            Xunit.Assert.Contains(counter.UniqueWords(), w => w == "bar");
             // Hamcrest improves readability:
             // TODO Check that counter.UniqueWords(), Has.Item EqualTo "bar".
         }
@@ -34,7 +33,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldNotContainUniqueWord()
         {
             var counter = new WordCounter("green bar green hat");
-            Xunit.Assert.DoesNotContain(counter.UniqueWords(), w => w == "foo"); 
+            Xunit.Assert.DoesNotContain(counter.UniqueWords(), w => w == "foo");
             // Hamcrest improves readability:
             // TODO Check that counter.UniqueWords(), Not Has.Item EqualTo "foo".
         }
@@ -43,7 +42,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldFindNumberOfUniqueWords()
         {
             var counter = new WordCounter("green bar green hat");
-            Xunit.Assert.Equal(3, counter.UniqueWords().Length); 
+            Xunit.Assert.Equal(3, counter.UniqueWords().Length);
             // Hamcrest improves readability:
             // TODO Check that counter.UniqueWords(), OfLength 3.
         }

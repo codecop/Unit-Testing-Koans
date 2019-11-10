@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Org.Codecop.WordCount;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
@@ -16,7 +15,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldReturnRatioOfGivenWord(string sentence, string word, double expectedRatio)
         {
             var counter = new WordCounter(sentence);
-            Assert.Equal(expectedRatio, counter.RatioOf(word), 2); 
+            Assert.Equal(expectedRatio, counter.RatioOf(word), 2);
         }
 
     }

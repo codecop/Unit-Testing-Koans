@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCount", "WordCount\WordCount.csproj", "{1877DE41-A59A-4656-80A6-553FCAEAF86A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCountTests", "WordCountTests\WordCountTests.csproj", "{410B0C4E-7E54-4DE3-8DD8-8CF036AF6000}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCount.Tests", "WordCount.Tests\WordCount.Tests.csproj", "{410B0C4E-7E54-4DE3-8DD8-8CF036AF6000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

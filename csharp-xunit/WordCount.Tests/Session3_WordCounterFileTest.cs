@@ -1,4 +1,3 @@
-using Org.Codecop.WordCount;
 using System;
 using System.IO;
 using Xunit;
@@ -25,7 +24,7 @@ namespace Org.Codecop.WordCount.Tests
             File.WriteAllText(file.FullName, "Keep the bar green to keep the code clean.");
 
             var counter = new WordCounter(file);
-            Assert.Equal(9, counter.NumberOfWords()); 
+            Assert.Equal(9, counter.NumberOfWords());
 
             file.Delete();
         }

@@ -1,4 +1,3 @@
-using Org.Codecop.WordCount;
 using FluentAssertions;
 using Xunit;
 
@@ -16,7 +15,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldCountNumberOfWords()
         {
             var counter = new WordCounter("Keep the bar green to keep the code clean.");
-            Assert.Equal(9, counter.NumberOfWords()); 
+            Assert.Equal(9, counter.NumberOfWords());
             // FluentAssertions is fluent:
             // TODO Check that counter.NumberOfWords() and 9 are equal.
         }
@@ -25,7 +24,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldContainUniqueWord()
         {
             var counter = new WordCounter("green bar green hat");
-            Assert.Contains(counter.UniqueWords(), w => w == "bar"); 
+            Assert.Contains(counter.UniqueWords(), w => w == "bar");
             // FluentAssertions is fluent:
             // TODO Check that counter.UniqueWords() does contain "bar".
         }
@@ -34,7 +33,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldNotContainUniqueWord()
         {
             var counter = new WordCounter("green bar green hat");
-            Assert.DoesNotContain(counter.UniqueWords(), w => w == "foo"); 
+            Assert.DoesNotContain(counter.UniqueWords(), w => w == "foo");
             // FluentAssertions is fluent:
             // TODO Check that counter.UniqueWords() does not contain "foo".
         }
@@ -43,7 +42,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldFindNumberOfUniqueWords()
         {
             var counter = new WordCounter("green bar green hat");
-            Assert.Equal(3, counter.UniqueWords().Length); 
+            Assert.Equal(3, counter.UniqueWords().Length);
             // FluentAssertions is fluent:
             // TODO Check that counter.UniqueWords() does have count of 3.
         }

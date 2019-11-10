@@ -110,7 +110,7 @@ end
 
 if __FILE__ == $0
 
-  Dir.chdir('WordCountTests')
+  Dir.chdir('WordCount.Tests')
 
   # comment session files
   Dir['Session*.cs'].each do |file_name|

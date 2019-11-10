@@ -16,9 +16,9 @@
                 <exclude name="WordCount/obj/**"/>
             </zipfileset>
 
-            <zipfileset dir="." includes="WordCountTests/**" prefix="csharp-xunit-koans">
-                <exclude name="WordCountTests/bin/**"/>
-                <exclude name="WordCountTests/obj/**"/>
+            <zipfileset dir="." includes="WordCount.Tests/**" prefix="csharp-xunit-koans">
+                <exclude name="WordCount.Tests/bin/**"/>
+                <exclude name="WordCount.Tests/obj/**"/>
             </zipfileset>
 
         </zip>

@@ -1,4 +1,3 @@
-using Org.Codecop.WordCount;
 using System;
 using System.IO;
 using Xunit;
@@ -34,7 +33,7 @@ namespace Org.Codecop.WordCount.Tests
         public void ShouldCountUniqueWordsCaseInsensitive()
         {
             var counter = new WordCounter("green bar Green hat");
-            Assert.Equal(new string[] { "bar", "green", "hat" }, counter.UniqueWords()); 
+            Assert.Equal(new string[] { "bar", "green", "hat" }, counter.UniqueWords());
         }
     }
 }
