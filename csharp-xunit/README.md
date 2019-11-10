@@ -1,8 +1,8 @@
-# C#-xUnit-Koans #
+# C#-xUnit-Koans
 
 See [README.md inside WordCount](WordCount/README.md).
 
-### Time Spent ###
+### Time Spent
 
 * 30' copy project and setup
 * 3h convert exercises
@@ -10,6 +10,6 @@ See [README.md inside WordCount](WordCount/README.md).
 * 30' project setup with packaging
 * 1h commenting out assertions script
 
-### License ###
+### License
 
 [New BSD License](http://opensource.org/licenses/bsd-license.php), see `license.txt` in repository.
