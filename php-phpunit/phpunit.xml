@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/4.5/phpunit.xsd"
+	backupGlobals="false"
+	bootstrap="vendor/autoload.php"
+	colors="true"
+	beStrictAboutTestsThatDoNotTestAnything="false"
+	beStrictAboutOutputDuringTests="true"
+	beStrictAboutTestSize="true"
+	beStrictAboutTodoAnnotatedTests="true"
+	verbose="true">
+
+	<testsuites>
+		<testsuite name="All Tests">
+			<directory suffix="_test.php">test</directory>
+			<directory suffix="Test.php">test</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>

@@ -1,0 +1,16 @@
+syntax: glob
+.project
+.settings
+.classpath
+.checkstyle
+.pmd
+.buildpath
+
+.idea
+*.iml
+*.iwr
+
+target
+
+.gradle
+build
