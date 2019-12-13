@@ -1,0 +1,18 @@
+=== Session 2b
+
+Assertions new in JUnit 5.
+
+[source,java]
+----
+import static org.junit.jupiter.api.Assertions.*;
+
+assertNotEquals();
+assertIterableEquals();
+
+assertAll(
+    () -> assertEquals(), 
+    () -> assertEquals() 
+);
+
+assertTimeout();
+----
