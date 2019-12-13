@@ -1,0 +1,7 @@
+# Python PIP (package manager) required dependencies
+# Run `pip install -r requirements.txt` to install the required packages.
+parameterized==0.6.1 
+PyHamcrest==1.9.0
+six==1.11.0
+# six is dependency of PyHamcrest 
+assertpy==0.13

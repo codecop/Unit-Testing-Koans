@@ -1,0 +1,31 @@
+syntax: glob
+
+# compiled python modules
+*.pyc
+
+# PyCharm
+.idea
+*.iml
+*.iwr
+
+# Eclipse
+.project
+.pydevproject
+.settings
+.buildpath
+
+# generated setup files
+*.egg-info
+*.egg
+build
+dist
+clean.bat
+
+# VirtualEnv
+.virtual/
+env2.bat
+.virtual3/
+env3.bat
+
+# Pylint
+.cache

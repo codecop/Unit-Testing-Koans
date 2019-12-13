@@ -1,0 +1,16 @@
+=== Session 2c
+
+Assertions with Hamcrest.
+
+[source,java]
+----
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
+import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
+import static org.hamcrest.core.IsNot.not;
+
+assertThat(counter.uniqueWords(), hasItemInArray("bar"));
+assertThat(counter.uniqueWords(), not(hasItemInArray("foo")));
+
+assertThat(counter.uniqueWords(), arrayWithSize(3));
+----
