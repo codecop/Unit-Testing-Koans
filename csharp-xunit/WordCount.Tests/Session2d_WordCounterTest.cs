@@ -1,4 +1,3 @@
-using Org.Codecop.WordCount;
 using FluentAssertions;
 using Xunit;
 

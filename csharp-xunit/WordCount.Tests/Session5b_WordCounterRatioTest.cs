@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Org.Codecop.WordCount;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests

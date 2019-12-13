@@ -1,4 +1,3 @@
-using Org.Codecop.WordCount;
 using System;
 using System.IO;
 using Xunit;

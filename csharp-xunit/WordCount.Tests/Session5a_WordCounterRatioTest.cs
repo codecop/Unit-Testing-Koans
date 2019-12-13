@@ -1,4 +1,3 @@
-using Org.Codecop.WordCount;
 using Xunit;
 
 namespace Org.Codecop.WordCount.Tests
