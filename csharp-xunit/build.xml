@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Package" basedir="." default="zip">
+
+    <target name="zip">
+        <delete file="../csharp-xunit-koans-new.zip" />
+
+        <zip destfile="../csharp-xunit-koans-new.zip">
+            <zipfileset dir="." prefix="csharp-xunit-koans">
+                <include name="README.md" />
+                <include name="license.txt" />
+                <include name="XUnitKoans.sln" />
+            </zipfileset>
+
+            <zipfileset dir="." includes="WordCount/**" prefix="csharp-xunit-koans">
+                <exclude name="WordCount/bin/**"/>
+                <exclude name="WordCount/obj/**"/>
+            </zipfileset>
+
+            <zipfileset dir="." includes="WordCount.Tests/**" prefix="csharp-xunit-koans">
+                <exclude name="WordCount.Tests/bin/**"/>
+                <exclude name="WordCount.Tests/obj/**"/>
+            </zipfileset>
+
+        </zip>
+    </target>
+
+</project>
