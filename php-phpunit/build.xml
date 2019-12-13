@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Package" basedir="." default="zip">
+
+    <target name="zip">
+        <delete file="../phpunit-koans-new.zip" />
+
+        <zip destfile="../phpunit-koans-new.zip">
+            <zipfileset dir="." prefix="phpunit-koans">
+                <include name="README.md" />
+                <include name="license.txt" />
+            </zipfileset>
+
+            <zipfileset dir="." includes="vendor/**/*" prefix="phpunit-koans">
+                <include name="composer.json" />
+            </zipfileset>
+
+            <zipfileset dir="." includes="src/*.php" prefix="phpunit-koans">
+            </zipfileset>
+
+            <zipfileset dir="." includes="test/*.php" prefix="phpunit-koans">
+                <include name="phpunit.xml" />
+                <include name="phpunit.bat" />
+                <include name="phpunit.sh" />
+                <include name="run_first_session.bat" />
+                <include name="run_first_session.sh" />
+            </zipfileset>
+
+        </zip>
+    </target>
+
+</project>

@@ -1,0 +1,13 @@
+=== Session 2d
+
+Assertions with AssertJ.
+
+[source,java]
+----
+import static org.assertj.core.api.Assertions.assertThat;
+
+assertThat(counter.uniqueWords()).contains("bar");
+assertThat(counter.uniqueWords()).doesNotContain("foo");
+
+assertThat(counter.uniqueWords()).hasSize(3);
+----

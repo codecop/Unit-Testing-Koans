@@ -1,0 +1,42 @@
+=== Session 6
+
+Reuse fixtures in Extensions.
+
+[source,java]
+----
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.codecop.TempFile.Temp;
+
+@ExtendWith(TempFile.class) 
+class SomeTest {
+
+@Test
+void shouldDoSomething(@Temp File file) {
+    // use file
+}
+----
+
+=== !
+[source,java]
+----
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ParameterResolver;
+
+class TempFile implements BeforeEachCallback, 
+                          ParameterResolver, 
+                          AfterEachCallback {
+
+public void beforeEach(TestExtensionContext context) {
+    Object testInstance = context.getTestInstance();
+    createTempFileFor(testInstance); 
+}
+
+public Object resolve(...) {
+    return getTempFile(); 
+}
+
+public void afterEach(...) {
+    removeTempFile();
+}
+----

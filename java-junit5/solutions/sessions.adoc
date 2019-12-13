@@ -1,0 +1,23 @@
+=== Sessions
+
+Hints and solutions.
+
+include::session1.adoc[]
+
+include::session2a.adoc[]
+
+include::session2b.adoc[]
+
+include::session2c.adoc[]
+
+include::session2d.adoc[]
+
+include::session3.adoc[]
+
+include::session4.adoc[]
+
+include::session5.adoc[]
+
+include::session5b.adoc[]
+
+include::session6.adoc[]

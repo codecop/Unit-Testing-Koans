@@ -1,0 +1,15 @@
+=== Session 2a
+
+Basic assertions.
+
+[source,java]
+----
+import static org.junit.jupiter.api.Assertions.*;
+
+assertTrue();
+assertFalse();
+assertNull();
+assertNotNull();
+assertArrayEquals();
+assertEquals(., ., 0.01);
+----
