@@ -2,12 +2,12 @@
 <project name="Package" basedir="." default="zip">
 
     <target name="zip">
-        <delete file="../junit-koans-new.zip" />
+        <delete file="../../junit-koans-new.zip" />
 
-        <zip destfile="../junit-koans-new.zip">
+        <zip destfile="../../junit-koans-new.zip">
             <zipfileset dir="." prefix="junit-koans">
                 <include name="README.md" />
-                <include name="license.txt" />
+                <include name="../license.txt" />
             </zipfileset>
 
             <zipfileset dir="." includes=".mvn/**" prefix="junit-koans">

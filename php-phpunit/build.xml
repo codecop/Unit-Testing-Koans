@@ -2,12 +2,12 @@
 <project name="Package" basedir="." default="zip">
 
     <target name="zip">
-        <delete file="../phpunit-koans-new.zip" />
+        <delete file="../../phpunit-koans-new.zip" />
 
-        <zip destfile="../phpunit-koans-new.zip">
+        <zip destfile="../../phpunit-koans-new.zip">
             <zipfileset dir="." prefix="phpunit-koans">
                 <include name="README.md" />
-                <include name="license.txt" />
+                <include name="../license.txt" />
             </zipfileset>
 
             <zipfileset dir="." includes="vendor/**/*" prefix="phpunit-koans">

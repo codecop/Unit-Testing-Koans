@@ -2,12 +2,12 @@
 <project name="Package" basedir="." default="zip">
 
     <target name="zip">
-        <delete file="../python-unittest-koans-new.zip" />
-        
-        <zip destfile="../python-unittest-koans-new.zip">
+        <delete file="../../python-unittest-koans-new.zip" />
+
+        <zip destfile="../../python-unittest-koans-new.zip">
             <zipfileset dir="." prefix="python-unittest-koans">
                 <include name="README.md" />
-                <include name="license.txt" />
+                <include name="../license.txt" />
             </zipfileset>
 
             <zipfileset dir="." includes="packages/*" prefix="python-unittest-koans">
