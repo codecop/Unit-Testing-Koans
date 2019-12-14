@@ -1,5 +1,5 @@
 {
-    "name": "codecop/PHPUnit-Koans",
+    "name": "codecop/phpunit-koans",
     "description": "PHP Koans to understand how to write unit tests with PHPUnit",
     "license": "BSD",
     "authors": [
