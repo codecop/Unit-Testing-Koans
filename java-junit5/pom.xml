@@ -13,13 +13,7 @@
     <name>JUnit5 Koans</name>
     <description>Java Koans to understand how to write unit tests with JUnit 5</description>
     <inceptionYear>2016</inceptionYear>
-    <url>http://blog.code-cop.org/2015/12/testing-koans.html</url>
-
-    <scm>
-        <connection>scm:hg:https://bitbucket.org/pkofler/${project.artifactId}</connection>
-        <developerConnection>scm:hg:https://bitbucket.org/pkofler/${project.artifactId}</developerConnection>
-        <url>https://bitbucket.org/pkofler/${project.artifactId}/src</url>
-    </scm>
+    <url>https://blog.code-cop.org/2015/12/testing-koans.html</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
