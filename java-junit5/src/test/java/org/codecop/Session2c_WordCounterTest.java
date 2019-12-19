@@ -2,7 +2,7 @@ package org.codecop;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
+import static org.hamcrest.collection.ArrayMatching.hasItemInArray;
 import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.jupiter.api.Assertions.assertEquals;
