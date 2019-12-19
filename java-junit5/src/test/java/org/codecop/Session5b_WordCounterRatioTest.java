@@ -19,11 +19,6 @@ class Session5b_WordCounterRatioTest {
 
     // TODO Add the needed annotations to run this test with all examples.
 
-    @Test
-    void convinceIntelliJThatThisIsValidJUnit5Test() {
-        // convince IntelliJ that this is a valid JUnit5 test
-    }
-
     // We want to test more cases for the ratio. Here is a table of test cases.
     static Stream<Arguments> getTestCases() {
         return Stream.of(//

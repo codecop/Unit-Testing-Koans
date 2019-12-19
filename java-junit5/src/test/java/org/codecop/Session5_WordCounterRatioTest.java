@@ -19,11 +19,6 @@ class Session5_WordCounterRatioTest {
 
     // TODO Add the needed code/annotations to run this test with all examples.
 
-    @Test
-    void convinceIntelliJThatThisIsValidJUnit5Test() {
-        // convince IntelliJ that this is a valid JUnit5 test
-    }
-
     // We want to test more corner cases for the ratio. Here is a table of test cases.
     private static final List<TestCase> TEST_CASES = Arrays.asList(//
             new TestCase("green", "green", 1.0), //
