@@ -23,7 +23,7 @@ jobs:
       matrix:
         operating-system: [ ubuntu-latest, windows-latest ]
         cs-versions: [ '2.1.x' ]
-        # '3.1.x', '5.0.x' not supported
+        # '3.1.x', '5.0.x' not supported in configuration
     name: CSharp ${{ matrix.cs-versions }} Build on ${{ matrix.operating-system }}
 
     steps:
@@ -38,7 +38,13 @@ jobs:
     - name: Build and test
       working-directory: csharp-xunit
       run: |
-        # ln -s /usr/lib/libssl.so.47.0.6 /usr/lib/libssl.so.1.0.0
         dotnet restore
         dotnet build --no-restore
         dotnet test --no-build --verbosity normal
+
+    - name: Test scripts Windows
+      working-directory: csharp-xunit\WordCount.Tests
+      run: |
+        .\run_first_session.bat
+        .\run_tests.bat
+      if: matrix.operating-system == 'windows-latest'
