@@ -23,7 +23,7 @@ jobs:
       matrix:
         operating-system: [ ubuntu-latest, windows-latest ]
         cs-versions: [ '2.1.x' ]
-        # '3.1.x', '5.0.x'
+        # '3.1.x', '5.0.x' not supported
     name: CSharp ${{ matrix.cs-versions }} Build on ${{ matrix.operating-system }}
 
     steps:
