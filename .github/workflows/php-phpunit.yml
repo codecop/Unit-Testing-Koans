@@ -1,4 +1,4 @@
-name: Test PHP 5.6 + PHPUnit 4.8
+name: Test PHP + PHPUnit 4.8
 
 on:
   push:
@@ -15,8 +15,17 @@ on:
       - with_assertions
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+
+  matrix_build:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest ]
+        php-versions: [ 5.x, 7.x ]
+        # 8.x not supported
+    name: PHP ${{ matrix.php-versions }} Build on ${{ matrix.operating-system }}
+
     steps:
     - name: Check out the repo
       uses: actions/checkout@v2
@@ -24,11 +33,24 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 5.6
+        php-version: ${{ matrix.php-versions }}
 
     - name: Test
       working-directory: php-phpunit
       run: |
-        composer install
+        composer install --prefer-dist
+        ./vendor/bin/phpunit
+
+    - name: Test scripts Linux
+      working-directory: php-phpunit
+      run: |
         ./run_first_session.sh
         ./phpunit.sh
+      if: matrix.operating-system == 'ubuntu-latest'
+
+    - name: Test scripts Windows
+      working-directory: php-phpunit
+      run: |
+        .\run_first_session.bat
+        .\phpunit.bat
+      if: matrix.operating-system == 'windows-latest'

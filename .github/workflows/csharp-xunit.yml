@@ -1,4 +1,4 @@
-name: Test CSharp .NET 2 + XUnit
+name: Test CSharp .NET + XUnit
 
 on:
   push:
@@ -15,8 +15,17 @@ on:
       - with_assertions
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+
+  matrix_build:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest ]
+        cs-versions: [ '2.1.x' ]
+        # '3.1.x', '5.0.x'
+    name: CSharp ${{ matrix.cs-versions }} Build on ${{ matrix.operating-system }}
+
     steps:
     - name: Check out the repo
       uses: actions/checkout@v2
@@ -24,11 +33,12 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.0.x
+        dotnet-version: ${{ matrix.cs-versions }}
 
     - name: Build and test
       working-directory: csharp-xunit
       run: |
+        # ln -s /usr/lib/libssl.so.47.0.6 /usr/lib/libssl.so.1.0.0
         dotnet restore
         dotnet build --no-restore
         dotnet test --no-build --verbosity normal
