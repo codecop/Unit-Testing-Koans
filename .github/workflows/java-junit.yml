@@ -4,13 +4,13 @@ on:
   push:
     paths:
       - 'java-junit/**'
-      - '.github/workflows/java-junit**'
+      - '.github/workflows/java-junit.yml'
     branches:
       - with_assertions
   pull_request:
     paths:
       - 'java-junit/**'
-      - '.github/workflows/java-junit**'
+      - '.github/workflows/java-junit.yml'
     branches:
       - with_assertions
 

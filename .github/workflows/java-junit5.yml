@@ -1,0 +1,60 @@
+name: Test Java + JUnit 5
+
+on:
+  push:
+    paths:
+      - 'java-junit5/**'
+      - '.github/workflows/java-junit5.yml'
+    branches:
+      - with_assertions
+  pull_request:
+    paths:
+      - 'java-junit5/**'
+      - '.github/workflows/java-junit5.yml'
+    branches:
+      - with_assertions
+
+jobs:
+
+  matrix_build:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest ]
+        java-version: [ 1.8, 11, 16 ]
+    name: Java ${{ matrix.java-version }} Build on ${{ matrix.operating-system }}
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ matrix.java-version }}
+
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('java-junit5/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
+    - name: Build and test with Maven
+      working-directory: java-junit5
+      run: ./mvnw -B package
+
+    - name: Cache gradle wrapper
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('java-junit5/**/*.gradle*', 'java-junit5/**/gradle-wrapper.properties') }}
+        restore-keys: ${{ runner.os }}-gradle
+
+    - name: Build and test with Gradle
+      working-directory: java-junit5
+      run: ./gradlew clean test --warning-mode all
+      if: matrix.java-version != '16'
