@@ -1,0 +1,34 @@
+name: Test CSharp .NET 2 + XUnit
+
+on:
+  push:
+    paths:
+      - 'csharp-xunit/**'
+      - '.github/workflows/csharp-xunit**'
+    branches:
+      - with_assertions
+  pull_request:
+    paths:
+      - 'csharp-xunit/**'
+      - '.github/workflows/csharp-xunit**'
+    branches:
+      - with_assertions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.0.x
+
+    - name: Build and test
+      working-directory: csharp-xunit
+      run: |
+        dotnet restore
+        dotnet build --no-restore
+        dotnet test --no-build --verbosity normal

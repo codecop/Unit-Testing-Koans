@@ -1,0 +1,34 @@
+name: Test PHP 5.6 + PHPUnit 4.8
+
+on:
+  push:
+    paths:
+      - 'php-phpunit/**'
+      - '.github/workflows/php-phpunit**'
+    branches:
+      - with_assertions
+  pull_request:
+    paths:
+      - 'php-phpunit/**'
+      - '.github/workflows/php-phpunit**'
+    branches:
+      - with_assertions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 5.6
+
+    - name: Test
+      working-directory: php-phpunit
+      run: |
+        composer install
+        ./run_first_session.sh
+        ./phpunit.sh
