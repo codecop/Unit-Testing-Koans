@@ -1,0 +1,50 @@
+name: Test CSharp .NET + XUnit
+
+on:
+  push:
+    paths:
+      - 'csharp-xunit/**'
+      - '.github/workflows/csharp-xunit**'
+    branches:
+      - with_assertions
+  pull_request:
+    paths:
+      - 'csharp-xunit/**'
+      - '.github/workflows/csharp-xunit**'
+    branches:
+      - with_assertions
+
+jobs:
+
+  matrix_build:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest ]
+        cs-versions: [ '2.1.x' ]
+        # '3.1.x', '5.0.x' not supported in configuration
+    name: CSharp ${{ matrix.cs-versions }} Build on ${{ matrix.operating-system }}
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ matrix.cs-versions }}
+
+    - name: Build and test
+      working-directory: csharp-xunit
+      run: |
+        dotnet restore
+        dotnet build --no-restore
+        dotnet test --no-build --verbosity normal
+
+    - name: Test scripts Windows
+      working-directory: csharp-xunit\WordCount.Tests
+      run: |
+        .\run_first_session.bat
+        .\run_tests.bat
+      if: matrix.operating-system == 'windows-latest'

@@ -1,0 +1,33 @@
+name: Test C 99 + Cmocka
+
+on:
+  push:
+    paths:
+      - 'c-cmocka/**'
+      - '.github/workflows/c-cmocka**'
+    branches:
+      - with_assertions
+  pull_request:
+    paths:
+      - 'c-cmocka/**'
+      - '.github/workflows/c-cmocka99**'
+    branches:
+      - with_assertions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+
+    - name: Install cmocka
+      run: |
+        sudo apt-get update
+        sudo apt-get install libcmocka-dev
+
+#    - name: Build and test
+#      working-directory: c-cmocka
+#      run: |
+#        gcc -std=c99 -pedantic -pedantic-errors -Werror -Wall -Wextra Parrot.c ParrotTest.c -l cmocka -o ParrotTest
+#        ./ParrotTest

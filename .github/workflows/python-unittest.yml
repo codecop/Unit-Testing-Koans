@@ -1,0 +1,56 @@
+name: Test Python + UnitTest
+
+on:
+  push:
+    paths:
+      - 'python-unittest/**'
+      - '.github/workflows/python-unittest**'
+    branches:
+      - with_assertions
+  pull_request:
+    paths:
+      - 'python-unittest/**'
+      - '.github/workflows/python-unittest**'
+    branches:
+      - with_assertions
+
+jobs:
+
+  matrix_build:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest ]
+        python-version: [ 2.x, 3.x ]
+    name: Python ${{ matrix.python-version }} Build on ${{ matrix.operating-system }}
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Test
+      working-directory: python-unittest
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        python -m unittest discover -v -f test
+
+    - name: Test scripts Linux
+      working-directory: python-unittest
+      run: |
+        ./run_first_session.sh
+        ./run_tests.sh
+      if: matrix.operating-system == 'ubuntu-latest'
+
+    - name: Test scripts Windows
+      working-directory: python-unittest
+      run: |
+        .\run_first_session.bat
+        .\run_tests.bat
+      if: matrix.operating-system == 'windows-latest'
