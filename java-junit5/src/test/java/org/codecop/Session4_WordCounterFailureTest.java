@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Session 4: WordCounterFailureTest - Exceptions and ignoring tests. <br />
- * @see "http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions"
+ * @see "https://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions"
  * @see "https://junit.org/junit5/docs/current/user-guide/#writing-tests-disabling"
  */
 class Session4_WordCounterFailureTest {
