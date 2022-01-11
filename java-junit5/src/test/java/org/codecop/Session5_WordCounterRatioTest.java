@@ -13,7 +13,7 @@ import org.junit.jupiter.api.TestFactory;
 
 /**
  * Session 5: WordCounterRatioTest - Dynamic/table driven tests. <br />
- * @see "http://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests"
+ * @see "https://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests"
  */
 class Session5_WordCounterRatioTest {
 
