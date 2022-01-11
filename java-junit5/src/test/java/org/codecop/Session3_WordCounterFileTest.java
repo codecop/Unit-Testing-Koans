@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Session 3: WordCounterFileTest - Fixtures, e.g. using a test file. <br />
- * @see "http://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations"
+ * @see "https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations"
  */
 class Session3_WordCounterFileTest {
 

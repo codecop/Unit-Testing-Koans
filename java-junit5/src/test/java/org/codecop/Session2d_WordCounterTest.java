@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Bonus Session 2d: WordCounterTest - Assertions with AssertJ. <br />
- * @see "http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html"
+ * @see "https://assertj.github.io/doc/#assertj-core-quick-start"
  *
  * @author Daniel Passecker
  */
